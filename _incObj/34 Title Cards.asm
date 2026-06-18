@@ -1,0 +1,149 @@
+; ---------------------------------------------------------------------------
+; Object 34 - zone title cards
+; ---------------------------------------------------------------------------
+
+TitleCard:
+		moveq	#0,d0
+		move.b	obRoutine(a0),d0
+		move.w	Card_Index(pc,d0.w),d1
+		jmp	Card_Index(pc,d1.w)
+; ===========================================================================
+Card_Index:	dc.w Card_CheckSBZ3-Card_Index
+		dc.w Card_ChkPos-Card_Index
+		dc.w Card_Wait-Card_Index
+		dc.w Card_Wait-Card_Index
+
+card_mainX:	equ	objoff_30		; position for card to display on
+card_finalX:	equ	objoff_32		; position for card to finish on
+; ===========================================================================
+
+Card_CheckSBZ3:	; Routine 0
+		movea.l	a0,a1
+
+		moveq	#0,d0
+		move.b	(v_zone).w,d0
+		move.b	d0,d2
+		lsl.w	#2,d0
+		add.b	(v_act).w,d0
+		lsl.b	#3,d0
+		lea	(TTL_ConData).l,a3
+		adda.w	d0,a3
+		movea.l	(a3),a3
+
+		lea	(Card_ItemData).l,a2
+		moveq	#3,d1
+
+Card_Loop:
+		_move.b	#id_TitleCard,obID(a1)
+		move.w	(a3),obX(a1)	; load start x-position
+		move.w	(a3)+,card_finalX(a1) ; load finish x-position (same as start)
+		move.w	(a3)+,card_mainX(a1) ; load main x-position
+		move.w	(a2)+,obScreenY(a1)
+		move.b	(a2)+,obRoutine(a1)
+		move.b	(a2)+,d0
+		bne.s	Card_MakeSprite
+		move.b	d2,d0
+		lsl.b	#2,d0
+		add.b	(v_act).w,d0
+
+Card_MakeSprite:
+		move.b	d0,obFrame(a1)	; display frame number d0
+		move.l	#Map_Card_Extended,obMap(a1)
+		move.w	#make_art_tile(ArtTile_Title_Card,0,1),obGfx(a1)
+		move.b	#$78,obActWid(a1)
+		move.b	#0,obRender(a1)
+		move.b	#0,obPriority(a1)
+		move.w	#60,obTimeFrame(a1) ; set time delay to 1 second
+		lea	object_size(a1),a1	; next object
+		dbf	d1,Card_Loop	; repeat sequence another 3 times
+
+Card_ChkPos:	; Routine 2
+		moveq	#$10,d1		; set horizontal speed
+		move.w	card_mainX(a0),d0
+		cmp.w	obX(a0),d0	; has item reached the target position?
+		beq.s	Card_NoMove	; if yes, branch
+		bge.s	Card_Move
+		neg.w	d1
+
+Card_Move:
+		add.w	d1,obX(a0)	; change item's position
+
+Card_NoMove:
+		move.w	obX(a0),d0
+		bmi.s	locret_C3D8
+		cmpi.w	#$200,d0	; has item moved beyond $200 on x-axis?
+		bhs.s	locret_C3D8	; if yes, branch
+		bra.w	DisplaySprite
+; ===========================================================================
+
+locret_C3D8:
+		rts
+; ===========================================================================
+
+Card_Wait:	; Routine 4/6
+		tst.w	obTimeFrame(a0)	; is time remaining zero?
+		beq.s	Card_ChkPos2	; if yes, branch
+		subq.w	#1,obTimeFrame(a0) ; subtract 1 from time
+		bra.w	DisplaySprite
+; ===========================================================================
+
+Card_ChkPos2:
+		tst.b	obRender(a0)
+		bpl.s	Card_ChangeArt
+		moveq	#$20,d1
+		move.w	card_finalX(a0),d0
+		cmp.w	obX(a0),d0	; has item reached the finish position?
+		beq.s	Card_ChangeArt	; if yes, branch
+		bge.s	Card_Move2
+		neg.w	d1
+
+Card_Move2:
+		add.w	d1,obX(a0)	; change item's position
+		move.w	obX(a0),d0
+		bmi.s	locret_C412
+		cmpi.w	#$200,d0	; has item moved beyond $200 on x-axis?
+		bhs.s	locret_C412	; if yes, branch
+		bra.w	DisplaySprite
+; ===========================================================================
+
+locret_C412:
+		rts
+; ===========================================================================
+
+Card_ChangeArt:
+		cmpi.b	#4,obRoutine(a0)
+		bne.s	Card_Delete
+		moveq	#plcid_Explode,d0
+		jsr	(AddPLC).l	; load explosion patterns
+		moveq	#0,d0
+		move.b	(v_zone).w,d0
+		addi.w	#plcid_GHZAnimals,d0
+		jsr	(AddPLC).l	; load animal patterns
+
+		lea	(v_ttlcardzone).w,a1
+		bsr.w	DeleteChild
+		lea	(v_ttlcardact).w,a1
+		bsr.w	DeleteChild
+		lea	(v_ttlcardoval).w,a1
+		bsr.w	DeleteChild
+
+Card_Delete:
+		bra.w	DeleteObject
+; ===========================================================================
+Card_ItemData:
+		; v_ttlcardname
+		dc.w $D0	; y-axis position
+		dc.b 2,	0	; routine number, frame number (changes)
+
+		; v_ttlcardzone
+		dc.w $E4
+		dc.b 2,	ZoneCount*4
+
+		; v_ttlcardact
+		dc.w $EA
+		dc.b 2,	(ZoneCount*4)+1
+
+		; v_ttlcardoval
+		dc.w $E0
+		dc.b 2,	(ZoneCount*4)+2
+; ===========================================================================

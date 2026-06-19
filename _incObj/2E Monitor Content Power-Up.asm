@@ -66,6 +66,7 @@ Pow_ChkSSWhoes:
 		cmpi.b	#3,d0		; does monitor contain slow shoes?
 		bne.s	Pow_ChkSPShoes
 
+		move.b	#1,(v_shoes).w	; speed up the BG music
 		move.w	#$4B0,(v_player+$34).w	; time limit for the power-up
 		move.w	#$200,(v_sonspeedmax).w ; Sonic's top speed
 		move.w	#$A,(v_sonspeedacc).w ; Sonic's acceleration

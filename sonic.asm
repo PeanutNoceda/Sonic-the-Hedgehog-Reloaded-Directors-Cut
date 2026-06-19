@@ -2,19 +2,18 @@
 ; |                       Sonic 1 Reloaded Source Code                             |
 ; |           Sonic The Hedgehog Dissasembly For the Mega Drive                    |
 ;  ================================================================================
-; IMPORTANT: all of this code is originally from Github AS, so if you are using
-; another disasm then adapt the code. Thanks!
+; IMPORTANT: all of this code is different, if you are using newer disassemblies, you need to adapt the code, labels, variables, etc.
 
 ; If theres an error, please, contact PeanutNoceda.
 
 ; SSRG Thread: 
-; Github repository: 
+; Github repository: https://github.com/PeanutNoceda/Sonic-the-Hedgehog-Reloaded
 ; PeanutNoceda's youtube channel: https://www.youtube.com/@peanutnoceda_oficial
 ; =======================================================================================================================
 ;CREDITS
 ;PeanutNoceda: Main Project leader, some art and code.
 ;
-;Robiwankenobi, Omicronano, Yuki Rurouni, Haro, JP25, DarkGachu23, Blue Gamer: Beta testing, music and help
+;Robiwankenobi, Omicronano, Yuki Rurouni, Haro, JP25, DarkGachu23, Blue Gamer: Beta testing, music and coding help
 ;
 ;Special Thanks:
 ;CopperTheFox, Giovanni.gen, Selbi, Clownacy, vladikcomper, SaneWay, TG2000, Rabbid4240, Fuzzy

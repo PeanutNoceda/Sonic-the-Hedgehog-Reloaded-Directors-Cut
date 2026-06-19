@@ -6,7 +6,7 @@
 
 ; If theres an error, please, contact PeanutNoceda.
 
-; SSRG Thread: 
+; SSRG Thread: https://sonicresearch.org/community/index.php?threads/sonic-the-hedgehog-reloaded-36-day-challenge.7418/#post-96541
 ; Github repository: https://github.com/PeanutNoceda/Sonic-the-Hedgehog-Reloaded
 ; PeanutNoceda's youtube channel: https://www.youtube.com/@peanutnoceda_oficial
 ; =======================================================================================================================

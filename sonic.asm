@@ -2810,8 +2810,8 @@ LevelMenuText:
 	dc.b "                   ACT 3"
 	dc.b "   FINAL BOSS ZONE      "
 	dc.b "SPECIAL STAGES SECTION  "
-	dc.b "ENDING SEQUENCE         "
-	dc.b "CREDITS                 "
+	dc.b "   ENDING SEQUENCE      "
+	dc.b "       CREDITS          "
 	dc.b "MUSIC BOX      *  *     "
 
 SSMenuText:

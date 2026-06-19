@@ -26,7 +26,7 @@ SMPS_First_ContSFX		= $BC
 SMPS_IdlingSegaSound		= 0
 ;	| If 1, the Sega sound makes the 68k idle. Needed for stock Sonic 1
 ;
-SMPS_EnableUniversalVoiceBank	= 0
+SMPS_EnableUniversalVoiceBank	= 1
 ;	| If 1, include the Universal Voice Bank, used by S3 and S&K
 ;
 SMPS_EnablePlaySoundLocal	= 0

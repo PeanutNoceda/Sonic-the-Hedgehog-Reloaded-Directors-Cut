@@ -1,6 +1,6 @@
 ;  ================================================================================
 ; |                       Sonic 1 Reloaded Source Code                             |
-; |           Sonic The Hedgehog Dissasembly For the Mega Drive                    |
+; |            Sonic The Hedgehog Dissasembly For the Mega Drive                   |
 ;  ================================================================================
 ; IMPORTANT: all of this code is different, if you are using newer disassemblies, you need to adapt the code, labels, variables, etc.
 

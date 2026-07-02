@@ -2038,7 +2038,7 @@ GM_SplashScr:
                 bsr.w	PlaySound	; play music
 
                 move.w  #6*90,(v_demolength).w        ; run screen for a maximum of 3 seconds (3 times 60 frames per second)
-                bsr.w   PaletteFadeIn                   ; fade in palette (takes 22 frames, interrupts are re-enabled here as well)
+                bsr.w   PaletteWhiteIn                   ; fade in palette (takes 22 frames, interrupts are re-enabled here as well)
 
 MySplash_MainLoop:
                 move.b  #2,(v_vbla_routine).w           ; set V-blank routine to VBla_02 (update sound driver, read joypads, and decrement v_demolength)
@@ -2200,7 +2200,7 @@ Tit_LoadText:
 		move.w	(v_vdp_buffer1).w,d0
 		ori.b	#$40,d0
 		move.w	d0,(vdp_control_port).l
-		bsr.w	PaletteFadeIn
+		bsr.w	PaletteWhiteIn
 
 Tit_MainLoop:
 		move.b	#4,(v_vbla_routine).w
@@ -2283,7 +2283,7 @@ Tit_ChkLevSel:
 		beq.w	PlayLevel	; if not, play level
 		jsr	PaletteFadeOut		;Fade-out is necesarry now
 		moveq	#palid_LevelSel,d0
-		jsr		PalLoad
+		jsr		PalLoad_Fade
 		lea	($FFFF0000).l,a1
 		lea	(Eni_LevSel).l,a0
 		move.w	#1,d0
@@ -2365,6 +2365,7 @@ Tit_ClrScroll2:
 		dbf	d1,Tit_ClrScroll2 ; clear scroll data (in VRAM)
 
 		bsr.w	LevSelTextLoad
+		bsr.w	PaletteFadeIn
 
 ; ---------------------------------------------------------------------------
 ; Level	Select

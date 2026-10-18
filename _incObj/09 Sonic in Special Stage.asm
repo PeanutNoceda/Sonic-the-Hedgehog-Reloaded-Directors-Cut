@@ -71,9 +71,6 @@ Obj09_Display:
 		bsr.w	Obj09_ChkItems2
 		jsr	(SpeedToPos).l
 		bsr.w	SS_FixCamera
-		move.w	(v_ssangle).w,d0
-		add.w	(v_ssrotate).w,d0
-		move.w	d0,(v_ssangle).w
 		jsr	(Sonic_Animate).l
 		rts	
 
@@ -146,8 +143,11 @@ loc_1BAF2:
 
 
 Obj09_MoveLeft:
-		bset	#0,obStatus(a0)
-		move.w	obInertia(a0),d0
+
+        sub.w #$90,(v_ssangle).w    ; TIS - include whatever value you'd like, tweak to desired rotation speed
+        rts    ;TIS     - Disable Sonic's left movement
+        bset    #0,obStatus(a0)
+        move.w    obInertia(a0),d0
 		beq.s	loc_1BB06
 		bpl.s	loc_1BB1A
 
@@ -177,8 +177,11 @@ loc_1BB22:
 
 
 Obj09_MoveRight:
-		bclr	#0,obStatus(a0)
-		move.w	obInertia(a0),d0
+
+        add.w #$90,(v_ssangle).w    ;TIS - include whatever value you'd like, tweak to desired rotation speed
+        rts      ;TIS - Disable Sonic's right movement
+        bclr    #0,obStatus(a0)
+        move.w    obInertia(a0),d0
 		bmi.s	loc_1BB48
 		addi.w	#$C,d0
 		cmpi.w	#$800,d0
@@ -484,20 +487,23 @@ Obj09_NoCont:
 ; ===========================================================================
 
 Obj09_Chk1Up:
-		cmpi.b	#$28,d4		; is the item an extra life?
+		cmpi.b	#$28,d4		; is the item the hackishly copied emerald?
 		bne.s	Obj09_ChkEmer
-		bsr.w	SS_RemoveCollectedItem
-		bne.s	Obj09_Get1Up
-		move.b	#3,(a2)
+		bsr.w	SS_RemoveCollectedItem		; find a free animation slot
+		bne.s	SonicSS_GetEmer2
+		move.b	#5,(a2)
 		move.l	a1,4(a2)
 
-Obj09_Get1Up:
-		addq.b	#1,(v_lives).w	; add 1 to number of lives
-		addq.b	#1,(f_lifecount).w ; update the lives counter
-		move.w	#mus_ExtraLife,d0
-		jsr	(PlaySound).l	; play extra life music
-		moveq	#0,d4
-		rts	
+SonicSS_GetEmer2:
+		cmpi.b	#7,(v_emeralds).w ; do you have all the emeralds?
+		beq.s	Obj09_NoEmer	; if yes, branch
+		moveq	#7-1,d4
+		moveq	#0,d0
+		move.b	(v_emeralds).w,d0
+		lea	(v_emldlist).w,a2
+		move.b	d4,(a2,d0.w)
+		addq.b	#1,(v_emeralds).w ; add 1 to number of emeralds
+		bra.s	Obj09_NoEmer
 ; ===========================================================================
 
 Obj09_ChkEmer:
@@ -511,7 +517,7 @@ Obj09_ChkEmer:
 		move.l	a1,4(a2)
 
 Obj09_GetEmer:
-		cmpi.b	#6,(v_emeralds).w ; do you have all the emeralds?
+		cmpi.b	#7,(v_emeralds).w ; do you have all the emeralds?
 		beq.s	Obj09_NoEmer	; if yes, branch
 		subi.b	#$3B,d4
 		moveq	#0,d0

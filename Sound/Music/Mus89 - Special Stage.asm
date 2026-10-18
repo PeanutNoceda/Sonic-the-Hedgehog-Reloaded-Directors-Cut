@@ -264,20 +264,20 @@ SpecStg_DAC:
 	dc.b	nRst, $30, nRst, nRst, nRst, nRst, nRst
 
 SpecStg_Loop00:
-	dc.b	dPKick, $18, dPKick, dPKick, dPKick, $0C, dSnare
+	dc.b	dPKick, $18, dPKick, dPKick, dPKick, $0C, dPSnare
 	smpsLoop            $00, $03, SpecStg_Loop00
-	dc.b	dPKick, $18, dPKick, dPKick, dPKick, $0C, dSnare, $06, dPKick
+	dc.b	dPKick, $18, dPKick, dPKick, dPKick, $0C, dPSnare, $06, dPKick
 
 SpecStg_Loop01:
-	dc.b	dPKick, $18, dSnare, dPKick, dSnare, dPKick, dSnare, dPKick, dSnare, dPKick, dSnare, $12
-	dc.b	dSnare, dPKick, $0C, dSnare, $18, dPKick, $0C, dPKick, dSnare, $12, dSnare, dPKick
-	dc.b	$0C, dSnare, dPKick, $06, dPKick
+	dc.b	dPKick, $18, dPSnare, dPKick, dPSnare, dPKick, dPSnare, dPKick, dPSnare, dPKick, dPSnare, $12
+	dc.b	dPSnare, dPKick, $0C, dPSnare, $18, dPKick, $0C, dPKick, dPSnare, $12, dPSnare, dPKick
+	dc.b	$0C, dPSnare, dPKick, $06, dPKick
 	smpsLoop            $00, $04, SpecStg_Loop01
 
 SpecStg_Loop02:
-	dc.b	dPKick, $18, dSnare, $12, $06, dPKick, $18, dSnare, dPKick, dSnare, $12, dSnare
-	dc.b	dPKick, $0C, dSnare, $18, dPKick, dSnare, $12, $06, dPKick, $18, dSnare, dPKick
-	dc.b	dSnare, $12, dSnare, dPKick, $0C, dSnare, $18
+	dc.b	dPKick, $18, dPSnare, $12, $06, dPKick, $18, dPSnare, dPKick, dPSnare, $12, dPSnare
+	dc.b	dPKick, $0C, dPSnare, $18, dPKick, dPSnare, $12, $06, dPKick, $18, dPSnare, dPKick
+	dc.b	dPSnare, $12, dPSnare, dPKick, $0C, dPSnare, $18
 	smpsLoop            $00, $02, SpecStg_Loop02
 	smpsJump            SpecStg_Loop01
 

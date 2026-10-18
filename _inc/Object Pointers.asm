@@ -16,7 +16,7 @@ ptr_FlapDoor:		dc.l FlapDoor
 ptr_Signpost:		dc.l Signpost
 ptr_TitleSonic:		dc.l TitleSonic
 ptr_PSBTM:		dc.l PSBTM
-ptr_Obj10:		dc.l Obj10		; $10
+ptr_GBall:		dc.l GBall		; $10
 ptr_Bridge:		dc.l Bridge
 ptr_SpinningLight:	dc.l SpinningLight
 ptr_LavaMaker:		dc.l LavaMaker
@@ -27,7 +27,7 @@ ptr_Helix:		dc.l Helix
 ptr_BasicPlatform:	dc.l BasicPlatform	; $18
 ptr_AfterImages:		dc.l Obj19
 ptr_CollapseLedge:	dc.l CollapseLedge
-ptr_WaterSurface:	dc.l WaterSurface
+ptr_WaterSurface:	dc.l NullObject
 ptr_Scenery:		dc.l Scenery
 ptr_MagicSwitch:	dc.l MagicSwitch
 ptr_BallHog:		dc.l BallHog
@@ -41,7 +41,7 @@ ptr_Rings:		dc.l Rings
 ptr_Monitor:		dc.l Monitor
 ptr_ExplosionItem:	dc.l ExplosionItem
 ptr_Animals:		dc.l Animals		; $28
-ptr_Points:		dc.l Points
+ptr_SprStars:		dc.l SuperStars
 ptr_AutoDoor:		dc.l AutoDoor
 ptr_Chopper:		dc.l Chopper
 ptr_Jaws:		dc.l Jaws
@@ -143,6 +143,8 @@ ptr_EndEggman:		dc.l EndEggman
 ptr_TryChaos:		dc.l TryChaos
 ptr_InstaShield:		dc.l InstaShieldObj
 ptr_InvStarsItem:		dc.l InvStarsItem
+ptr_ObjDynamic:				dc.l DynamicObject
+ptr_Mosqui:		dc.l Mosqui
 
 NullObject:
 		;jmp	(DeleteObject).l	; It would be safer to have this instruction here, but instead it just falls through to ObjectFall
@@ -162,7 +164,7 @@ id_FlapDoor:		equ ((ptr_FlapDoor-Obj_Index)/4)+1
 id_Signpost:		equ ((ptr_Signpost-Obj_Index)/4)+1
 id_TitleSonic:		equ ((ptr_TitleSonic-Obj_Index)/4)+1
 id_PSBTM:		equ ((ptr_PSBTM-Obj_Index)/4)+1
-id_Obj10:		equ ((ptr_Obj10-Obj_Index)/4)+1			; $10
+id_GBall:		equ ((ptr_GBall-Obj_Index)/4)+1			; $10
 id_Bridge:		equ ((ptr_Bridge-Obj_Index)/4)+1
 id_SpinningLight:	equ ((ptr_SpinningLight-Obj_Index)/4)+1
 id_LavaMaker:		equ ((ptr_LavaMaker-Obj_Index)/4)+1
@@ -187,7 +189,7 @@ id_Rings:		equ ((ptr_Rings-Obj_Index)/4)+1
 id_Monitor:		equ ((ptr_Monitor-Obj_Index)/4)+1
 id_ExplosionItem:	equ ((ptr_ExplosionItem-Obj_Index)/4)+1
 id_Animals:		equ ((ptr_Animals-Obj_Index)/4)+1		; $28
-id_Points:		equ ((ptr_Points-Obj_Index)/4)+1
+id_SuperStars:		equ ((ptr_SprStars-Obj_Index)/4)+1
 id_AutoDoor:		equ ((ptr_AutoDoor-Obj_Index)/4)+1
 id_Chopper:		equ ((ptr_Chopper-Obj_Index)/4)+1
 id_Jaws:		equ ((ptr_Jaws-Obj_Index)/4)+1
@@ -289,3 +291,5 @@ id_EndEggman:		equ ((ptr_EndEggman-Obj_Index)/4)+1
 id_TryChaos:		equ ((ptr_TryChaos-Obj_Index)/4)+1
 id_InstaShield:		equ ((ptr_InstaShield-Obj_Index)/4)+1
 id_InvStarsItem:		equ ((ptr_InvStarsItem-Obj_Index)/4)+1
+id_ObjDynamic:				equ ((ptr_ObjDynamic-Obj_Index)/4)+1
+id_Mosqui:		equ ((ptr_Mosqui-Obj_Index)/4)+1

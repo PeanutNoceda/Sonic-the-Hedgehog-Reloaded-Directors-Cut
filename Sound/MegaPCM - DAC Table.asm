@@ -129,4 +129,12 @@ ptr_dacDF:	dcSample	TYPE_PCM, Hey, 13610					; $DF	- "Hey!"	; Clownacy | X_X Ext
 
 ptr_dacE0:	dcSample	TYPE_PCM, SegaPCM, 16000				; $E0	- Sega!
 ptr_dacE1:	dcSample	TYPE_PCM, PowerKickAlt			; $E1	- New Kick
+ptr_dacE2:	dcSample	TYPE_PCM, PowerSnareAlt			; $E2	- New Snare
+ptr_dacE3:	dcSample	TYPE_PCM, PeanutWooh			; $E3	- New Snare
+ptr_dacE4:	dcSample	TYPE_PCM, ThankYou				; $E4	- Thanks for playing
+ptr_dacE5:	dcSample	TYPE_PCM, OneUP					; $E5	- "Yes" From Sonic CD
+ptr_dacE6:	dcSample	TYPE_PCM, CrashCymbalKC			; $E6   - Crash Cymbal for Knuckles Chaotix
+ptr_dacE7:	dcSample	TYPE_PCM, USASHKick, 8201		; $81	- Kick (USASH)
+ptr_dacE8:	dcSample	TYPE_PCM, USASHSnare, 23784		; $82	- Snare (USASH)
+ptr_dacE9:	dcSample	TYPE_PCM, RELV1Snare, 23784		; $82	- Snare (Reloaded V1)
 			dc.w -1												; end marker

@@ -39,6 +39,17 @@ ptr_PLC_Ending:		dc.w PLC_Ending-ArtLoadCues
 ptr_PLC_TryAgain:	dc.w PLC_TryAgain-ArtLoadCues
 ptr_PLC_EggmanSBZ2:	dc.w PLC_EggmanSBZ2-ArtLoadCues
 ptr_PLC_FZBoss:		dc.w PLC_FZBoss-ArtLoadCues
+ptr_PLC_SBZ3:		dc.w PLC_SBZ3-ArtLoadCues
+ptr_PLC_SBZ32:		dc.w PLC_SBZ32-ArtLoadCues
+ptr_PLC_GHZAct2:	dc.w PLC_GHZ_Act2-ArtLoadCues
+ptr_PLC_GHZ2_Act2:	dc.w PLC_GHZ2_Act_2-ArtLoadCues
+ptr_PLC_SYZ12:		dc.w PLC_SYZ12-ArtLoadCues
+ptr_PLC_SYZ122:		dc.w PLC_SYZ122-ArtLoadCues
+ptr_PLC_LZ1:		dc.w PLC_LZ1-ArtLoadCues
+ptr_PLC_LAB2:		dc.w PLC_LAB22-ArtLoadCues
+ptr_PLC_TZ:		dc.w PLC_TZ-ArtLoadCues
+ptr_PLC_TZ2:		dc.w PLC_TZ2-ArtLoadCues
+
 
 plcm:	macro gfx,vram
 	dc.l gfx
@@ -53,13 +64,13 @@ PLC_Main:	dc.w ((PLC_Mainend-PLC_Main-2)/6)-1
 		plcm	Nem_Hud,    ArtTile_HUD           ; HUD
 		plcm	Nem_Lives,  ArtTile_Lives_Counter ; lives counter
         plcm    Nem_Sparkles,  ArtTile_Sparkle      ; ring sparkles
-		plcm	Nem_Points, ArtTile_Points        ; points from enemy
 PLC_Mainend:
 ; ---------------------------------------------------------------------------
 ; Pattern load cues - standard block 2
 ; ---------------------------------------------------------------------------
 PLC_Main2:	dc.w ((PLC_Main2end-PLC_Main2-2)/6)-1
 		plcm	Nem_Monitors, ArtTile_Monitor       ; monitors
+;		plcm	Nem_Stars,    ArtTile_Invincibility ; invincibility stars
 PLC_Main2end:
 ; ---------------------------------------------------------------------------
 ; Pattern load cues - explosion
@@ -105,7 +116,6 @@ PLC_LZ:		dc.w ((PLC_LZ2-PLC_LZ-2)/6)-1
 		plcm	Nem_LzBlock1,    ArtTile_LZ_Block_1         ; block
 		plcm	Nem_LzBlock2,    ArtTile_LZ_Block_2         ; blocks
 		plcm	Nem_Splash,      ArtTile_LZ_Splash          ; waterfalls and splash
-		plcm	Nem_Water,       ArtTile_LZ_Water_Surface   ; water surface
 		plcm	Nem_LzSpikeBall, ArtTile_LZ_Spikeball_Chain ; spiked ball
 		plcm	Nem_FlapDoor,    ArtTile_LZ_Flapping_Door   ; flapping door
 		plcm	Nem_Bubbles,     ArtTile_LZ_Bubbles         ; bubbles and numbers
@@ -264,8 +274,7 @@ PLC_Warpend:
 ; ---------------------------------------------------------------------------
 PLC_SpecialStage:	dc.w ((PLC_SpeStageend-PLC_SpecialStage-2)/6)-1
 		plcm	Nem_SSBgCloud,  ArtTile_SS_Background_Clouds ; bubble and cloud background
-		plcm	Nem_SSBgFish,   ArtTile_SS_Background_Fish   ; bird and fish background
-		plcm	Nem_SSWalls,    ArtTile_SS_Wall              ; walls
+;		plcm	Nem_SSWalls,    ArtTile_SS_Wall              ; walls
 		plcm	Nem_Bumper,     ArtTile_SS_Bumper            ; bumper
 		plcm	Nem_SSGOAL,     ArtTile_SS_Goal              ; GOAL block
 		plcm	Nem_SSUpDown,   ArtTile_SS_Up_Down           ; UP and DOWN blocks
@@ -338,7 +347,7 @@ PLC_SpeStResultend:
 ; Pattern load cues - ending sequence
 ; ---------------------------------------------------------------------------
 PLC_Ending:	dc.w ((PLC_Endingend-PLC_Ending-2)/6)-1
-		plcm	Nem_GHZ,   ArtTile_Level            ; GHZ main patterns
+		plcm	Nem_Ending,   ArtTile_Level            ; GHZ main patterns
 		plcm	Nem_Stalk,     ArtTile_GHZ_Flower_Stalk ; flower stalk
 		plcm	Nem_EndFlower, ArtTile_Ending_Flowers   ; flowers
 		plcm	Nem_EndEm,     ArtTile_Ending_Emeralds  ; emeralds
@@ -381,7 +390,177 @@ PLC_FZBoss:	dc.w ((PLC_FZBossend-PLC_FZBoss-2)/6)-1
 		plcm	Nem_Sbz2Eggman, ArtTile_FZ_Eggman_No_Vehicle ; Eggman without ship
 		plcm	Nem_Exhaust,    ArtTile_Eggman_Exhaust       ; exhaust flame
 PLC_FZBossend:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Labyrinth
+; ---------------------------------------------------------------------------
+PLC_SBZ3:		dc.w ((PLC_SBZ32-PLC_SBZ3-2)/6)-1
+		plcm	Nem_SBZ3,          ArtTile_Level              ; LZ main patterns
+		plcm	Nem_LzBlock1,    ArtTile_LZ_Block_1         ; block
+		plcm	Nem_LzBlock2,    ArtTile_LZ_Block_2         ; blocks
+		plcm	Nem_Splash,      ArtTile_LZ_Splash          ; waterfalls and splash
+		plcm	Nem_Water,       ArtTile_LZ_Water_Surface   ; water surface
+		plcm	Nem_LzSpikeBall, ArtTile_LZ_Spikeball_Chain ; spiked ball
+		plcm	Nem_FlapDoor,    ArtTile_LZ_Flapping_Door   ; flapping door
+		plcm	Nem_Bubbles,     ArtTile_LZ_Bubbles         ; bubbles and numbers
+		plcm	Nem_LzBlock3,    ArtTile_LZ_Moving_Block    ; block
+		plcm	Nem_LzDoor1,     ArtTile_LZ_Door            ; vertical door
+		plcm	Nem_Harpoon,     ArtTile_LZ_Harpoon         ; harpoon
+		plcm	Nem_Burrobot,    ArtTile_Burrobot           ; burrobot enemy
 
+PLC_SBZ32:	dc.w ((PLC_SBZ32end-PLC_SBZ32-2)/6)-1
+		plcm	Nem_LzPole,      ArtTile_LZ_Pole            ; pole that breaks
+		plcm	Nem_LzDoor2,     ArtTile_LZ_Blocks          ; large horizontal door
+		plcm	Nem_LzWheel,     ArtTile_LZ_Conveyor_Belt   ; wheel
+		plcm	Nem_Gargoyle,    ArtTile_LZ_Gargoyle        ; gargoyle head
+	if Revision=0
+		plcm	Nem_LzSonic,     ArtTile_LZ_Sonic_Drowning  ; Sonic holding his breath
+	endif
+		plcm	Nem_LzPlatfm,    ArtTile_LZ_Rising_Platform ; rising platform
+		plcm	Nem_Orbinaut,    ArtTile_LZ_Orbinaut        ; orbinaut enemy
+		plcm	Nem_Jaws,        ArtTile_Jaws               ; jaws enemy
+		plcm	Nem_LzSwitch,    ArtTile_Button             ; switch
+		plcm	Nem_Cork,        ArtTile_LZ_Cork            ; cork block
+		plcm	Nem_Spikes,      ArtTile_Spikes             ; spikes
+		plcm	Nem_HSpring,     ArtTile_Spring_Horizontal  ; horizontal spring
+		plcm	Nem_VSpring,     ArtTile_Spring_Vertical    ; vertical spring
+PLC_SBZ32end:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Green Hill
+; ---------------------------------------------------------------------------
+PLC_GHZ_Act2:	dc.w ((PLC_GHZ2_Act_2-PLC_GHZ_Act2-2)/6)-1
+		plcm	Nem_GHZ2,	ArtTile_Level			; GHZ main patterns
+		plcm	Nem_Stalk,     ArtTile_GHZ_Flower_Stalk       ; flower stalk
+		plcm	Nem_PplRock,   ArtTile_GHZ_Purple_Rock        ; purple rock
+		plcm	Nem_Crabmeat,  ArtTile_Crabmeat               ; crabmeat enemy
+		plcm	Nem_Buzz,      ArtTile_Buzz_Bomber            ; buzz bomber enemy
+		plcm	Nem_Chopper,   ArtTile_Chopper                ; chopper enemy
+		plcm	Nem_Newtron,   ArtTile_Newtron                ; newtron enemy
+		plcm	Nem_Motobug,   ArtTile_Moto_Bug               ; motobug enemy
+		plcm	Nem_Spikes,    ArtTile_Spikes                 ; spikes
+		plcm	Nem_HSpring,   ArtTile_Spring_Horizontal      ; horizontal spring
+		plcm	Nem_VSpring,   ArtTile_Spring_Vertical        ; vertical spring
+
+PLC_GHZ2_Act_2:	dc.w ((PLC_GHZ2_Act_2end-PLC_GHZ2_Act_2-2)/6)-1
+		plcm	Nem_Swing,     ArtTile_GHZ_MZ_Swing           ; swinging platform
+		plcm	Nem_Bridge,    ArtTile_GHZ_Bridge             ; bridge
+		plcm	Nem_SpikePole, ArtTile_GHZ_Spike_Pole         ; spiked pole
+		plcm	Nem_Ball,      ArtTile_GHZ_Giant_Ball         ; giant ball
+		plcm	Nem_GhzWall1,  ArtTile_GHZ_SLZ_Smashable_Wall ; breakable wall
+		plcm	Nem_GhzWall2,  ArtTile_GHZ_Edge_Wall          ; normal wall
+PLC_GHZ2_Act_2end:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Spring Yard Act 1 and 2
+; ---------------------------------------------------------------------------
+PLC_SYZ12:	dc.w ((PLC_SYZ122-PLC_SYZ12-2)/6)-1
+		plcm	Nem_SYZ12,       ArtTile_Level               ; SYZ main patterns
+		plcm	Nem_Crabmeat,  ArtTile_Crabmeat            ; crabmeat enemy
+		plcm	Nem_Buzz,      ArtTile_Buzz_Bomber         ; buzz bomber enemy
+		plcm	Nem_Yadrin,    ArtTile_Yadrin              ; yadrin enemy
+		plcm	Nem_Roller,    ArtTile_Roller              ; roller enemy
+
+PLC_SYZ122:	dc.w ((PLC_SYZ122end-PLC_SYZ122-2)/6)-1
+		plcm	Nem_Bumper,    ArtTile_SYZ_Bumper          ; bumper
+		plcm	Nem_SyzSpike1, ArtTile_SYZ_Big_Spikeball   ; large spikeball
+		plcm	Nem_SyzSpike2, ArtTile_SYZ_Spikeball_Chain ; small spikeball
+		plcm	Nem_Cater,     ArtTile_MZ_SYZ_Caterkiller  ; caterkiller enemy
+		plcm	Nem_LzSwitch,  ArtTile_Button              ; switch
+		plcm	Nem_Spikes,    ArtTile_Spikes              ; spikes
+		plcm	Nem_HSpring,   ArtTile_Spring_Horizontal   ; horizontal spring
+		plcm	Nem_VSpring,   ArtTile_Spring_Vertical     ; vertical spring
+PLC_SYZ122end:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Labyrinth Act 1
+; ---------------------------------------------------------------------------
+PLC_LZ1:		dc.w ((PLC_LZ12-PLC_LZ1-2)/6)-1
+		plcm	Nem_LZ1,         ArtTile_Level              ; LZ1 main patterns
+		plcm	Nem_LzBlock1,    ArtTile_LZ_Block_1         ; block
+		plcm	Nem_LzBlock2,    ArtTile_LZ_Block_2         ; blocks
+		plcm	Nem_Splash,      ArtTile_LZ_Splash          ; waterfalls and splash
+		plcm	Nem_Water,       ArtTile_LZ_Water_Surface   ; water surface
+		plcm	Nem_LzSpikeBall, ArtTile_LZ_Spikeball_Chain ; spiked ball
+		plcm	Nem_FlapDoor,    ArtTile_LZ_Flapping_Door   ; flapping door
+		plcm	Nem_Bubbles,     ArtTile_LZ_Bubbles         ; bubbles and numbers
+		plcm	Nem_LzBlock3,    ArtTile_LZ_Moving_Block    ; block
+		plcm	Nem_LzDoor1,     ArtTile_LZ_Door            ; vertical door
+		plcm	Nem_Harpoon,     ArtTile_LZ_Harpoon         ; harpoon
+		plcm	Nem_Burrobot,    ArtTile_Burrobot           ; burrobot enemy
+
+PLC_LZ12:	dc.w ((PLC_LZ12end-PLC_LZ12-2)/6)-1
+		plcm	Nem_LzPole,      ArtTile_LZ_Pole            ; pole that breaks
+		plcm	Nem_LzDoor2,     ArtTile_LZ_Blocks          ; large horizontal door
+		plcm	Nem_LzWheel,     ArtTile_LZ_Conveyor_Belt   ; wheel
+		plcm	Nem_Gargoyle,    ArtTile_LZ_Gargoyle        ; gargoyle head
+	if Revision=0
+		plcm	Nem_LzSonic,     ArtTile_LZ_Sonic_Drowning  ; Sonic holding his breath
+	endif
+		plcm	Nem_LzPlatfm,    ArtTile_LZ_Rising_Platform ; rising platform
+		plcm	Nem_Orbinaut,    ArtTile_LZ_Orbinaut        ; orbinaut enemy
+		plcm	Nem_Jaws,        ArtTile_Jaws               ; jaws enemy
+		plcm	Nem_LzSwitch,    ArtTile_Button             ; switch
+		plcm	Nem_Cork,        ArtTile_LZ_Cork            ; cork block
+		plcm	Nem_Spikes,      ArtTile_Spikes             ; spikes
+		plcm	Nem_HSpring,     ArtTile_Spring_Horizontal  ; horizontal spring
+		plcm	Nem_VSpring,     ArtTile_Spring_Vertical    ; vertical spring
+PLC_LZ12end:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Labyrinth Act 2
+; ---------------------------------------------------------------------------
+PLC_LAB22:		dc.w ((PLC_LAB22-PLC_LAB2-2)/6)-1
+		plcm	Nem_LZ2,         ArtTile_Level              ; LZ1 main patterns
+		plcm	Nem_LzBlock1,    ArtTile_LZ_Block_1         ; block
+		plcm	Nem_LzBlock2,    ArtTile_LZ_Block_2         ; blocks
+		plcm	Nem_Splash,      ArtTile_LZ_Splash          ; waterfalls and splash
+		plcm	Nem_Water,       ArtTile_LZ_Water_Surface   ; water surface
+		plcm	Nem_LzSpikeBall, ArtTile_LZ_Spikeball_Chain ; spiked ball
+		plcm	Nem_FlapDoor,    ArtTile_LZ_Flapping_Door   ; flapping door
+		plcm	Nem_Bubbles,     ArtTile_LZ_Bubbles         ; bubbles and numbers
+		plcm	Nem_LzBlock3,    ArtTile_LZ_Moving_Block    ; block
+		plcm	Nem_LzDoor1,     ArtTile_LZ_Door            ; vertical door
+		plcm	Nem_Harpoon,     ArtTile_LZ_Harpoon         ; harpoon
+		plcm	Nem_Burrobot,    ArtTile_Burrobot           ; burrobot enemy
+
+PLC_LAB2:	dc.w ((PLC_LAB2end-PLC_LAB2-2)/6)-1
+		plcm	Nem_LzPole,      ArtTile_LZ_Pole            ; pole that breaks
+		plcm	Nem_LzDoor2,     ArtTile_LZ_Blocks          ; large horizontal door
+		plcm	Nem_LzWheel,     ArtTile_LZ_Conveyor_Belt   ; wheel
+		plcm	Nem_Gargoyle,    ArtTile_LZ_Gargoyle        ; gargoyle head
+	if Revision=0
+		plcm	Nem_LzSonic,     ArtTile_LZ_Sonic_Drowning  ; Sonic holding his breath
+	endif
+		plcm	Nem_LzPlatfm,    ArtTile_LZ_Rising_Platform ; rising platform
+		plcm	Nem_Orbinaut,    ArtTile_LZ_Orbinaut        ; orbinaut enemy
+		plcm	Nem_Jaws,        ArtTile_Jaws               ; jaws enemy
+		plcm	Nem_LzSwitch,    ArtTile_Button             ; switch
+		plcm	Nem_Cork,        ArtTile_LZ_Cork            ; cork block
+		plcm	Nem_Spikes,      ArtTile_Spikes             ; spikes
+		plcm	Nem_HSpring,     ArtTile_Spring_Horizontal  ; horizontal spring
+		plcm	Nem_VSpring,     ArtTile_Spring_Vertical    ; vertical spring
+PLC_LAB2end:
+; ---------------------------------------------------------------------------
+; Pattern load cues - Tutorial
+; ---------------------------------------------------------------------------
+PLC_TZ:	dc.w ((PLC_TZ2-PLC_TZ-2)/6)-1
+		plcm	Nem_TZ,	ArtTile_Level			; GHZ main patterns
+		plcm	Nem_Stalk,     ArtTile_GHZ_Flower_Stalk       ; flower stalk
+		plcm	Nem_PplRock,   ArtTile_GHZ_Purple_Rock        ; purple rock
+		plcm	Nem_Crabmeat,  ArtTile_Crabmeat               ; crabmeat enemy
+		plcm	Nem_Lamp,   ArtTile_Lamppost      ; lamppost
+		plcm	Nem_Hud,    ArtTile_HUD           ; HUD
+		plcm	Nem_Lives,  ArtTile_Lives_Counter ; lives counter
+        plcm    Nem_Sparkles,  ArtTile_Sparkle      ; ring sparkles
+		plcm	Nem_Motobug,   ArtTile_Moto_Bug               ; motobug enemy
+		plcm	Nem_Spikes,    ArtTile_Spikes                 ; spikes
+		plcm	Nem_HSpring,   ArtTile_Spring_Horizontal      ; horizontal spring
+		plcm	Nem_VSpring,   ArtTile_Spring_Vertical        ; vertical spring
+
+PLC_TZ2:	dc.w ((PLC_TZ2end-PLC_TZ2-2)/6)-1
+		plcm	Nem_Swing,     ArtTile_GHZ_MZ_Swing           ; swinging platform
+		plcm	Nem_Bridge,    ArtTile_GHZ_Bridge             ; bridge
+		plcm	Nem_SpikePole, ArtTile_GHZ_Spike_Pole         ; spiked pole
+		plcm	Nem_Ball,      ArtTile_GHZ_Giant_Ball         ; giant ball
+		plcm	Nem_GhzWall1,  ArtTile_GHZ_SLZ_Smashable_Wall ; breakable wall
+		plcm	Nem_GhzWall2,  ArtTile_GHZ_Edge_Wall          ; normal wall
+PLC_TZ2end:
 ; ---------------------------------------------------------------------------
 ; Pattern load cue IDs
 ; ---------------------------------------------------------------------------
@@ -417,3 +596,13 @@ plcid_Ending:		equ (ptr_PLC_Ending-ArtLoadCues)/2	; $1C
 plcid_TryAgain:		equ (ptr_PLC_TryAgain-ArtLoadCues)/2	; $1D
 plcid_EggmanSBZ2:	equ (ptr_PLC_EggmanSBZ2-ArtLoadCues)/2	; $1E
 plcid_FZBoss:		equ (ptr_PLC_FZBoss-ArtLoadCues)/2	; $1F
+plcid_SBZ3:		equ (ptr_PLC_SBZ3-ArtLoadCues)/2		; 6
+plcid_SBZ32:		equ (ptr_PLC_SBZ32-ArtLoadCues)/2		; 7
+plcid_GHZAct2:		equ (ptr_PLC_GHZAct2-ArtLoadCues)/2		; 4
+plcid_GHZ2Act2:		equ (ptr_PLC_GHZ2_Act2-ArtLoadCues)/2	; 5
+plcid_SYZ12:		equ (ptr_PLC_SYZ12-ArtLoadCues)/2		; $C
+plcid_SYZ122:		equ (ptr_PLC_SYZ122-ArtLoadCues)/2	; $D
+plcid_LZ1:		equ (ptr_PLC_LZ1-ArtLoadCues)/2		; 6
+plcid_LAB2:		equ (ptr_PLC_LAB2-ArtLoadCues)/2		; 7
+plcid_TZ:		equ (ptr_PLC_TZ-ArtLoadCues)/2		; 4
+plcid_TZ2:		equ (ptr_PLC_TZ2-ArtLoadCues)/2	; 5

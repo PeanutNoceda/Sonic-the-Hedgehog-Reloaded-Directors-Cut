@@ -1,31 +1,46 @@
-SndA4_Skid_Header:
+Sonic_CDSkid_Header:
 	smpsHeaderStartSong 1
-	smpsHeaderVoice     SndA4_Skid_Voices
+	smpsHeaderVoice     Sonic_CDSkid_Voices
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $02
 
-	smpsHeaderSFXChannel cPSG2, SndA4_Skid_PSG2,	$F4, $00
-	smpsHeaderSFXChannel cPSG3, SndA4_Skid_PSG3,	$F4, $00
+	smpsHeaderSFXChannel cFM4, Sonic_CDSkid_FM4,	$F6, $10
+	smpsHeaderSFXChannel cFM5, Sonic_CDSkid_FM5,	$F7, $10
 
-; PSG2 Data
-SndA4_Skid_PSG2:
-	smpsPSGvoice        $00
-	dc.b	nBb3, $01, nRst, nBb3, nRst, $03
+; FM4 Data
+Sonic_CDSkid_FM4:
+	smpsSetvoice        $00
 
-SndA4_Skid_Loop01:
+Sonic_CDSkid_Loop01:
 	dc.b	nBb3, $01, nRst, $01
-	smpsLoop            $00, $0B, SndA4_Skid_Loop01
+	smpsLoop            $00, $0B, Sonic_CDSkid_Loop01
 	smpsStop
 
-; PSG3 Data
-SndA4_Skid_PSG3:
-	smpsPSGvoice        $00
-	dc.b	nRst, $01, nAb3, nRst, nAb3, nRst, $03
+; FM5 Data
+Sonic_CDSkid_FM5:
+	smpsSetvoice        $00
+	dc.b	nRst, $01
 
-SndA4_Skid_Loop00:
+Sonic_CDSkid_Loop00:
 	dc.b	nAb3, $01, nRst, $01
-	smpsLoop            $00, $0B, SndA4_Skid_Loop00
+	smpsLoop            $00, $0B, Sonic_CDSkid_Loop00
 	smpsStop
 
-; Song seems to not use any FM voices
-SndA4_Skid_Voices:
+Sonic_CDSkid_Voices:
+;	Voice $00
+;	$07
+;	$07, $07, $08, $08, 	$1F, $1F, $1F, $1F, 	$00, $00, $00, $00
+;	$00, $00, $00, $00, 	$0F, $0F, $0F, $0F, 	$80, $80, $80, $80
+	smpsVcAlgorithm     $07
+	smpsVcFeedback      $00
+	smpsVcUnusedBits    $00
+	smpsVcDetune        $00, $00, $00, $00
+	smpsVcCoarseFreq    $08, $08, $07, $07
+	smpsVcRateScale     $00, $00, $00, $00
+	smpsVcAttackRate    $1F, $1F, $1F, $1F
+	smpsVcAmpMod        $00, $00, $00, $00
+	smpsVcDecayRate1    $00, $00, $00, $00
+	smpsVcDecayRate2    $00, $00, $00, $00
+	smpsVcDecayLevel    $00, $00, $00, $00
+	smpsVcReleaseRate   $0F, $0F, $0F, $0F
+	smpsVcTotalLevel    $00, $00, $00, $00

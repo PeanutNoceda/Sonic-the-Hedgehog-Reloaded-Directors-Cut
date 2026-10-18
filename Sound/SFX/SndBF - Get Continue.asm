@@ -1,50 +1,50 @@
-SndBF_Get_Continue_Header:
-	smpsHeaderStartSong 1, 1
-	smpsHeaderVoice     SndBF_Get_Continue_Voices
+Sound_AC_Header:
+	smpsHeaderStartSong 3, 1
+	smpsHeaderVoice     Sound_AC_Voices
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $03
 
-	smpsHeaderSFXChannel cFM3, SndBF_Get_Continue_FM3,	$F4, $06
-	smpsHeaderSFXChannel cFM4, SndBF_Get_Continue_FM4,	$F4, $06
-	smpsHeaderSFXChannel cFM5, SndBF_Get_Continue_FM5,	$F4, $06
+	smpsHeaderSFXChannel cFM3, Sound_AC_FM3,	$F4, $06
+	smpsHeaderSFXChannel cFM4, Sound_AC_FM4,	$F4, $06
+	smpsHeaderSFXChannel cFM5, Sound_AC_FM5,	$F4, $06
 
 ; FM3 Data
-SndBF_Get_Continue_FM3:
+Sound_AC_FM3:
 	smpsSetvoice        $00
 	dc.b	nC6, $07, nE6, nG6, nD6, nF6, nA6, nE6, nG6, nB6, nF6, nA6
 	dc.b	nC7
 
-SndBF_Get_Continue_Loop02:
+Sound_AC_Loop02:
 	dc.b	nG6, $07, nB6, nD7
-	smpsAlterVol        $05
-	smpsLoop            $00, $08, SndBF_Get_Continue_Loop02
+	smpsFMAlterVol      $05
+	smpsLoop            $00, $08, Sound_AC_Loop02
 	smpsStop
 
 ; FM4 Data
-SndBF_Get_Continue_FM4:
+Sound_AC_FM4:
 	smpsSetvoice        $00
 	smpsAlterNote       $01
 	dc.b	nRst, $07, nE6, $15, nF6, nG6, nA6
 
-SndBF_Get_Continue_Loop01:
+Sound_AC_Loop01:
 	dc.b	nB6, $15
-	smpsAlterVol        $05
-	smpsLoop            $00, $08, SndBF_Get_Continue_Loop01
+	smpsFMAlterVol      $05
+	smpsLoop            $00, $08, Sound_AC_Loop01
 	smpsStop
 
 ; FM5 Data
-SndBF_Get_Continue_FM5:
+Sound_AC_FM5:
 	smpsSetvoice        $00
 	smpsAlterNote       $01
 	dc.b	nC6, $15, nD6, nE6, nF6
 
-SndBF_Get_Continue_Loop00:
+Sound_AC_Loop00:
 	dc.b	nG6, $15
-	smpsAlterVol        $05
-	smpsLoop            $00, $08, SndBF_Get_Continue_Loop00
+	smpsFMAlterVol      $05
+	smpsLoop            $00, $08, Sound_AC_Loop00
 	smpsStop
 
-SndBF_Get_Continue_Voices:
+Sound_AC_Voices:
 ;	Voice $00
 ;	$14
 ;	$25, $33, $36, $11, 	$1F, $1F, $1F, $1F, 	$15, $18, $1C, $13

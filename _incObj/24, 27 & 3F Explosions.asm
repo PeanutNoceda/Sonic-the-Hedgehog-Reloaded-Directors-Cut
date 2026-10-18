@@ -63,7 +63,7 @@ ExItem_Animal:	; Routine 0
 
 ExItem_Main:	; Routine 2
 		addq.b	#2,obRoutine(a0)
-		move.l	#Map_ExplodeItem,obMap(a0)
+		move.l	#Map_b35a,obMap(a0)
 		move.w	#make_art_tile(ArtTile_Explosion,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
 		move.b	#1,obPriority(a0)
@@ -101,7 +101,7 @@ ExBom_Index:	dc.w ExBom_Main-ExBom_Index
 
 ExBom_Main:	; Routine 0
 		addq.b	#2,obRoutine(a0)
-		move.l	#Map_ExplodeBomb,obMap(a0)
+		move.l	#Map_b35a,obMap(a0)
 		move.w	#make_art_tile(ArtTile_Explosion,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
 		move.b	#1,obPriority(a0)

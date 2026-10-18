@@ -21,19 +21,19 @@ Speed_Shoes_US_DAC:
 	smpsPan             panCenter, $00
 
 Speed_Shoes_US_Jump00:
-	dc.b	dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06
-	dc.b	dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06, dSnare, $06
-	dc.b	dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06, dSnare, $06, dPKick, $03
-	dc.b	dPKick, $03, dSnare, $03, dSnare, $02, dSnare, $01, dPKick, $06, dSnare, $06
-	dc.b	dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06, dSnare, $06, dPKick, $03
-	dc.b	dPKick, $03, dSnare, $06, dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03
-	dc.b	dSnare, $06, dPKick, $06, dSnare, $06, dClapS3, $03, dClapS3, $02, dClapS3, $01
-	dc.b	dClapS3, $03, dClapS3, $03, dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03
-	dc.b	dSnare, $06, dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06
-	dc.b	dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06
-	dc.b	dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $03, dSnare, $02, dSnare, $01
-	dc.b	dPKick, $06, dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06
-	dc.b	dSnare, $06, dPKick, $03, dPKick, $03, dSnare, $06, dPKick, $06, dSnare, $06
+	dc.b	dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06
+	dc.b	dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06, dPSnare, $06
+	dc.b	dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06, dPSnare, $06, dPKick, $03
+	dc.b	dPKick, $03, dPSnare, $03, dPSnare, $02, dPSnare, $01, dPKick, $06, dPSnare, $06
+	dc.b	dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06, dPSnare, $06, dPKick, $03
+	dc.b	dPKick, $03, dPSnare, $06, dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03
+	dc.b	dPSnare, $06, dPKick, $06, dPSnare, $06, dClapS3, $03, dClapS3, $02, dClapS3, $01
+	dc.b	dClapS3, $03, dClapS3, $03, dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03
+	dc.b	dPSnare, $06, dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06
+	dc.b	dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06
+	dc.b	dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $03, dPSnare, $02, dPSnare, $01
+	dc.b	dPKick, $06, dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06
+	dc.b	dPSnare, $06, dPKick, $03, dPKick, $03, dPSnare, $06, dPKick, $06, dPSnare, $06
 	dc.b	dPKick, $03, dGo, $03, dGo, $06, dWoo, $24
 	smpsJump            Speed_Shoes_US_Jump00
 

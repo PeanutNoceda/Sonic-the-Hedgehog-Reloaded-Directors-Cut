@@ -1,4 +1,4 @@
-; SONG NAME: I'll Introduce (Yuu Yuu Hakusho: Makyou Touitsusen)
+; SONG NAME: ???
 ; COMPOSER/ADAPTATION: ???
 ; PROVIDED BY: Fuzzy
 Mus_SBZ2_Header:
@@ -448,56 +448,56 @@ Mus_SBZ2_Jump02:
 
 ; DAC Data
 Mus_SBZ2_DAC:
-	dc.b	dPKick, $06, dPKick, dSnare, $09, dPKick, $03, dPKick, dPKick, dPKick, dPKick, $09
-	dc.b	nRst, $02, dSnare, dSnare, dSnare, $03, dSnare, $06, dSnare, dSnare, dSnare, dSnare
-	dc.b	dSnare, $09, dSnare, $03, dPKick, dPKick, $06, dPKick, dSnare, $09, dPKick, $03
-	dc.b	dPKick, dPKick, dPKick, dPKick, dPKick, $06, nRst, $02, dSnare, dSnare, dSnare, $03
-	dc.b	dSnare, $06, dSnare, dSnare, dSnare, dSnare, dSnare, dSnare, dPKick, $03, dPKick, $06
-	dc.b	dPKick, dSnare, $09, dPKick, $03, dPKick, $06, dPKick, $03, dPKick, $09, nRst
-	dc.b	$02, dSnare, dSnare, dSnare, $03, dSnare, $06, dSnare, dSnare, dSnare, dSnare, dSnare
-	dc.b	$09, dSnare, $03, dPKick, dPKick, $0C, dSnare, $09, dPKick, $06, dSnare, $03
-	dc.b	dPKick, $06, dSnare, dPKick, $03, dPKick, dPKick, $09, dPKick, $03, dSnare, dPKick
-	dc.b	dSnare, dSnare, dSnare, dPKick, dSnare, nRst, dSnare, dPKick, dSnare, dSnare, dPKick, $09
-	dc.b	dPKick, $03, dSnare, dPKick, $06, dPKick, $0F, dSnare, $0C, dPKick, $09, dPKick
-	dc.b	$03, dSnare, dPKick, $06, dPKick, $09, dPKick, $03, dSnare, $06, dSnare, $03
-	dc.b	dPKick, $06, dPKick, $09, dPKick, $03, dSnare, dPKick, $06, dPKick, $0F, dSnare
-	dc.b	$0C, dPKick, $09, dPKick, $03, dSnare, dPKick, $06, dPKick, $09, dPKick, $03
-	dc.b	dSnare, $06, dSnare, $03, dPKick, $06, dPKick, $09, dPKick, $03, dSnare, dPKick
-	dc.b	$06, dPKick, $0F, dSnare, $0C, dPKick, $09, dPKick, $03, dSnare, dPKick, $06
-	dc.b	dPKick, $09, dPKick, $03, dSnare, $06, dSnare, $03, dPKick, $06, dPKick, $09
-	dc.b	dPKick, $03, dSnare, dPKick, $06, dPKick, $0F, dSnare, $0C, dPKick, $09, dPKick
-	dc.b	$03, dSnare, dPKick, $06, dPKick, $09, dPKick, $03, dSnare, $06, dSnare, $03
-	dc.b	dSnare, $06, dPKick, dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick
-	dc.b	$06, dSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dSnare, $03
-	dc.b	dPKick, $06, dPKick, $09, dPKick, $06, dSnare, $03, dPKick, $06, dSnare, $03
-	dc.b	dPKick, $06, dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06
-	dc.b	dSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dSnare, $03, dPKick
-	dc.b	$06, dPKick, $09, dPKick, $06, dSnare, $03, dPKick, $06, dSnare, $03, dPKick
-	dc.b	$06, dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06, dSnare
-	dc.b	$03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dSnare, $03, dPKick, $06
-	dc.b	dPKick, $09, dPKick, $06, dSnare, $03, dPKick, $06, dSnare, $03, dPKick, $06
-	dc.b	dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06, dSnare, $03
-	dc.b	dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dSnare, $03, dPKick, $06, dPKick
-	dc.b	$09, dPKick, $06, dSnare, $03, dPKick, $06, dSnare, $03, dPKick, $84, $06
-	dc.b	$85, $03, $86, $06, dPKick, $03, dSnare, $06, dSnare, $03, dPKick, $06
-	dc.b	nRst, $03, dPKick, $84, $06, $85, $03, $86, $06, dPKick, $03, dSnare
-	dc.b	$06, dSnare, $03, dSnare, dPKick, $06, dSnare, $03, dPKick, $06, nRst, $03
-	dc.b	dSnare, $06, dPKick, $03, dSnare, $06, dSnare, $03, dPKick, dSnare, $06, dPKick
-	dc.b	$03, dSnare, $06, nRst, $02, dSnare, dSnare, dSnare, $03, dSnare, $06, dSnare
-	dc.b	dSnare, dSnare, dSnare, dSnare, dSnare, dSnare, $03, dPKick, dPKick, $06, nRst, $01
-	dc.b	dSnare, $0A, dPKick, $02, dPKick, dSnare, $03, dSnare, nRst, dPKick, dSnare, $02
-	dc.b	dSnare, dSnare, dSnare, dSnare, dSnare, dPKick, $06, dPKick, dSnare, $03, dPKick, $06
-	dc.b	dPKick, dPKick, $03, dPKick, $06, dSnare, $03, dPKick, $06, dPKick, $03, dPKick
-	dc.b	$06, dPKick, dSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dSnare, $03
-	dc.b	dPKick, $06, dSnare, $03, dPKick, $06, dPKick, dSnare, $03, dPKick, $06, dPKick
-	dc.b	dPKick, $03, dPKick, $06, dSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06
-	dc.b	dPKick, dSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dSnare, $03, dPKick
-	dc.b	$06, dSnare, $03, dPKick, $06, dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick
-	dc.b	$03, dPKick, $06, dSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick
-	dc.b	dSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dSnare, $03, dPKick, $06
-	dc.b	dSnare, $03, dPKick, $06, dPKick, dSnare, $03, dPKick, $06, dPKick, dPKick, $03
-	dc.b	dPKick, $06, dSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dSnare
-	dc.b	$03, dPKick, $06, dPKick, $09, dPKick, $06, dSnare, $03, dPKick, $06, dSnare
+	dc.b	dPKick, $06, dPKick, dPSnare, $09, dPKick, $03, dPKick, dPKick, dPKick, dPKick, $09
+	dc.b	nRst, $02, dPSnare, dPSnare, dPSnare, $03, dPSnare, $06, dPSnare, dPSnare, dPSnare, dPSnare
+	dc.b	dPSnare, $09, dPSnare, $03, dPKick, dPKick, $06, dPKick, dPSnare, $09, dPKick, $03
+	dc.b	dPKick, dPKick, dPKick, dPKick, dPKick, $06, nRst, $02, dPSnare, dPSnare, dPSnare, $03
+	dc.b	dPSnare, $06, dPSnare, dPSnare, dPSnare, dPSnare, dPSnare, dPSnare, dPKick, $03, dPKick, $06
+	dc.b	dPKick, dPSnare, $09, dPKick, $03, dPKick, $06, dPKick, $03, dPKick, $09, nRst
+	dc.b	$02, dPSnare, dPSnare, dPSnare, $03, dPSnare, $06, dPSnare, dPSnare, dPSnare, dPSnare, dPSnare
+	dc.b	$09, dPSnare, $03, dPKick, dPKick, $0C, dPSnare, $09, dPKick, $06, dPSnare, $03
+	dc.b	dPKick, $06, dPSnare, dPKick, $03, dPKick, dPKick, $09, dPKick, $03, dPSnare, dPKick
+	dc.b	dPSnare, dPSnare, dPSnare, dPKick, dPSnare, nRst, dPSnare, dPKick, dPSnare, dPSnare, dPKick, $09
+	dc.b	dPKick, $03, dPSnare, dPKick, $06, dPKick, $0F, dPSnare, $0C, dPKick, $09, dPKick
+	dc.b	$03, dPSnare, dPKick, $06, dPKick, $09, dPKick, $03, dPSnare, $06, dPSnare, $03
+	dc.b	dPKick, $06, dPKick, $09, dPKick, $03, dPSnare, dPKick, $06, dPKick, $0F, dPSnare
+	dc.b	$0C, dPKick, $09, dPKick, $03, dPSnare, dPKick, $06, dPKick, $09, dPKick, $03
+	dc.b	dPSnare, $06, dPSnare, $03, dPKick, $06, dPKick, $09, dPKick, $03, dPSnare, dPKick
+	dc.b	$06, dPKick, $0F, dPSnare, $0C, dPKick, $09, dPKick, $03, dPSnare, dPKick, $06
+	dc.b	dPKick, $09, dPKick, $03, dPSnare, $06, dPSnare, $03, dPKick, $06, dPKick, $09
+	dc.b	dPKick, $03, dPSnare, dPKick, $06, dPKick, $0F, dPSnare, $0C, dPKick, $09, dPKick
+	dc.b	$03, dPSnare, dPKick, $06, dPKick, $09, dPKick, $03, dPSnare, $06, dPSnare, $03
+	dc.b	dPSnare, $06, dPKick, dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick
+	dc.b	$06, dPSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dPSnare, $03
+	dc.b	dPKick, $06, dPKick, $09, dPKick, $06, dPSnare, $03, dPKick, $06, dPSnare, $03
+	dc.b	dPKick, $06, dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06
+	dc.b	dPSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick
+	dc.b	$06, dPKick, $09, dPKick, $06, dPSnare, $03, dPKick, $06, dPSnare, $03, dPKick
+	dc.b	$06, dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06, dPSnare
+	dc.b	$03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06
+	dc.b	dPKick, $09, dPKick, $06, dPSnare, $03, dPKick, $06, dPSnare, $03, dPKick, $06
+	dc.b	dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick, $03, dPKick, $06, dPSnare, $03
+	dc.b	dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06, dPKick
+	dc.b	$09, dPKick, $06, dPSnare, $03, dPKick, $06, dPSnare, $03, dPKick, $84, $06
+	dc.b	$85, $03, $86, $06, dPKick, $03, dPSnare, $06, dPSnare, $03, dPKick, $06
+	dc.b	nRst, $03, dPKick, $84, $06, $85, $03, $86, $06, dPKick, $03, dPSnare
+	dc.b	$06, dPSnare, $03, dPSnare, dPKick, $06, dPSnare, $03, dPKick, $06, nRst, $03
+	dc.b	dPSnare, $06, dPKick, $03, dPSnare, $06, dPSnare, $03, dPKick, dPSnare, $06, dPKick
+	dc.b	$03, dPSnare, $06, nRst, $02, dPSnare, dPSnare, dPSnare, $03, dPSnare, $06, dPSnare
+	dc.b	dPSnare, dPSnare, dPSnare, dPSnare, dPSnare, dPSnare, $03, dPKick, dPKick, $06, nRst, $01
+	dc.b	dPSnare, $0A, dPKick, $02, dPKick, dPSnare, $03, dPSnare, nRst, dPKick, dPSnare, $02
+	dc.b	dPSnare, dPSnare, dPSnare, dPSnare, dPSnare, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06
+	dc.b	dPKick, dPKick, $03, dPKick, $06, dPSnare, $03, dPKick, $06, dPKick, $03, dPKick
+	dc.b	$06, dPKick, dPSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dPSnare, $03
+	dc.b	dPKick, $06, dPSnare, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06, dPKick
+	dc.b	dPKick, $03, dPKick, $06, dPSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06
+	dc.b	dPKick, dPSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dPSnare, $03, dPKick
+	dc.b	$06, dPSnare, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick
+	dc.b	$03, dPKick, $06, dPSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick
+	dc.b	dPSnare, $03, dPKick, $06, dPKick, $09, dPKick, $06, dPSnare, $03, dPKick, $06
+	dc.b	dPSnare, $03, dPKick, $06, dPKick, dPSnare, $03, dPKick, $06, dPKick, dPKick, $03
+	dc.b	dPKick, $06, dPSnare, $03, dPKick, $06, dPKick, $03, dPKick, $06, dPKick, dPSnare
+	dc.b	$03, dPKick, $06, dPKick, $09, dPKick, $06, dPSnare, $03, dPKick, $06, dPSnare
 	dc.b	$03
 	smpsJump            Mus_SBZ2_DAC
 

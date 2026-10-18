@@ -69,6 +69,8 @@ ptr_launch:	SMPS_SFX_METADATA	SoundLaunch, $80, 0
 ptr_dropdashalt:	SMPS_SFX_METADATA	SoundDropdashAlt, $80, 0
 ptr_snd8F:	SMPS_SFX_METADATA	SoundDF, $70, 0
 ptr_snd90:	SMPS_SFX_METADATA	BossAlarm, $70, 0
+ptr_snd91:	SMPS_SFX_METADATA	SoundElevator,	$70, 0
+ptr_snd9E:	SMPS_SFX_METADATA	Sound9F, $70, 0
 ptr_sndend
 
 ; ---------------------------------------------------------------------------
@@ -185,4 +187,8 @@ SoundDropdashAlt:    include "Sound/SFX/Drop Dash (S1Fixed).asm"
 SoundDF:	include "Sound/SFX/SndDF - Insta Shield.asm"
 	even
 BossAlarm:	include "Sound/SFX/BossAlarm.asm"
+	even
+SoundElevator:		include "Sound/SFX/D6 - CNZ Elevator.asm"
+	even
+Sound9F:	include "Sound/SFX/SFX - Drowning count.asm"
 	even

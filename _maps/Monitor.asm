@@ -1,44 +1,85 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - monitors (Optimized) Ported by -paranoimia-
-; ---------------------------------------------------------------------------
-		dc.w byte_A5A2-Map_Monitor, byte_A5A8-Map_Monitor
-		dc.w byte_A5B3-Map_Monitor, byte_A5BE-Map_Monitor
-		dc.w byte_A5C9-Map_Monitor, byte_A5D4-Map_Monitor
-		dc.w byte_A5DF-Map_Monitor, byte_A5EA-Map_Monitor
-		dc.w byte_A5F5-Map_Monitor, byte_A600-Map_Monitor
-		dc.w byte_A60B-Map_Monitor, byte_A616-Map_Monitor
-byte_A5A2:	dc.b 1			; static monitor
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5A8:	dc.b 2			; static monitor
-		dc.b $F5, 5, 0,	$10, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5B3:	dc.b 2			; static monitor
-		dc.b $F5, 5, 0,	$14, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5BE:	dc.b 2			; Eggman monitor
-		dc.b $F5, 5, 0,	$18, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5C9:	dc.b 2			; Sonic	monitor
-		dc.b $F5, 5, 0,	$1C, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5D4:	dc.b 2			; speed	shoes monitor
-		dc.b $F5, 5, 0,	$24, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5DF:	dc.b 2			; shield monitor
-		dc.b $F5, 5, 0,	$28, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5EA:	dc.b 2			; invincibility	monitor
-		dc.b $F5, 5, 0,	$2C, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A5F5:	dc.b 2			; 10 rings monitor
-		dc.b $F5, 5, 0,	$20, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A600:	dc.b 2			; 'S' monitor
-		dc.b $F5, 5, 0,	$3C, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A60B:	dc.b 2			; goggles monitor
-		dc.b $F5, 5, 0,	$38, $F8
-		dc.b $EF, $F, 0, 0, $F0
-byte_A616:	dc.b 1			; broken monitor
-		dc.b $FF, $D, 0, $30, $F0
-		even
+Map_96db: mappingsTable
+	mappingsTableEntry.w	Map_36fd_1C
+	mappingsTableEntry.w	Map_36fd_22
+	mappingsTableEntry.w	Map_36fd_2D
+	mappingsTableEntry.w	Map_36fd_38
+	mappingsTableEntry.w	Map_36fd_43
+	mappingsTableEntry.w	Map_36fd_59
+	mappingsTableEntry.w	Map_3cde_7
+	mappingsTableEntry.w	Map_3cde_8
+	mappingsTableEntry.w	Map_36fd_4E
+	mappingsTableEntry.w	Map_36fd_85
+	mappingsTableEntry.w	Map_96db_10
+	mappingsTableEntry.w	Map_36fd_90
+	mappingsTableEntry.w	Map_36fd_96
+	mappingsTableEntry.w	Map_36fd_A1
+
+Map_36fd_1C:	spriteHeader
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_1C_End
+
+Map_36fd_22:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $10, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_22_End
+
+Map_36fd_2D:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $14, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_2D_End
+
+Map_36fd_38:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $18, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_38_End
+
+Map_36fd_43:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $1C, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_43_End
+
+Map_36fd_59:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $24, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_59_End
+
+Map_3cde_7:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $28, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_3cde_7_End
+
+Map_3cde_8:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $2C, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_3cde_8_End
+
+Map_36fd_4E:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $20, 0, 0, 1, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_4E_End
+
+Map_36fd_85:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $3C, 0, 0, 1, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_85_End
+
+Map_96db_10:	spriteHeader
+ spritePiece -8, -$B, 2, 2, $38, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_96db_10_End
+
+Map_36fd_90:	spriteHeader
+ spritePiece -$10, -1, 4, 2, $30, 0, 0, 0, 0
+Map_36fd_90_End
+
+Map_36fd_96:	spriteHeader
+ spritePiece -8, -$A, 2, 2, $40, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_96_End
+
+Map_36fd_A1:	spriteHeader
+ spritePiece -8, -$A, 2, 2, $44, 0, 0, 0, 0
+ spritePiece -$10, -$11, 4, 4, 0, 0, 0, 0, 0
+Map_36fd_A1_End
+
+	even

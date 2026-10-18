@@ -24,11 +24,10 @@ HUD_Main:    ; Routine 0
 		move.b	#0,obPriority(a0)
 
 HUD_Show:                        ; Routine 2
-
-            cmpi.w  #$90,8(a0)    ; has HUD reached $90 x-position?
-            bcc.s   HUD_Flash        ; go to HUD_Flash if x-pos is higher or equal
-            addq.w  #2,8(a0)        ; move HUD to the right
-            jmp    (DisplaySprite).l
+        cmpi.w  #$90,8(a0)    ; has HUD reached $90 x-position?
+        bcc.s   HUD_Flash        ; go to HUD_Flash if x-pos is higher or equal
+        addq.w  #2,8(a0)        ; move HUD to the right
+        jmp    (DisplaySprite).l
 
 HUD_Flash:    ; Routine 2
         tst.b  (f_timecount).w  ; Is the timer active?

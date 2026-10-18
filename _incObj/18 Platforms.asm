@@ -96,7 +96,7 @@ loc_7F06:
 
 Plat_Nudge:
 		move.b	objoff_38(a0),d0
-		bsr.w	CalcSine
+		jsr		CalcSine
 		move.w	#$400,d1
 		muls.w	d1,d0
 		swap	d0

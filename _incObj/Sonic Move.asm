@@ -23,6 +23,11 @@ Sonic_Move:
 		bsr.w	Sonic_MoveRight
 
 .notright:
+		tst.b	(f_supersonic).w
+		beq.s	.continue
+		jmp		notrightSpr
+
+.continue
 		move.b	obAngle(a0),d0
 		addi.b	#$20,d0
 		andi.b	#$C0,d0		; is Sonic on a	slope?
@@ -31,11 +36,24 @@ Sonic_Move:
 		bne.w	Sonic_ResetScr	; if yes, branch
 		bclr	#5,obStatus(a0)
 		move.b	#id_Wait,obAnim(a0) ; use "standing" animation
-		btst    #4,obStatus(a0)
-        beq.s    .notVictory
+        btst    #4,obStatus(a0)
+        beq.s    notVictory
         move.b    #id_Victory,obAnim(a0)    ; use victory animation
 
-.notVictory:
+notrightSpr:
+		move.b	obAngle(a0),d0
+		addi.b	#$20,d0
+		andi.b	#$C0,d0		; is Sonic on a	slope?
+		bne.w	Sonic_ResetScr	; if yes, branch
+		tst.w	obInertia(a0)	; is Sonic moving?
+		bne.w	Sonic_ResetScr	; if yes, branch
+		bclr	#5,obStatus(a0)
+		move.b	#id_Wait,obAnim(a0) ; use "Super standing" animation
+        btst    #4,obStatus(a0)
+        beq.s    notVictory
+        move.b    #id_Victory,obAnim(a0)    ; use victory animation
+
+notVictory:
 		btst	#3,obStatus(a0)
 		beq.s	Sonic_Balance
 		moveq	#0,d0
@@ -44,7 +62,7 @@ Sonic_Move:
 		lea	(v_objspace).w,a1
 		lea	(a1,d0.w),a1
 		tst.b	obStatus(a1)
-		bmi.s	Sonic_LookUp
+		bmi.w	Sonic_LookUp
 		moveq	#0,d1
 		move.b	obActWid(a1),d1
 		move.w	d1,d2
@@ -59,15 +77,34 @@ Sonic_Move:
 		bra.s	Sonic_LookUp
 ; ===========================================================================
 Sonic_Balance:
-		jsr	(ObjFloorDist).l
-		cmpi.w	#$C,d1
-		blt.s	Sonic_LookUp
-		cmpi.b	#3,objoff_36(a0)
-		bne.s	loc_12F62
-
+		move.b	#0,(v_falling).w
+        jsr    ObjFloorDist
+        cmpi.w    #$C,d1
+        blt.s    Sonic_LookUp
+        cmpi.b    #3,$36(a0)
+        beq.s    Sonic_BalanceRight
+        cmpi.b    #3,$37(a0)
+        bne.s    Sonic_LookUp
+; ===========================================================================
+Sonic_BalanceLeft:
+        btst    #0,obStatus(a0)    ; is Sonic facing left?
+        beq.s    Sonic_BalanceBackward    ; if not, balance backward
+        move.b    #id_Balance2,obAnim(a0) ; use forward balancing animation
+        bra.w    Sonic_ResetScr    ; branch
+; ===========================================================================
+Sonic_BalanceRight:
+        btst    #0,obStatus(a0)    ; is Sonic facing left?
+        bne.s    Sonic_BalanceBackward    ; if so, balance backward
+        move.b    #id_Balance2,obAnim(a0) ; use forward balancing animation
+        bra.w    Sonic_ResetScr    ; branch
+; ===========================================================================
+Sonic_BalanceBackward:
+        move.b    #id_Balance,obAnim(a0) ; use backward balancing animation
+        bra.w    Sonic_ResetScr
+; ===========================================================================
 loc_12F5A:
-		bclr	#0,obStatus(a0)
-		bra.s	loc_12F70
+        bclr    #0,obStatus(a0)
+        bra.s    loc_12F70
 ; ===========================================================================
 
 loc_12F62:
@@ -85,6 +122,7 @@ loc_12F70:
 Sonic_LookUp:
 		btst	#bitUp,(v_jpadhold2).w ; is up being pressed?
 		beq.s	Sonic_Duck	; if not, branch
+		move.b	#0,(v_falling).w
 		move.b	#id_LookUp,obAnim(a0) ; use "looking up" animation
 		addq.b	#1,(v_sgfx_buffer+$103).w
 		cmp.b	#$78,(v_sgfx_buffer+$103).w
@@ -99,6 +137,7 @@ Sonic_LookUp:
 Sonic_Duck:
 		btst	#bitDn,(v_jpadhold2).w ; is down being pressed?
 		beq.s	Sonic_ResetScr	; if not, branch
+		move.b	#0,(v_falling).w
 		move.b	#id_Duck,obAnim(a0) ; use "ducking" animation
 		addq.b	#1,(v_sgfx_buffer+$103).w
 		cmpi.b	#$78,(v_sgfx_buffer+$103).w
@@ -256,6 +295,8 @@ loc_130BA:
 		bclr	#0,obStatus(a0)
 		move.w	#sfx_Skid,d0
 		jsr	(PlaySound_Special).l	; play stopping sound
+		move.b  #6,($FFFFD1E4).w    ; set the spin dash dust routine to skid dust
+        move.b  #$15,($FFFFD1DA).w
 
 locret_130E8:
 		rts
@@ -305,6 +346,8 @@ loc_13120:
 		bset	#0,obStatus(a0)
 		move.w	#sfx_Skid,d0
 		jsr	(PlaySound_Special).l	; play stopping sound
+		move.b  #6,($FFFFD1E4).w    ; set the spin dash dust routine to skid dust
+        move.b  #$15,($FFFFD1DA).w
 
 locret_1314E:
 		rts	

@@ -10,7 +10,7 @@ ptr_mus04:	SMPS_MUSIC_METADATA	Music84, s1TempotoS3($26), 0	; SLZ
 ptr_mus05:	SMPS_MUSIC_METADATA	Music85, s1TempotoS3($15), 0	; SYZ
 ptr_mus06:	SMPS_MUSIC_METADATA	Music86, s1TempotoS3($00), 0	; SBZ
 ptr_mus07:	SMPS_MUSIC_METADATA	Music87, s1TempotoS3($FF), 0	; Invincible
-ptr_mus00:	SMPS_MUSIC_METADATA	Music88, s1TempotoS3($05), 0	; Extra Life
+ptr_mus08:	SMPS_MUSIC_METADATA	Music88, s1TempotoS3($05), 0	; Extra Life
 ptr_mus09:	SMPS_MUSIC_METADATA	Music89, s1TempotoS3($00), 0	; Special Stage
 ptr_mus0A:	SMPS_MUSIC_METADATA	Music8A, s1TempotoS3($05), 0	; Title Screen
 ptr_mus0B:	SMPS_MUSIC_METADATA	Music8B, s1TempotoS3($05), SMPS_MUSIC_METADATA_FORCE_PAL_SPEED	; Ending
@@ -35,6 +35,20 @@ ptr_mus1D:	SMPS_MUSIC_METADATA Music0D, s1TempotoS3($01), 0	; GHZ
 ptr_mus1E:	SMPS_MUSIC_METADATA Music0E, s1TempotoS3($01), 0	; GHZ
 ptr_mus1F:	SMPS_MUSIC_METADATA Music1F, s1TempotoS3($01), 0	; GHZ
 ptr_mus20:	SMPS_MUSIC_METADATA Music20, s1TempotoS3($01), 0	; GHZ
+ptr_mus21:	SMPS_MUSIC_METADATA Music21, s1TempotoS3($01), 0	; GHZ
+ptr_mus22:	SMPS_MUSIC_METADATA Music22, s1TempotoS3($01), 0	; GHZ
+ptr_mus23:	SMPS_MUSIC_METADATA Music23, s1TempotoS3($01), 0	; GHZ
+ptr_mus24:	SMPS_MUSIC_METADATA Music24, s1TempotoS3($01), 0	; GHZ
+ptr_mus25:	SMPS_MUSIC_METADATA Music25, s1TempotoS3($01), 0	; GHZ
+ptr_mus26:	SMPS_MUSIC_METADATA Music26, s1TempotoS3($01), 0	; GHZ
+ptr_mus27:	SMPS_MUSIC_METADATA Music27, s1TempotoS3($01), 0
+ptr_mus28:	SMPS_MUSIC_METADATA Music28, s1TempotoS3($01), 0
+ptr_mus29:	SMPS_MUSIC_METADATA Music29, s1TempotoS3($01), 0
+ptr_mus2A:	SMPS_MUSIC_METADATA Music2A, s1TempotoS3($01), 0
+ptr_mus2B:	SMPS_MUSIC_METADATA Music2B, s1TempotoS3($01), 0
+ptr_mus2C:	SMPS_MUSIC_METADATA Music2C, s1TempotoS3($01), 0
+ptr_mus2D:	SMPS_MUSIC_METADATA Music2D, s1TempotoS3($01), 0
+ptr_mus2E:	SMPS_MUSIC_METADATA Music2E, s1TempotoS3($01), 0
 ptr_musend
 
 ; ---------------------------------------------------------------------------
@@ -104,4 +118,32 @@ Music0E:		include "Sound/Music/FZ2.asm"
 Music1F:		include "Sound/Music/Peanut Screen.asm"
 	even
 Music20:		include "Sound/Music/Marble Zone 2.asm"
+	even
+Music21:		include "Sound/Music/Mus - SYZ2.asm"
+	even
+Music22:		include "Sound/Music/Mus - SYZ3.asm"
+	even
+Music23:		include "Sound/Music/Mus - Boss SLZ.asm"
+	even
+Music24:		include "Sound/Music/Mus - SLZ2.asm"
+	even
+Music25:		include "Sound/Music/Mus - SLZ3.asm"
+	even
+Music26:		include "Sound/Music/Mus - Special Stage 6.asm"
+	even
+Music27:		include "Sound/Music/Mus - Special Stage 2.asm"
+	even
+Music28:		include "Sound/Music/Mus - Special Stage 4.asm"
+	even
+Music29:		include "Sound/Music/Mus - Special Stage 3.asm"
+	even
+Music2A:		include "Sound/Music/Labyrinth Act 2.asm"
+	even
+Music2B:		include "Sound/Music/Labyrinth Act 3.asm"
+	even
+Music2C:		include "Sound/Music/Mus - Special Stage 5.asm"
+	even
+Music2D:		include "Sound/Music/Mus - Tutorial.asm"
+	even
+Music2E:		include "Sound/Music/Mus - Unused.asm"
 	even

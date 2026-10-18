@@ -45,79 +45,77 @@ Deform_Index:	dc.w Deform_GHZ-Deform_Index, Deform_LZ-Deform_Index
 
 
 Deform_TS:
-        move.w    (v_scrshiftx).w,d4
-        ext.l    d4
-        asl.l    #5,d4
-        move.l    d4,d1
-        asl.l    #1,d4
-        add.l    d1,d4
-        moveq    #0,d5
-        ;bsr.w    ScrollBlock1
-        ;bsr.w    ScrollBlock4
-        lea    (v_hscrolltablebuffer).w,a1
-        move.w    (v_screenposy).w,d0
-        andi.w    #$7FF,d0
-        lsr.w    #5,d0
-        neg.w    d0
-        addi.w    #$26,d0
-        move.w    d0,(v_bg2screenposy).w
-        move.w    d0,d4
-        ;bsr.w    ScrollBlock3
-        move.w    (v_bgscreenposy).w,(v_bgscrposy_vdp).w
-        move.w    #$6F,d1
-        sub.w    d4,d1
-        move.w    (v_screenposx).w,d0
-        cmpi.b    #id_Title,(v_gamemode).w
-        bne.s    loc_633C
-        moveq    #0,d0
+		move.w	(v_scrshiftx).w,d4
+		ext.l	d4
+		asl.l	#5,d4
+		move.l	d4,d1
+		asl.l	#1,d4
+		add.l	d1,d4
+		moveq	#0,d5
+		bsr.w	BGScroll_Block1
+		bsr.w	ScrollBlock4
+		lea	(v_hscrolltablebuffer).w,a1
+		move.w	(v_screenposy).w,d0
+		andi.w	#$7FF,d0
+		lsr.w	#5,d0
+		neg.w	d0
+		addi.w	#$26,d0
+		move.w	d0,(v_bg2screenposy).w
+		move.w	d0,d4
+		bsr.w	BGScroll_Block3
+		move.w	(v_bgscreenposy).w,(v_bgscrposy_vdp).w
+		move.w	#$6F,d1
+		sub.w	d4,d1
+		move.w	(v_screenposx).w,d0
+		cmpi.b	#id_Title,(v_gamemode).w
+		bne.s	loc_633C
+		moveq	#0,d0
 
 loc_633C:
-        neg.w    d0
-        swap    d0
-        move.w    (v_bgscreenposx).w,d0
-        neg.w    d0
+		neg.w	d0
+		swap	d0
+		move.w	(v_bgscreenposx).w,d0
+		neg.w	d0
 
 loc_6346:
-        move.l    d0,(a1)+
-        dbf    d1,loc_6346
-        move.w    #$27,d1
-        move.w    (v_bg2screenposx).w,d0
-        neg.w    d0
+		move.l	d0,(a1)+
+		dbf	d1,loc_6346
+		move.w	#$27,d1
+		move.w	(v_bg2screenposx).w,d0
+		neg.w	d0
 
 loc_6356:
-        move.l    d0,(a1)+
-        dbf    d1,loc_6356
-        move.w    (v_bg2screenposx).w,d0
-        addi.w    #0,d0
-        move.w    (v_screenposx).w,d2
-        addi.w    #-$200,d2
-        sub.w    d0,d2
-        ext.l    d2
-        asl.l    #8,d2
-        divs.w    #$68,d2
-        ext.l    d2
-        asl.l    #8,d2
-        moveq    #0,d3
-        move.w    d0,d3
-        move.w    #$47,d1
-        add.w    d4,d1
+		move.l	d0,(a1)+
+		dbf	d1,loc_6356
+		move.w	(v_bg2screenposx).w,d0
+		addi.w	#0,d0
+		move.w	(v_screenposx).w,d2
+		addi.w	#-$200,d2
+		sub.w	d0,d2
+		ext.l	d2
+		asl.l	#8,d2
+		divs.w	#$68,d2
+		ext.l	d2
+		asl.l	#8,d2
+		moveq	#0,d3
+		move.w	d0,d3
+		move.w	#$47,d1
+		add.w	d4,d1
 
 loc_6384:
-        move.w    d3,d0
-        ;neg.w    d0
-        move.l    d0,(a1)+
-        swap    d3
-        ;add.l    d2,d3
-        swap    d3
-        dbf    d1,loc_6384
-        rts   
+		move.w	d3,d0
+		neg.w	d0
+		move.l	d0,(a1)+
+		swap	d3
+		add.l	d2,d3
+		swap	d3
+		dbf	d1,loc_6384
+		rts	
 ; End of function Deform_TS
 
 Deform_GHZ:
         cmpi.b   #id_Title,(v_gamemode).w
         beq.w    Deform_TS
-		cmpi.w    #(id_GHZ<<8)+1,(v_zone).w
-		beq.w    Deform_SLZ2
 
 Deform_GHZ_Stage:
 	; block 3 - distant mountains
@@ -224,7 +222,6 @@ Deform_GHZ_Stage:
 		dbf	d1,.waterLoop
 		rts
 ; End of function Deform_GHZ
-
 ; ---------------------------------------------------------------------------
 ; Labyrinth Zone background layer deformation code
 ; ---------------------------------------------------------------------------
@@ -233,6 +230,12 @@ Deform_GHZ_Stage:
 
 
 Deform_LZ:
+		cmpi.w    #(id_LZ<<8)+2,(v_zone).w
+		beq.w    Deform_LZ3
+		cmpi.w    #(id_LZ<<8)+3,(v_zone).w
+		beq.w    Deform_LZ3
+
+Deform_LZ_Stage:
 	; plain background scroll
 		move.w	(v_scrshiftx).w,d4
 		ext.l	d4
@@ -306,6 +309,98 @@ Lz_Scroll_Data:
 		dc.b   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 		dc.b   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 ; End of function Deform_LZ
+; ==========================================================================
+Deform_LZ3:
+	; plain background scroll
+		move.w	(v_scrshiftx).w,d4
+		ext.l	d4
+		asl.l	#7,d4
+		move.w	(v_scrshifty).w,d5
+		ext.l	d5
+		asl.l	#7,d5
+		bsr.w	BGScroll_XY
+        move.w  #0,($FFFFF70C).w
+        move.w    ($FFFFF70C).w,($FFFFF618).w
+        lea    ($FFFFCC00).w,a1    ; load beginning address of horizontal scroll buffer to a1
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+    ;    No Speed Change
+        move.w    #48-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_1:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_1    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        asr.w    #1,d0            ; divide by 2 (Slow down the scroll position)
+        move.w    #24-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_2:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_2    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        asr.w    #2,d0            ; divide by 4 (Slow down the scroll position)
+        move.w    #10-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_3:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_3    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        asr.w    #3,d0            ; divide by 8 (Slow down the scroll position)
+        move.w    #60-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_4:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_4    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        asr.w    #2,d0            ; divide by 4 (Slow down the scroll position)
+        move.w    #10-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_5:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_5    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        asr.w    #1,d0            ; divide by 2 (Slow down the scroll position)
+        move.w    #24-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_6:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_6    ; repeat d1 number of scanlines
+
+        move.w    ($FFFFF700).w,d0    ; load FG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+        swap    d0            ; send to the left side of d0
+        move.w    ($FFFFF708).w,d0    ; load BG screen's X position
+        neg.w    d0            ; negate (positive to negative)
+    ;    No Speed Change
+        move.w    #54-1,d1        ; set number of scan lines to dump (minus 1 for dbf)
+Deform_LZ_7:
+        move.l    d0,(a1)+        ; dump both the FG and BG scanline position to buffer
+        dbf    d1,Deform_LZ_7    ; repeat d1 number of scanlines
+        rts
+; End of function Deform_LZ3
 
 ; ---------------------------------------------------------------------------
 ; Marble Zone background layer deformation code
@@ -327,13 +422,13 @@ Deform_MZ:
 	; block 3 - mountains
 		move.w	(v_scrshiftx).w,d4
 		ext.l	d4
-		asl.l	#6,d4
+		asl.l	#2,d4
 		moveq	#6,d6
 		bsr.w	BGScroll_Block3
 	; block 2 - bushes & antique buildings
 		move.w	(v_scrshiftx).w,d4
 		ext.l	d4
-		asl.l	#7,d4
+		asl.l	#3,d4
 		moveq	#4,d6
 		bsr.w	BGScroll_Block2
 	; calculate y-position of background
@@ -550,6 +645,88 @@ loc_63C6:
 
 
 Deform_SYZ:
+		cmpi.w    #(id_SYZ<<8)+2,(v_zone).w
+		beq.w    Deform_SYZ3
+
+Deform_SYZ_Stage:
+	; vertical scrolling
+		move.w	(v_scrshifty).w,d5
+		ext.l	d5
+		asl.l	#4,d5
+		move.l	d5,d1
+		asl.l	#1,d5
+		add.l	d1,d5
+		bsr.w	Bg_Scroll_Y
+		move.w	(v_bgscreenposy).w,(v_bgscrposy_vdp).w
+	; calculate background scroll buffer
+		lea	(v_bgscroll_buffer).w,a1
+		move.w	(v_screenposx).w,d2
+		neg.w	d2
+		move.w	d2,d0
+		asr.w	#3,d0
+		sub.w	d2,d0
+		ext.l	d0
+		asl.l	#3,d0
+		divs.w	#8,d0
+		ext.l	d0
+		asl.l	#4,d0
+		asl.l	#8,d0
+		moveq	#0,d3
+		move.w	d2,d3
+		asr.w	#1,d3
+		move.w	#7,d1
+	.cloudLoop:		
+		move.w	d3,(a1)+
+		swap	d3
+		add.l	d0,d3
+		swap	d3
+		dbf	d1,.cloudLoop
+
+		move.w	d2,d0
+		asr.w	#3,d0
+		move.w	#4,d1
+	.mountainLoop:		
+		move.w	d0,(a1)+
+		dbf	d1,.mountainLoop
+
+		move.w	d2,d0
+		asr.w	#2,d0
+		move.w	#5,d1
+	.buildingLoop:		
+		move.w	d0,(a1)+
+		dbf	d1,.buildingLoop
+
+		move.w	d2,d0
+		move.w	d2,d1
+		asr.w	#1,d1
+		sub.w	d1,d0
+		ext.l	d0
+		asl.l	#4,d0
+		divs.w	#$E,d0
+		ext.l	d0
+		asl.l	#4,d0
+		asl.l	#8,d0
+		moveq	#0,d3
+		move.w	d2,d3
+		asr.w	#1,d3
+		move.w	#$D,d1
+	.bushLoop:		
+		move.w	d3,(a1)+
+		swap	d3
+		add.l	d0,d3
+		swap	d3
+		dbf	d1,.bushLoop
+
+		lea	(v_bgscroll_buffer).w,a2
+		move.w	(v_bgscreenposy).w,d0
+		move.w	d0,d2
+		andi.w	#$1F0,d0
+		lsr.w	#3,d0
+		lea	(a2,d0.w),a2
+		bra.w	Bg_Scroll_X
+; ======================================================
+
+Deform_SYZ3:
 		move.w	(v_scrshiftx).w,d4
 		ext.l	d4
 		asl.l	#6,d4
@@ -1116,3 +1293,32 @@ BGScroll_Block3:
 		bset	d6,(v_bg3_scroll_flags).w
 	.return:
 		rts
+; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+
+
+ScrollBlock4:
+		move.w	(v_bg2screenposx).w,d2
+		move.w	(v_bg2screenposy).w,d3
+		move.w	(v_scrshiftx).w,d0
+		ext.l	d0
+		asl.l	#7,d0
+		add.l	d0,(v_bg2screenposx).w
+		move.w	(v_bg2screenposx).w,d0
+		andi.w	#$10,d0
+		move.b	(v_bg2_xblock).w,d1
+		eor.b	d1,d0
+		bne.s	locret_6884
+		eori.b	#$10,(v_bg2_xblock).w
+		move.w	(v_bg2screenposx).w,d0
+		sub.w	d2,d0
+		bpl.s	loc_687E
+		bset	#2,(v_bg2_scroll_flags).w
+		bra.s	locret_6884
+; ===========================================================================
+
+loc_687E:
+		bset	#3,(v_bg2_scroll_flags).w
+
+locret_6884:
+		rts	
+; End of function ScrollBlock4

@@ -1,7 +1,6 @@
 {
     "Flex": 2,
     "name": "Sonic 1",
-    "node": "9999eaa2-39c3-447f-94d4-22f43f5ed13c",
     "objects": [
         {
             "name": "Common",
@@ -18,18 +17,21 @@
                     "art": {
                         "path": "artunc/Sonic.bin",
                         "compression": "Uncompressed",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Sonic.asm",
-                        "label": ""
+                        "label": "Map_SonicReload"
                     },
                     "dplcs": {
                         "enabled": true,
                         "path": "_maps/Sonic - Dynamic Gfx Script.asm",
                         "label": ""
                     },
-                    "uuid": "da472ab9-f363-45e6-8ee3-a83fd70d6d9c"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Signpost",
@@ -41,20 +43,23 @@
                     ],
                     "format": "Sonic 1.js",
                     "art": {
-                        "path": "artnem/Signpost.nem",
-                        "compression": "Nemesis",
-                        "offset": 0
+                        "path": "artunc\\Signpost - PeanutNoceda.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Signpost.asm",
                         "label": ""
                     },
                     "dplcs": {
-                        "enabled": false,
-                        "path": "",
+                        "enabled": true,
+                        "path": "_maps\\Signpost_DPLC.asm",
                         "label": ""
                     },
-                    "uuid": "472ab9f3-6355-46ce-a3a8-3fd70d6d9cd8"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Ring",
@@ -68,7 +73,8 @@
                     "art": {
                         "path": "artnem/Rings.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Rings.asm",
@@ -79,24 +85,25 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "2ab9f363-55e6-4ee3-a83f-d70d6d9cd886"
+                    "config": {}
                 },
                 {
                     "name": "Monitor",
                     "format": "Sonic 1.js",
                     "palettes": [
                         {
-                            "path": "palette/Sonic.bin",
+                            "path": "..\\Sonic-the-Hedgehog-Reloaded - copia\\palette\\Sonic.bin",
                             "length": 1
                         }
                     ],
                     "art": {
-                        "path": "artnem/Monitors.nem",
-                        "compression": "Nemesis",
-                        "offset": 0
+                        "path": "artunc\\Title Cards Extended.unc",
+                        "compression": "Uncompressed",
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
-                        "path": "_maps/Monitor.asm",
+                        "path": "",
                         "label": ""
                     },
                     "dplcs": {
@@ -104,7 +111,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "b9f36355-e6ce-43a8-bfd7-0d6d9cd8865f"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Spikes",
@@ -118,7 +127,8 @@
                     "art": {
                         "path": "artnem/Spikes.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Spikes.asm",
@@ -129,7 +139,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "f36355e6-cee3-483f-970d-6d9cd8865fb1"
+                    "config": {}
                 },
                 {
                     "name": "Egg Prison",
@@ -143,7 +153,8 @@
                     "art": {
                         "path": "artnem/Prison Capsule.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Prison Capsule.asm",
@@ -154,7 +165,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6355e6ce-e3a8-4fd7-8d6d-9cd8865fb147"
+                    "config": {}
                 },
                 {
                     "name": "Spring",
@@ -168,7 +179,8 @@
                     "art": {
                         "path": "artnem/Spring Horizontal.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Springs.asm",
@@ -179,7 +191,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "55e6cee3-a83f-470d-ad9c-d8865fb14792"
+                    "config": {}
                 },
                 {
                     "name": "Giant ring",
@@ -193,7 +205,8 @@
                     "art": {
                         "path": "artunc/Giant Ring.bin",
                         "compression": "Uncompressed",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Giant Ring.asm",
@@ -204,7 +217,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "e6cee3a8-3fd7-4d6d-9cd8-865fb1479299"
+                    "config": {}
                 },
                 {
                     "name": "Invisible solid block",
@@ -218,7 +231,8 @@
                     "art": {
                         "path": "artnem/Monitors.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Invisible Barriers.asm",
@@ -229,7 +243,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "e3a83fd7-0d6d-4cd8-865f-b147929999ea"
+                    "config": {}
                 },
                 {
                     "name": "Lamppost",
@@ -243,7 +257,8 @@
                     "art": {
                         "path": "artnem/Lamppost.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Lamppost.asm",
@@ -254,7 +269,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "a83fd70d-6d9c-4886-9fb1-47929999eaa2"
+                    "config": {}
                 },
                 {
                     "name": "Hidden Point Bonus",
@@ -268,7 +283,8 @@
                     "art": {
                         "path": "artnem/Hidden Bonuses.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Hidden Bonuses.asm",
@@ -279,25 +295,25 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "3fd70d6d-9cd8-465f-b147-929999eaa239"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": true,
-            "uuid": "14da472a-b9f3-4355-a6ce-e3a83fd70d6d"
+            "config": {}
         },
         {
             "name": "GHZ",
             "children": [
                 {
-                    "uuid": "00cd250e-813f-440e-b06c-e8c1cfd2387d",
                     "format": "Sonic 1.js",
                     "name": "Ball",
                     "palettes": [],
                     "art": {
                         "path": "artnem/GHZ Giant Ball.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/GHZ Ball.asm",
@@ -307,6 +323,9 @@
                         "enabled": false,
                         "path": "",
                         "label": ""
+                    },
+                    "config": {
+                        "mapMacros": true
                     }
                 },
                 {
@@ -325,7 +344,8 @@
                     "art": {
                         "path": "artnem/GHZ Bridge.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bridge.asm",
@@ -336,7 +356,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "0d6d9cd8-865f-4147-9299-99eaa239c304"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Swinging Platform",
@@ -354,7 +376,8 @@
                     "art": {
                         "path": "artnem/GHZ Swinging Platform.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Swinging Platforms (GHZ).asm",
@@ -365,7 +388,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6d9cd886-5fb1-4792-9999-eaa239c3047f"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Helix of spikes on a pole",
@@ -383,7 +408,8 @@
                     "art": {
                         "path": "artnem/GHZ Spiked Log.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Spiked Pole Helix.asm",
@@ -394,14 +420,16 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "9cd8865f-b147-4299-99ea-a239c3047fd4"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Platform",
                     "format": "Sonic 1.js",
                     "palettes": [
                         {
-                            "path": "palette/Sonic.bin",
+                            "path": "..\\Sonic-New-Adventures-Disasm-Main\\palette\\Sonic.bin",
                             "length": 1
                         },
                         {
@@ -410,9 +438,10 @@
                         }
                     ],
                     "art": {
-                        "path": "artnem/8x8 - GHZ1.nem",
+                        "path": "artnem\\8x8 - GHZ2.bin",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Platforms (GHZ).asm",
@@ -423,7 +452,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d8865fb1-4792-4999-aaa2-39c3047fd4d4"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Collapsing Cliff",
@@ -439,9 +470,10 @@
                         }
                     ],
                     "art": {
-                        "path": "artnem/8x8 - GHZ1.nem",
+                        "path": "artnem\\8x8 - GHZ.bin",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Collapsing Ledge.asm",
@@ -452,7 +484,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "865fb147-9299-49ea-a239-c3047fd4d422"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Bridge stump",
@@ -470,7 +504,8 @@
                     "art": {
                         "path": "artnem/GHZ Bridge.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bridge.asm",
@@ -481,7 +516,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5fb14792-9999-4aa2-b9c3-047fd4d422f4"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Crabmeat",
@@ -499,7 +536,8 @@
                     "art": {
                         "path": "artnem/Enemy Crabmeat.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Crabmeat.asm",
@@ -510,7 +548,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "b1479299-99ea-4239-8304-7fd4d422f43f"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Buzz Bomber",
@@ -528,7 +568,8 @@
                     "art": {
                         "path": "artnem/Enemy Buzz Bomber.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Buzz Bomber.asm",
@@ -539,7 +580,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "47929999-eaa2-49c3-847f-d4d422f43f5e"
+                    "config": {}
                 },
                 {
                     "name": "Chopper",
@@ -557,7 +598,8 @@
                     "art": {
                         "path": "artnem/Enemy Chopper.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Chopper.asm",
@@ -568,7 +610,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "929999ea-a239-4304-bfd4-d422f43f5ed1"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Purple rock",
@@ -586,7 +630,8 @@
                     "art": {
                         "path": "artnem/GHZ Purple Rock.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Purple Rock.asm",
@@ -597,7 +642,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "9999eaa2-39c3-447f-94d4-22f43f5ed13c"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Breakable Wall",
@@ -615,7 +662,8 @@
                     "art": {
                         "path": "artnem/GHZ Breakable Wall.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Smashable Walls.asm",
@@ -626,7 +674,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "99eaa239-c304-4fd4-9422-f43f5ed13c29"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Moto Bug",
@@ -644,7 +694,8 @@
                     "art": {
                         "path": "artnem/Enemy Motobug.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Moto Bug.asm",
@@ -655,7 +706,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "eaa239c3-047f-44d4-a2f4-3f5ed13c29d5"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Newtron",
@@ -673,7 +726,8 @@
                     "art": {
                         "path": "artnem/Enemy Newtron.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Newtron.asm",
@@ -684,7 +738,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "a239c304-7fd4-4422-b43f-5ed13c29d58b"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Wall Barrier",
@@ -702,7 +758,8 @@
                     "art": {
                         "path": "artnem/GHZ Edge Wall.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/GHZ Edge Walls.asm",
@@ -713,12 +770,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "39c3047f-d4d4-42f4-bf5e-d13c29d58b5f"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": true,
-            "uuid": "d70d6d9c-d886-4fb1-8792-9999eaa239c3"
+            "config": {}
         },
         {
             "name": "LZ",
@@ -739,7 +796,8 @@
                     "art": {
                         "path": "artnem/LZ Breakable Pole.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Pole that Breaks.asm",
@@ -750,7 +808,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "047fd4d4-22f4-4f5e-913c-29d58b5f0d2c"
+                    "config": {}
                 },
                 {
                     "name": "Flapping Door",
@@ -768,7 +826,8 @@
                     "art": {
                         "path": "artnem/LZ Flapping Door.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Flapping Door.asm",
@@ -779,7 +838,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "7fd4d422-f43f-4ed1-bc29-d58b5f0d2c6b"
+                    "config": {}
                 },
                 {
                     "name": "Harpoon",
@@ -797,7 +856,8 @@
                     "art": {
                         "path": "artnem/LZ Harpoon.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Harpoon.asm",
@@ -808,7 +868,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d4d422f4-3f5e-413c-a9d5-8b5f0d2c6bda"
+                    "config": {}
                 },
                 {
                     "name": "Jaws",
@@ -826,7 +886,8 @@
                     "art": {
                         "path": "artnem/Enemy Jaws.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Jaws.asm",
@@ -837,7 +898,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d422f43f-5ed1-4c29-958b-5f0d2c6bdae6"
+                    "config": {}
                 },
                 {
                     "name": "Burrobot",
@@ -855,7 +916,8 @@
                     "art": {
                         "path": "artnem/Enemy Burrobot.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Burrobot.asm",
@@ -866,7 +928,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "22f43f5e-d13c-49d5-8b5f-0d2c6bdae612"
+                    "config": {}
                 },
                 {
                     "name": "Switch",
@@ -884,7 +946,8 @@
                     "art": {
                         "path": "artnem/Switch.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Button.asm",
@@ -895,7 +958,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "f43f5ed1-3c29-458b-9f0d-2c6bdae612ef"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Moving Block Platform",
@@ -913,7 +978,8 @@
                     "art": {
                         "path": "artnem/LZ 32x16 Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Moving Blocks (LZ).asm",
@@ -924,7 +990,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "3f5ed13c-29d5-4b5f-8d2c-6bdae612ef85"
+                    "config": {}
                 },
                 {
                     "name": "Door",
@@ -942,7 +1008,8 @@
                     "art": {
                         "path": "artnem/LZ Vertical Door.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Floating Blocks and Doors.asm",
@@ -953,7 +1020,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5ed13c29-d58b-4f0d-ac6b-dae612ef85be"
+                    "config": {}
                 },
                 {
                     "name": "Spikeball on Chain",
@@ -971,7 +1038,8 @@
                     "art": {
                         "path": "artnem/LZ Spiked Ball & Chain.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Spiked Ball and Chain (LZ).asm",
@@ -982,7 +1050,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d13c29d5-8b5f-4d2c-abda-e612ef85be41"
+                    "config": {}
                 },
                 {
                     "name": "Orbinaut",
@@ -1000,7 +1068,8 @@
                     "art": {
                         "path": "artnem/Enemy Orbinaut.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Orbinaut.asm",
@@ -1011,7 +1080,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "3c29d58b-5f0d-4c6b-9ae6-12ef85be41a2"
+                    "config": {}
                 },
                 {
                     "name": "Gargoyle",
@@ -1029,7 +1098,8 @@
                     "art": {
                         "path": "artnem/LZ Gargoyle & Fireball.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Gargoyle.asm",
@@ -1040,7 +1110,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "29d58b5f-0d2c-4bda-a612-ef85be41a2ca"
+                    "config": {}
                 },
                 {
                     "name": "Conveyor Belt",
@@ -1058,7 +1128,8 @@
                     "art": {
                         "path": "artnem/LZ Wheel.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/LZ Conveyor.asm",
@@ -1069,7 +1140,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d58b5f0d-2c6b-4ae6-92ef-85be41a2ca52"
+                    "config": {}
                 },
                 {
                     "name": "Bubbles",
@@ -1087,7 +1158,8 @@
                     "art": {
                         "path": "artnem/LZ Bubbles & Countdown.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bubbles.asm",
@@ -1098,7 +1170,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "8b5f0d2c-6bda-4612-af85-be41a2ca5284"
+                    "config": {}
                 },
                 {
                     "name": "Block/Cork",
@@ -1116,7 +1188,8 @@
                     "art": {
                         "path": "artnem/LZ Horizontal Door.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/LZ Blocks.asm",
@@ -1127,7 +1200,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5f0d2c6b-dae6-42ef-85be-41a2ca5284d1"
+                    "config": {}
                 },
                 {
                     "name": "Waterfall",
@@ -1145,7 +1218,8 @@
                     "art": {
                         "path": "artnem/LZ Water & Splashes.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Waterfalls.asm",
@@ -1156,12 +1230,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "0d2c6bda-e612-4f85-be41-a2ca5284d18b"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": false,
-            "uuid": "c3047fd4-d422-443f-9ed1-3c29d58b5f0d"
+            "config": {}
         },
         {
             "name": "MZ",
@@ -1182,7 +1256,8 @@
                     "art": {
                         "path": "artnem/Fireballs.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Fireballs.asm",
@@ -1193,7 +1268,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6bdae612-ef85-4e41-a2ca-5284d18ba250"
+                    "config": {}
                 },
                 {
                     "name": "Buzz Bomber",
@@ -1211,7 +1286,8 @@
                     "art": {
                         "path": "artnem/Enemy Buzz Bomber.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Buzz Bomber.asm",
@@ -1222,7 +1298,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "e612ef85-be41-42ca-9284-d18ba25059c7"
+                    "config": {}
                 },
                 {
                     "name": "Grass Platform",
@@ -1240,7 +1316,8 @@
                     "art": {
                         "path": "artnem/8x8 - MZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/MZ Large Grassy Platforms.asm",
@@ -1251,7 +1328,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "12ef85be-41a2-4a52-84d1-8ba25059c71d"
+                    "config": {}
                 },
                 {
                     "name": "Large Glass Pillar",
@@ -1269,7 +1346,8 @@
                     "art": {
                         "path": "artnem/MZ Green Glass Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/MZ Large Green Glass Blocks.asm",
@@ -1280,7 +1358,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "ef85be41-a2ca-4284-918b-a25059c71df9"
+                    "config": {}
                 },
                 {
                     "name": "Switch",
@@ -1298,7 +1376,8 @@
                     "art": {
                         "path": "artnem/MZ Switch.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Button.asm",
@@ -1309,7 +1388,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "85be41a2-ca52-44d1-8ba2-5059c71df96d"
+                    "config": {}
                 },
                 {
                     "name": "Movable Block",
@@ -1327,7 +1406,8 @@
                     "art": {
                         "path": "artnem/MZ Green Pushable Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Pushable Blocks.asm",
@@ -1338,7 +1418,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "be41a2ca-5284-418b-a250-59c71df96d67"
+                    "config": {}
                 },
                 {
                     "name": "Sideways Stomper",
@@ -1356,7 +1436,8 @@
                     "art": {
                         "path": "artnem/MZ Metal Blocks.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Sideways Stomper.asm",
@@ -1367,7 +1448,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "41a2ca52-84d1-4ba2-9059-c71df96d676a"
+                    "config": {}
                 },
                 {
                     "name": "Brick",
@@ -1385,7 +1466,8 @@
                     "art": {
                         "path": "artnem/8x8 - MZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/MZ Bricks.asm",
@@ -1396,7 +1478,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "a2ca5284-d18b-4250-99c7-1df96d676a04"
+                    "config": {}
                 },
                 {
                     "name": "Wall of Lava",
@@ -1414,7 +1496,8 @@
                     "art": {
                         "path": "artnem/MZ Lava.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Wall of Lava.asm",
@@ -1425,7 +1508,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "ca5284d1-8ba2-4059-871d-f96d676a0423"
+                    "config": {}
                 },
                 {
                     "name": "Yadrin",
@@ -1443,7 +1526,8 @@
                     "art": {
                         "path": "artnem/Enemy Yadrin.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Yadrin.asm",
@@ -1454,7 +1538,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5284d18b-a250-49c7-9df9-6d676a04238a"
+                    "config": {}
                 },
                 {
                     "name": "Smashable Block",
@@ -1472,7 +1556,8 @@
                     "art": {
                         "path": "artnem/MZ Green Pushable Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Smashable Green Block.asm",
@@ -1483,7 +1568,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "84d18ba2-5059-471d-b96d-676a04238a07"
+                    "config": {}
                 },
                 {
                     "name": "Moving Block Platform",
@@ -1501,7 +1586,8 @@
                     "art": {
                         "path": "artnem/MZ Green Pushable Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Moving Blocks (MZ and SBZ).asm",
@@ -1512,7 +1598,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d18ba250-59c7-4df9-ad67-6a04238a0756"
+                    "config": {}
                 },
                 {
                     "name": "Collapsing Floor",
@@ -1530,7 +1616,8 @@
                     "art": {
                         "path": "artnem/MZ Green Pushable Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Collapsing Floors.asm",
@@ -1541,7 +1628,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "8ba25059-c71d-496d-a76a-04238a0756b3"
+                    "config": {}
                 },
                 {
                     "name": "Basaran",
@@ -1559,7 +1646,8 @@
                     "art": {
                         "path": "artnem/Enemy Basaran.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Basaran.asm",
@@ -1570,7 +1658,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "a25059c7-1df9-4d67-aa04-238a0756b351"
+                    "config": {}
                 },
                 {
                     "name": "Caterkiller",
@@ -1588,7 +1676,8 @@
                     "art": {
                         "path": "artnem/Enemy Caterkiller.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Caterkiller.asm",
@@ -1599,12 +1688,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5059c71d-f96d-476a-8423-8a0756b3511a"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": false,
-            "uuid": "2c6bdae6-12ef-45be-81a2-ca5284d18ba2"
+            "config": {}
         },
         {
             "name": "SBZ",
@@ -1625,7 +1714,8 @@
                     "art": {
                         "path": "artnem/SYZ Large Spikeball.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Big Spiked Ball.asm",
@@ -1636,7 +1726,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "c71df96d-676a-4423-8a07-56b3511a57a1"
+                    "config": {}
                 },
                 {
                     "name": "Ball Hog",
@@ -1654,7 +1744,8 @@
                     "art": {
                         "path": "artnem/Enemy Ball Hog.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Ball Hog.asm",
@@ -1665,7 +1756,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "1df96d67-6a04-438a-8756-b3511a57a1e8"
+                    "config": {}
                 },
                 {
                     "name": "One-Way Barrier",
@@ -1683,7 +1774,8 @@
                     "art": {
                         "path": "artnem/SBZ Small Vertical Door.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/SBZ Small Door.asm",
@@ -1694,7 +1786,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "f96d676a-0423-4a07-96b3-511a57a1e8dd"
+                    "config": {}
                 },
                 {
                     "name": "Switch",
@@ -1712,7 +1804,8 @@
                     "art": {
                         "path": "artnem/Switch.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Button.asm",
@@ -1723,7 +1816,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6d676a04-238a-4756-b351-1a57a1e8ddd8"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Moving Block Platform",
@@ -1741,7 +1836,8 @@
                     "art": {
                         "path": "artnem/SBZ Sliding Floor Trap.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Moving Blocks (MZ and SBZ).asm",
@@ -1752,7 +1848,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "676a0423-8a07-46b3-911a-57a1e8ddd81c"
+                    "config": {}
                 },
                 {
                     "name": "Collapsing Floor",
@@ -1770,7 +1866,8 @@
                     "art": {
                         "path": "artnem/SBZ Collapsing Floor.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Collapsing Floors.asm",
@@ -1781,7 +1878,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6a04238a-0756-4351-9a57-a1e8ddd81c53"
+                    "config": {}
                 },
                 {
                     "name": "Bomb",
@@ -1799,7 +1896,8 @@
                     "art": {
                         "path": "artnem/Enemy Bomb.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bomb Enemy.asm",
@@ -1810,7 +1908,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "04238a07-56b3-411a-97a1-e8ddd81c539e"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Orbinaut",
@@ -1826,9 +1926,10 @@
                         }
                     ],
                     "art": {
-                        "path": "artnem/Enemy Orbinaut.nem",
+                        "path": "artnem/Enemy Orbinaut.bin",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Orbinaut.asm",
@@ -1839,7 +1940,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "238a0756-b351-4a57-a1e8-ddd81c539e89"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Rotating Junction",
@@ -1857,7 +1960,8 @@
                     "art": {
                         "path": "artnem/SBZ Junction Wheel.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Rotating Junction.asm",
@@ -1868,7 +1972,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "8a0756b3-511a-47a1-a8dd-d81c539e896a"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Trapdoor/Spinning Platform",
@@ -1886,7 +1992,8 @@
                     "art": {
                         "path": "artnem/SBZ Spinning Platform.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/SBZ Spinning Platforms.asm",
@@ -1897,7 +2004,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "0756b351-1a57-41e8-9dd8-1c539e896a36"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Vanishing Platform",
@@ -1915,7 +2024,8 @@
                     "art": {
                         "path": "artnem/SBZ Vanishing Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/SBZ Vanishing Platforms.asm",
@@ -1926,7 +2036,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "56b3511a-57a1-48dd-981c-539e896a365c"
+                    "config": {}
                 },
                 {
                     "name": "Flamethrower",
@@ -1944,7 +2054,8 @@
                     "art": {
                         "path": "artnem/SBZ Flaming Pipe.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Flamethrower.asm",
@@ -1955,7 +2066,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "b3511a57-a1e8-4dd8-9c53-9e896a365cd1"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Electrocuter",
@@ -1973,7 +2086,8 @@
                     "art": {
                         "path": "artnem/SBZ Electrocuter.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Electrocuter.asm",
@@ -1984,7 +2098,9 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "511a57a1-e8dd-481c-939e-896a365cd177"
+                    "config": {
+                        "mapMacros": true
+                    }
                 },
                 {
                     "name": "Girder Block",
@@ -2002,7 +2118,8 @@
                     "art": {
                         "path": "artnem/SBZ Crushing Girder.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Girder Block.asm",
@@ -2013,7 +2130,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "1a57a1e8-ddd8-4c53-9e89-6a365cd17768"
+                    "config": {}
                 },
                 {
                     "name": "Caterkiller",
@@ -2031,7 +2148,8 @@
                     "art": {
                         "path": "artnem/Enemy Caterkiller.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Caterkiller.asm",
@@ -2042,12 +2160,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "57a1e8dd-d81c-439e-896a-365cd177686c"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
-            "uuid": "59c71df9-6d67-4a04-a38a-0756b3511a57"
+            "expanded": true,
+            "config": {}
         },
         {
             "name": "SLZ",
@@ -2068,7 +2186,8 @@
                     "art": {
                         "path": "artnem/Fireballs.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Fireballs.asm",
@@ -2079,7 +2198,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "e8ddd81c-539e-496a-b65c-d177686c6337"
+                    "config": {}
                 },
                 {
                     "name": "Swinging Platform",
@@ -2097,7 +2216,8 @@
                     "art": {
                         "path": "artnem/SLZ Swinging Platform.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Swinging Platforms (SLZ).asm",
@@ -2108,7 +2228,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "ddd81c53-9e89-4a36-9cd1-77686c6337c4"
+                    "config": {}
                 },
                 {
                     "name": "Platform",
@@ -2126,7 +2246,8 @@
                     "art": {
                         "path": "artnem/8x8 - SLZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Platforms (SLZ).asm",
@@ -2137,7 +2258,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d81c539e-896a-465c-9177-686c6337c46a"
+                    "config": {}
                 },
                 {
                     "name": "Fireball Thrower",
@@ -2155,7 +2276,8 @@
                     "art": {
                         "path": "artnem/SLZ Cannon.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Scenery.asm",
@@ -2166,7 +2288,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "1c539e89-6a36-4cd1-b768-6c6337c46aa9"
+                    "config": {}
                 },
                 {
                     "name": "Breakable Wall",
@@ -2184,7 +2306,8 @@
                     "art": {
                         "path": "artnem/SLZ Breakable Wall.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Smashable Walls.asm",
@@ -2195,7 +2318,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "539e896a-365c-4177-a86c-6337c46aa914"
+                    "config": {}
                 },
                 {
                     "name": "Collapsing Floor",
@@ -2213,7 +2336,8 @@
                     "art": {
                         "path": "artnem/SLZ 32x32 Block.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Collapsing Floors.asm",
@@ -2224,7 +2348,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "9e896a36-5cd1-4768-ac63-37c46aa9148b"
+                    "config": {}
                 },
                 {
                     "name": "Elevator",
@@ -2242,7 +2366,8 @@
                     "art": {
                         "path": "artnem/8x8 - SLZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/SLZ Elevators.asm",
@@ -2253,7 +2378,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "896a365c-d177-486c-a337-c46aa9148b30"
+                    "config": {}
                 },
                 {
                     "name": "Rotating Platform",
@@ -2271,7 +2396,8 @@
                     "art": {
                         "path": "artnem/8x8 - SLZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/SLZ Circling Platform.asm",
@@ -2282,7 +2408,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6a365cd1-7768-4c63-b7c4-6aa9148b3085"
+                    "config": {}
                 },
                 {
                     "name": "Stairs",
@@ -2300,7 +2426,8 @@
                     "art": {
                         "path": "artnem/8x8 - SLZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Staircase.asm",
@@ -2311,7 +2438,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "365cd177-686c-4337-846a-a9148b3085fe"
+                    "config": {}
                 },
                 {
                     "name": "Fan",
@@ -2329,7 +2456,8 @@
                     "art": {
                         "path": "artnem/SLZ Fan.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Fan.asm",
@@ -2340,7 +2468,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "5cd17768-6c63-47c4-aaa9-148b3085fe2f"
+                    "config": {}
                 },
                 {
                     "name": "Seesaw",
@@ -2358,7 +2486,8 @@
                     "art": {
                         "path": "artnem/SLZ Seesaw.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Seesaw.asm",
@@ -2369,7 +2498,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "d177686c-6337-446a-a914-8b3085fe2f64"
+                    "config": {}
                 },
                 {
                     "name": "Bomb",
@@ -2387,7 +2516,8 @@
                     "art": {
                         "path": "artnem/Enemy Bomb.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bomb Enemy.asm",
@@ -2398,7 +2528,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "77686c63-37c4-4aa9-948b-3085fe2f6400"
+                    "config": {}
                 },
                 {
                     "name": "Orbinaut",
@@ -2416,7 +2546,8 @@
                     "art": {
                         "path": "artnem/Enemy Orbinaut.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Orbinaut.asm",
@@ -2427,12 +2558,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "686c6337-c46a-4914-8b30-85fe2f6400cd"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": false,
-            "uuid": "a1e8ddd8-1c53-4e89-aa36-5cd177686c63"
+            "config": {}
         },
         {
             "name": "SYZ",
@@ -2453,7 +2584,8 @@
                     "art": {
                         "path": "artnem/8x8 - SYZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Light.asm",
@@ -2464,7 +2596,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6337c46a-a914-4b30-85fe-2f6400cd250e"
+                    "config": {}
                 },
                 {
                     "name": "Platform",
@@ -2482,7 +2614,8 @@
                     "art": {
                         "path": "artnem/8x8 - SYZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Platforms (SYZ).asm",
@@ -2493,7 +2626,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "37c46aa9-148b-4085-be2f-6400cd250e81"
+                    "config": {}
                 },
                 {
                     "name": "Crabmeat",
@@ -2511,7 +2644,8 @@
                     "art": {
                         "path": "artnem/Enemy Crabmeat.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Crabmeat.asm",
@@ -2522,7 +2656,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "c46aa914-8b30-45fe-af64-00cd250e813f"
+                    "config": {}
                 },
                 {
                     "name": "Buzz Bomber",
@@ -2540,7 +2674,8 @@
                     "art": {
                         "path": "artnem/Enemy Buzz Bomber.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Buzz Bomber.asm",
@@ -2551,7 +2686,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6aa9148b-3085-4e2f-a400-cd250e813fb4"
+                    "config": {}
                 },
                 {
                     "name": "Switch",
@@ -2569,7 +2704,8 @@
                     "art": {
                         "path": "artnem/Switch.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Button.asm",
@@ -2580,7 +2716,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "a9148b30-85fe-4f64-80cd-250e813fb40e"
+                    "config": {}
                 },
                 {
                     "name": "Roller",
@@ -2598,7 +2734,8 @@
                     "art": {
                         "path": "artnem/Enemy Roller.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Roller.asm",
@@ -2609,7 +2746,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "148b3085-fe2f-4400-8d25-0e813fb40ef0"
+                    "config": {}
                 },
                 {
                     "name": "Bumper",
@@ -2627,7 +2764,8 @@
                     "art": {
                         "path": "artnem/SYZ Bumper.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Bumper.asm",
@@ -2638,7 +2776,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "8b3085fe-2f64-40cd-a50e-813fb40ef06c"
+                    "config": {}
                 },
                 {
                     "name": "Yadrin",
@@ -2656,7 +2794,8 @@
                     "art": {
                         "path": "artnem/Enemy Yadrin.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Yadrin.asm",
@@ -2667,7 +2806,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "3085fe2f-6400-4d25-8e81-3fb40ef06ce8"
+                    "config": {}
                 },
                 {
                     "name": "Platform",
@@ -2685,7 +2824,8 @@
                     "art": {
                         "path": "artnem/8x8 - SYZ.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Floating Blocks and Doors.asm",
@@ -2696,7 +2836,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "85fe2f64-00cd-450e-813f-b40ef06ce8c1"
+                    "config": {}
                 },
                 {
                     "name": "Spikeball Chain",
@@ -2714,7 +2854,8 @@
                     "art": {
                         "path": "artnem/SYZ Small Spikeball.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Spiked Ball and Chain (SYZ).asm",
@@ -2725,7 +2866,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "fe2f6400-cd25-4e81-bfb4-0ef06ce8c1cf"
+                    "config": {}
                 },
                 {
                     "name": "Big Spiked Ball",
@@ -2743,7 +2884,8 @@
                     "art": {
                         "path": "artnem/SYZ Large Spikeball.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Big Spiked Ball.asm",
@@ -2754,7 +2896,7 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "2f6400cd-250e-413f-b40e-f06ce8c1cfd2"
+                    "config": {}
                 },
                 {
                     "name": "Caterkiller",
@@ -2772,7 +2914,8 @@
                     "art": {
                         "path": "artnem/Enemy Caterkiller.nem",
                         "compression": "Nemesis",
-                        "offset": 0
+                        "offset": 0,
+                        "extra": []
                     },
                     "mappings": {
                         "path": "_maps/Caterkiller.asm",
@@ -2783,12 +2926,12 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "6400cd25-0e81-4fb4-8ef0-6ce8c1cfd238"
+                    "config": {}
                 }
             ],
             "isDirectory": true,
             "expanded": false,
-            "uuid": "6c6337c4-6aa9-448b-b085-fe2f6400cd25"
+            "config": {}
         }
     ]
 }

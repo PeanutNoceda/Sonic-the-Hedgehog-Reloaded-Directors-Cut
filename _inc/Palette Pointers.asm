@@ -37,6 +37,11 @@ ptr_Pal_GHZ2:		palp	1,Pal_GHZ2		; $14 - GHZ2
 ptr_Pal_GHZ3:		palp	1,Pal_GHZ3		; $15 - GHZ3
 ptr_Pal_MZ2:		palp	1,Pal_MZ2		; $16 - MZ2
 ptr_Pal_MZ3:		palp	1,Pal_MZ3		; $17 - MZ3
+ptr_Pal_SYZ1:		palp	1,Pal_SYZ1		; 8 - SYZ
+ptr_Pal_SYZ2:		palp	1,Pal_SYZ2		; 8 - SYZ
+ptr_Pal_LZ1:		palp	1,Pal_LZ1		; 5 - LZ1
+ptr_Pal_LZ2:		palp	1,Pal_LZ2		; 5 - LZ2
+ptr_Pal_TZ:			palp	1,Pal_TZ		; 5 - LZ2
 			even
 
 
@@ -64,3 +69,8 @@ palid_GHZ2:		equ (ptr_Pal_GHZ2-PalPointers)/8
 palid_GHZ3:		equ (ptr_Pal_GHZ3-PalPointers)/8
 palid_MZ2:		equ (ptr_Pal_MZ2-PalPointers)/8
 palid_MZ3:		equ (ptr_Pal_MZ3-PalPointers)/8
+palid_SYZ1:		equ (ptr_Pal_SYZ1-PalPointers)/8
+palid_SYZ2:		equ (ptr_Pal_SYZ2-PalPointers)/8
+palid_LZ1:		equ (ptr_Pal_LZ1-PalPointers)/8
+palid_LZ2:		equ (ptr_Pal_LZ2-PalPointers)/8
+palid_TZ:		equ (ptr_Pal_TZ-PalPointers)/8

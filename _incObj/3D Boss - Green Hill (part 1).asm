@@ -72,7 +72,7 @@ BGHZ_ShipIndex:	dc.w BGHZ_ShipStart-BGHZ_ShipIndex
 ; ===========================================================================
 
 BGHZ_ShipStart:
-		move.w	#$100,obVelY(a0) ; move ship down
+		move.w	#$200,obVelY(a0) ; move ship down
 		bsr.w	BossMove
 		cmpi.w	#boss_ghz_y+$38,objoff_38(a0)
 		bne.s	loc_177E6

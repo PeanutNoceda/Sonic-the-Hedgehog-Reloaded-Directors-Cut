@@ -45,8 +45,10 @@ FindNearestTile:
 
 .specialtile:
 		andi.w	#$7F,d1
-		btst	#6,obRender(a0) ; is object "behind a loop"?
-		beq.s	.treatasnormal	; if not, branch
+		cmpi.b	#id_SonicPlayer,(a0)			; is object Sonic?
+		bne.s	.treatasnormal				; if not, branch
+		btst	#7,obStatus(a0) 			; is Sonic "behind a loop"?
+		beq.s	.treatasnormal				; if not, branch
 		addq.w	#1,d1
 		cmpi.w	#$29,d1
 		bne.s	.treatasnormal

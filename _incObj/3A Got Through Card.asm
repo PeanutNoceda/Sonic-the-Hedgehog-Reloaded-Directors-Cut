@@ -48,13 +48,18 @@ Got_Loop:
 loc_C5CA:
 		move.b	d0,obFrame(a1)
 		move.l    #Map_Got_Extended,obMap(a1)
-		move.w	#make_art_tile(ArtTile_Title_Card,0,1),obGfx(a1)
+		move.w	#make_art_tile(ArtTile_Title_Card,1,1),obGfx(a1)
 		move.b	#0,obRender(a1)
 		lea	object_size(a1),a1
 		dbf	d1,Got_Loop	; repeat 6 times
 
 Got_Move:	; Routine 2
-		moveq	#$10,d1		; set horizontal speed
+        move.w    card_mainX(a0),d1            ; get target moving-in X-position
+        sub.w    obX(a0),d1                ; calculate difference to current X-position
+        bpl.s    .pos3                    ; is result positive? if yes, branch
+        neg.w    d1                    ; otherwise, make it positive
+    .pos3:    lsr.w    #3,d1                    ; divide difference by 8
+        addq.w    #1,d1                    ; set lower cap speed to 1px/frame
 		move.w	got_mainX(a0),d0
 		cmp.w	obX(a0),d0	; has item reached its target position?
 		beq.s	loc_C61A	; if yes, branch
@@ -88,6 +93,8 @@ loc_C61A:
 		bne.s	loc_C5FE
 		addq.b	#2,obRoutine(a0)
 		move.w	#180,obTimeFrame(a0) ; set time delay to 3 seconds
+		move.w	#mus_GotThrough,d0
+		jmp	(PlaySound).l ; play invincibility music
 
 Got_Wait:	; Routine 4, 8, $C
 		subq.w	#1,obTimeFrame(a0) ; subtract 1 from time delay
@@ -119,8 +126,18 @@ Got_ChkBonus:
 		move.w	#sfx_Cash,d0
 		jsr	(PlaySound_Special).l	; play "ker-ching" sound
 		addq.b	#2,obRoutine(a0)
+
 		cmpi.w	#(id_SBZ<<8)+1,(v_zone).w
+		beq.s	skipcode
+
+		clr.b	(f_lockscreen).w	; stop time counter
+		move.b	#1,(f_lockctrl).w ; lock controls
+		move.w	#btnR<<8,(v_jpadhold2).w ; make Sonic run to the right
 		bne.s	Got_SetDelay
+		addq.b	#4,obRoutine(a0)
+
+skipcode:
+		move.b	#1,(v_transition).w
 		addq.b	#4,obRoutine(a0)
 
 Got_SetDelay:
@@ -140,6 +157,8 @@ Got_AddBonus:
 ; ===========================================================================
 
 Got_NextLevel:	; Routine $A
+		cmpi.w	#$502,(v_zone)
+		beq.s	Got_Ending
 		move.b	(v_zone).w,d0
 		andi.w	#7,d0
 		lsl.w	#3,d0
@@ -169,6 +188,10 @@ loc_C6EA:
 Got_Display2:
 		bra.w	DisplaySprite
 ; ===========================================================================
+
+Got_Ending:
+		move.b	#id_Ending,(v_gamemode).w
+		jmp		MainGameLoop
 ; ---------------------------------------------------------------------------
 ; Level	order array
 ; ---------------------------------------------------------------------------
@@ -177,18 +200,18 @@ LevelOrder:
 		dc.b id_GHZ, 1	; Act 1
 		dc.b id_GHZ, 2	; Act 2
 		dc.b id_MZ, 0	; Act 3
-		dc.b 0, 0
+		dc.b id_GHZ, 0	; Tutorial
 
 		; Labyrinth Zone
 		dc.b id_LZ, 1	; Act 1
 		dc.b id_LZ, 2	; Act 2
-		dc.b id_SLZ, 0	; Act 3
+		dc.b id_SBZ, 0	; Act 3
 		dc.b id_SBZ, 2	; Scrap Brain Zone Act 3
 
 		; Marble Zone
 		dc.b id_MZ, 1	; Act 1
 		dc.b id_MZ, 2	; Act 2
-		dc.b id_SBZ, 0	; Act 3
+		dc.b id_SYZ, 0	; Act 3
 		dc.b 0, 0
 
 		; Star Light Zone
@@ -200,13 +223,13 @@ LevelOrder:
 		; Spring Yard Zone
 		dc.b id_SYZ, 1	; Act 1
 		dc.b id_SYZ, 2	; Act 2
-		dc.b id_LZ, 0	; Act 3
+		dc.b id_SLZ, 0	; Act 3
 		dc.b 0, 0
 
 		; Scrap Brain Zone
 		dc.b id_SBZ, 1	; Act 1
-		dc.b id_LZ, 3	; Act 2
-		dc.b id_SBZ, 3	; Final Zone
+		dc.b id_SBZ, 2	; Act 2
+		dc.b 0, 0	; Final Zone
 		dc.b 0, 0
 		even
 		zonewarning LevelOrder,8
@@ -234,11 +257,13 @@ locret_C748:
 ; ===========================================================================
 
 Got_SBZ2:
-		cmpi.b	#4,obFrame(a0)
+		cmpi.b	#2,obFrame(a0)
 		bne.w	DeleteObject
 		addq.b	#2,obRoutine(a0)
 		clr.b	(f_lockctrl).w	; unlock controls
-		bclr    #4,(v_player+obStatus).w
+		clr.b	(f_victorypose)
+		cmpi.w	#$502,(v_zone).w
+		beq.s	locret_C748
 		move.w	#mus_SKminBoss,d0
 		jmp	(PlaySound).l	; play music
 ; ===========================================================================

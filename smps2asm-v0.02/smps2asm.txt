@@ -1,0 +1,1 @@
+smps2asm.exe -v 1 "input.bin" "output.asm" Burning_Temple3

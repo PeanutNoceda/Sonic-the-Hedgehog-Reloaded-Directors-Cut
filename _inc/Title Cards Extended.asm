@@ -22,7 +22,7 @@
 TitleCard_GHZ1:    equ "GREEN HILL"
 TitleCard_GHZ2:    equ "GREEN HILL"
 TitleCard_GHZ3:    equ "GREEN HILL"
-TitleCard_GHZ4:    equ "GREEN HILL"
+TitleCard_GHZ4:    equ "TUTORIAL"
 
 TitleCard_MZ1:    equ "MARBLE"
 TitleCard_MZ2:    equ "MARBLE"
@@ -37,17 +37,17 @@ TitleCard_SYZ4:    equ "SPARKLING"
 TitleCard_LZ1:    equ "LABYRINTH"
 TitleCard_LZ2:    equ "LABYRINTH"
 TitleCard_LZ3:    equ "LABYRINTH"
-TitleCard_LZ4:    equ "FINAL"    ; LZ4 is SBZ3
+TitleCard_LZ4:    equ "HIDDEN CAVE"    ; LZ4 is SBZ3
 
-TitleCard_SLZ1:    equ "STAR LIGHT"
-TitleCard_SLZ2:    equ "STAR LIGHT"
-TitleCard_SLZ3:    equ "STAR LIGHT"
-TitleCard_SLZ4:    equ "STAR LIGHT"
+TitleCard_SLZ1:    equ "STARLIGHT CITY"
+TitleCard_SLZ2:    equ "STARLIGHT CITY"
+TitleCard_SLZ3:    equ "STARLIGHT CITY"
+TitleCard_SLZ4:    equ "STARLIGHT CITY"
 
-TitleCard_SBZ1:    equ "FINAL"
-TitleCard_SBZ2:    equ "FINAL CORE"
-TitleCard_SBZ3:    equ "FINAL BOSS"        ; SBZ3 is FZ
-TitleCard_SBZ4:    equ "FINAL"
+TitleCard_SBZ1:    equ "CLOCK WORK"
+TitleCard_SBZ2:    equ "CLOCK WORK"
+TitleCard_SBZ3:    equ "FINAL TAKEDOWN"        ; SBZ3 is FZ
+TitleCard_SBZ4:    equ "CLOCK WORK"
 
 TitleCard_Zone:    equ "ZONE"
 TitleCard_UseLowerAct: equ 1    ; 0 = ACT -- 1 = Act
@@ -224,7 +224,7 @@ SpecStagResults_LoadArt:
 .loadgottext:
 		moveq	#0,d0
 		; Got Through text
-		cmpi.b	#6,(v_emeralds).w
+		cmpi.b	#7,(v_emeralds).w
 		bge.s	.gotthemall
 		cmpi.b	#0,(v_emeralds).w
 		beq.s	.noemeralds

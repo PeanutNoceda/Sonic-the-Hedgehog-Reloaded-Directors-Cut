@@ -90,9 +90,9 @@ Mus90_Continue_Screen_DAC:
 	dc.b	nRst, $30
 
 Mus90_Continue_Screen_Loop00:
-	dc.b	dKick, $0C, dSnare
+	dc.b	dKick, $0C, dPSnare
 	smpsLoop            $00, $0E, Mus90_Continue_Screen_Loop00
-	dc.b	dKick, $0C, dSnare, $06, dKick, $0C
+	dc.b	dKick, $0C, dPSnare, $06, dKick, $0C
 	smpsStop
 
 Mus90_Continue_Screen_Voices:

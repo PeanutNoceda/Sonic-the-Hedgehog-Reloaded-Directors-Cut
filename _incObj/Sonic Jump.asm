@@ -19,8 +19,11 @@ Sonic_Jump:
 		btst	#6,obStatus(a0)
 		beq.s	loc_1341C
 		move.w	#$380,d2
-
 loc_1341C:
+		tst.b	(f_supersonic)
+		beq.s	.notSuper
+		addi.w	#$280,d2				; set higher jump speed if super
+.notSuper:
 		moveq	#0,d0
 		move.b	obAngle(a0),d0
 		subi.b	#$40,d0
@@ -39,8 +42,13 @@ loc_1341C:
 		clr.b	stick_to_convex(a0)
 		move.w	#sfx_Jump,d0
 		jsr	(PlaySound_Special).l	; play jumping sound
-		move.b	#$13,obHeight(a0)
-		move.b	#9,obWidth(a0)
+		cmpi.b	#id_GotThroughCard,(v_endcard).w	; is the Got Through Act object currently shown?
+		bne.s	.noleap					; if not, branch
+		move.b	#id_VictoryJMP,obAnim(a0)			; use victory leap animation
+		move.b	#$13,obHeight(a0)			; set height to standing size
+		move.b	#9,obWidth(a0)				; set width to standing size
+		rts						; don't do anything else
+.noleap:
 		btst	#2,obStatus(a0)
 		bne.s	loc_13490
 		move.b	#$E,obHeight(a0)

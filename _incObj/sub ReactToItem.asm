@@ -363,6 +363,11 @@ KillSonic:
 		tst.w	(v_debuguse).w	; is debug mode	active?
 		bne.s	.dontdie	; if yes, branch
 		move.b	#0,(v_invinc).w	; remove invincibility
+		move.b	#2,(pal_supersonic).w	; Remove rotating palette
+		move.w	#$1F,(v_palettetimer).w
+		move.b	#0,(f_supersonic).w
+;		move.l	#Map_Sonic,4(a0)	; Load the Sonic map.
+;		lea	(SonicDynPLC).l,a2	; Load the Sonic DPLC.
 		move.b	#6,obRoutine(a0)
 		bsr.w	Sonic_ResetOnFloor
 		bset	#1,obStatus(a0)
@@ -372,6 +377,8 @@ KillSonic:
 		move.w	obY(a0),objoff_38(a0)
 		move.b	#id_Death,obAnim(a0)
 		bset	#7,obGfx(a0)
+		move.b	#mus_Fade,d0
+		jsr		PlaySound_Special ; fade out music
 	if FixBugs
 		move.w	#sfx_HitSpikes,d0 ; play spikes death sound
 		cmpi.b	#id_Spikes,obID(a2)	; check	if you were killed by spikes

@@ -22,6 +22,7 @@ Sign_Index:	dc.w Sign_Main-Sign_Index
 spintime:	equ $30		; time for signpost to spin
 sparkletime:	equ $32		; time between sparkles
 sparkle_id:	equ $34		; counter to keep track of sparkles
+sign_origy = $36		; original y-position
 ; ===========================================================================
 
 Sign_Main:	; Routine 0
@@ -33,26 +34,86 @@ Sign_Main:	; Routine 0
 		move.b	#4,obPriority(a0)
 
 Sign_Touch:	; Routine 2
-		move.w	(v_player+obX).w,d0
+		lea	(v_player).w,a1
+		move.w	obX(a1),d0		; load Sonic's x-position to d0
 		sub.w	obX(a0),d0
 		bcs.s	.notouch
 		cmpi.w	#$20,d0		; is Sonic within $20 pixels of	the signpost?
-		bhs.s	.notouch	; if not, branch
+		bcc.s	.notouch	; if not, branch
+		move.b  #1,(f_lockscreen).w ; Lock the screen
 		move.w	#sfx_Signpost,d0
 		jsr	(PlaySound).l	; play signpost sound
-		clr.b	(f_timecount).w	; stop time counter
-		move.w	(v_limitright2).w,(v_limitleft2).w ; lock screen position
-		addq.b	#2,obRoutine(a0)
+		moveq	#0,d0
+		move.b	obInertia(a1),d0	; ground speed if on the ground
+		btst	#staAir,obStatus(a1)	; is Sonic in the air?
+		beq.s	.notinair		; if not, branch
+		move.b	obVelX(a1),d0		; horizontal air speed
 		move.w	#mus_Fade,d0
 		jsr (PlaySound).l ; Fade Music
+
+.notinair:
+		tst.b	d0			; is speed already negative (we somehow triggered from the left)
+		bpl.s	.notnegative		; if not, branch
+		neg.b	d0			; we don't want a negative value just yet
+
+.notnegative:
+		cmpi.b	#4,d0
+		ble.s	.tooslow		; if under 4, don't let the sign fly
+		cmpi.b	#$A,d0
+		ble.s	.dontcap
+		move.b	#$A,d0			; set max cap of $A
+
+.dontcap:
+		lsr.b	#1,d0			; vel / 2 (per Sonic Mania)
+		neg.b	d0			; make value negative
+		move.b	d0,obVelY(a0)		; set y speed of signpost
+
+.tooslow:
+		move.w	obY(a0),sign_origy(a0)	; store starting y-position so we know when to land
+		move.w	#60,spintime(a0)	; set spin cycle time to 1 second
+		addq.b	#1,obAnim(a0)		; set to first spin cycle early
+		clr.b	(f_timecount).w	; stop time counter
+		move.b  #1,(f_victorypose) ;Set Victory Flag
+		move.w	(v_limitright2).w,(v_limitleft2).w ; lock screen position
+		addq.b	#2,obRoutine(a0)
 
 .notouch:
 		rts	
 ; ===========================================================================
+
 Sign_Spin:	; Routine 4
-		move.w	#$600,(v_sonspeedmax).w
-		move.w	#$C,(v_sonspeedacc).w
-		move.w	#$80,(v_sonspeeddec).w
+		tst.b	ob2ndRout(a0)		; is the signpost back on the ground?
+		bne.s	.onground		; if yes, branch and continue spinning on the ground
+		bsr.w	SpeedToPos		; apply speed
+		move.w	sign_origy(a0),d1
+		sub.w	obY(a0),d1
+		tst.w	d1			; is the signpost at, or past, its original position?
+		bpl.s	.inair			; if not, branch
+		add.w	d1,obY(a0)		; latch to the floor at its original position
+		clr.w	obVelY(a0)
+		move.b	#1,ob2ndRout(a0)	; it's no longer flying
+		bra.s	.onground
+
+.inair:
+		addi.w	#$28,obVelY(a0)		; apply gravity
+		cmpi.b	#$E,sparkletime(a0)
+		bne.s	.skipreset
+		clr.b	sparkletime(a0)
+
+.skipreset:
+		subq.w	#1,spintime(a0)		; subtract 1 from spin time
+		bpl.s	.chksparkle		; if time remains, branch
+		move.w	#60,spintime(a0)	; set spin cycle time to 1 second
+		cmpi.b	#3,obAnim(a0)		; have 3 spin cycles completed?
+		beq.s	.chksparkle		; if yes, branch
+		addq.b	#1,obAnim(a0)		; next spin cycle
+		bra.s	.chksparkle
+
+.onground:
+		clr.b 	(f_supersonic).w ; Revert Sonic to Normal
+		move.w	#$600,(v_sonspeedmax).w ; Sonic's top speed
+		move.w	#$C,(v_sonspeedacc).w ; Sonic's acceleration
+		move.w	#$80,(v_sonspeeddec).w ; Sonic's deceleration
 		subq.w	#1,spintime(a0)	; subtract 1 from spin time
 		bpl.s	.chksparkle	; if time remains, branch
 		move.w	#60,spintime(a0) ; set spin cycle time to 1 second
@@ -61,7 +122,7 @@ Sign_Spin:	; Routine 4
 		bne.s	.chksparkle	; if not, branch
 		addq.b	#2,obRoutine(a0)
 
-	.chksparkle:
+.chksparkle:
 		subq.w	#1,sparkletime(a0) ; subtract 1 from time delay
 		bpl.s	.fail		; if time remains, branch
 		move.w	#$B,sparkletime(a0) ; set time between sparkles to $B frames
@@ -72,8 +133,8 @@ Sign_Spin:	; Routine 4
 		lea	Sign_SparkPos(pc,d0.w),a2 ; load sparkle position data
 		bsr.w	FindFreeObj
 		bne.s	.fail
-		move.b	#id_Rings,0(a1)	; load rings object
-		move.b	#6,obRoutine(a1) ; jump to ring sparkle subroutine
+		_move.b	#id_Rings,0(a1)	; load rings object
+		move.b	#id_Ring_Sparkle,obRoutine(a1) ; jump to ring sparkle subroutine
 		move.b	(a2)+,d0
 		ext.w	d0
 		add.w	obX(a0),d0
@@ -88,7 +149,7 @@ Sign_Spin:	; Routine 4
 		move.b	#2,obPriority(a1)
 		move.b	#8,obActWid(a1)
 
-	.fail:
+.fail:
 		rts	
 ; ===========================================================================
 Sign_SparkPos:	dc.b -$18,-$10		; x-position, y-position
@@ -129,7 +190,7 @@ Sign_SonicRun:    ; Routine 6
 
 GotThroughAct:
 		tst.b	(v_endcard).w
-		bne.s	locret_ECEE
+		bne.w	locret_ECEE
 		move.w	(v_limitright2).w,(v_limitleft2).w
 		clr.b	(v_invinc).w	; disable invincibility
 		clr.b	(f_timecount).w	; stop time counter
@@ -154,7 +215,7 @@ GotThroughAct:
 		move.w	(v_rings).w,d0	; load number of rings
 		mulu.w	#10,d0		; multiply by 10
 		move.w	d0,(v_ringbonus).w ; set ring bonus
-		move.w	#mus_GotThrough,d0
+		move.w	#mus_Fade,d0
 		jmp	(PlaySound).l ; play invincibility music
 
 locret_ECEE:

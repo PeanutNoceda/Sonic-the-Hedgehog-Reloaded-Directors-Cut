@@ -32,7 +32,7 @@ SMPS_EnableUniversalVoiceBank	= 1
 SMPS_EnablePlaySoundLocal	= 0
 ;	| If 1, SMPS_PlaySoundLocal is included
 ;
-SMPS_EnableModulationEnvelopes	= 0
+SMPS_EnableModulationEnvelopes	= 1
 ;	| If 1, modulation envelope support is included
 ;
 SMPS_IsOn32X			= 0

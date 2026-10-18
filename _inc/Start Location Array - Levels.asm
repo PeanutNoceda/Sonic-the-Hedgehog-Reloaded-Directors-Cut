@@ -5,7 +5,7 @@
 		binclude	"startpos/ghz1.bin"
 		binclude	"startpos/ghz2.bin"
 		binclude	"startpos/ghz3.bin"
-		dc.w	$80,$A8
+		binclude	"startpos/tutorial.bin"
 
 		binclude	"startpos/lz1.bin"
 		binclude	"startpos/lz2.bin"

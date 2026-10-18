@@ -232,23 +232,27 @@ Map_Cred_internal:	mappingsTable
 .tryagain_End
 
 .sonicteam:	spriteHeader
-	spritePiece	-$4C, -$18, 2, 2, $2E, 0, 0, 0, 0 ; SONIC TEAM PRESENTS
-	spritePiece	-$3C, -$18, 2, 2, $26, 0, 0, 0, 0
-	spritePiece	-$2C, -$18, 2, 2, $1A, 0, 0, 0, 0
-	spritePiece	-$1C, -$18, 1, 2, $46, 0, 0, 0, 0
-	spritePiece	-$14, -$18, 2, 2, $1E, 0, 0, 0, 0
-	spritePiece	4, -$18, 2, 2, $3E, 0, 0, 0, 0
-	spritePiece	$14, -$18, 2, 2, $E, 0, 0, 0, 0
-	spritePiece	$24, -$18, 2, 2, 4, 0, 0, 0, 0
-	spritePiece	$34, -$18, 3, 2, 8, 0, 0, 0, 0
-	spritePiece	-$40, 0, 2, 2, $12, 0, 0, 0, 0
-	spritePiece	-$30, 0, 2, 2, $22, 0, 0, 0, 0
-	spritePiece	-$20, 0, 2, 2, $E, 0, 0, 0, 0
-	spritePiece	-$10, 0, 2, 2, $2E, 0, 0, 0, 0
-	spritePiece	0, 0, 2, 2, $E, 0, 0, 0, 0
-	spritePiece	$10, 0, 2, 2, $1A, 0, 0, 0, 0
-	spritePiece	$20, 0, 2, 2, $3E, 0, 0, 0, 0
-	spritePiece	$30, 0, 2, 2, $2E, 0, 0, 0, 0
+		dc.b $E8, 5, 0, $12, $A0	; P
+		dc.b $E8, 5, 0, $0E, $B0	; E
+		dc.b $E8, 5, 0, 4, $C0		; A
+		dc.b $E8, 5, 0, $1A, $D0	; N
+		dc.b $E8, 5, 0, $32, $E0	; U
+		dc.b $E8, 5, 0, $3E, $F0	; T
+		dc.b $E8, 5, 0, $1A, $0	; N
+		dc.b $E8, 5, 0, $26, $10	; O
+		dc.b $E8, 5, 0, $1E, $20	; C
+		dc.b $E8, 5, 0, $0E, $30	; E
+		dc.b $E8, 5, 0, $42, $40	; D
+		dc.b $E8, 5, 0, 4, $50		; A
+
+		dc.b 0,	5, 0, $12, $C0	; P
+		dc.b 0,	5, 0, $22, $D0	; R
+		dc.b 0,	5, 0, $E, $E0	; E
+		dc.b 0,	5, 0, $2E, $F0	; S
+		dc.b 0,	5, 0, $E, 0	; E
+		dc.b 0,	5, 0, $1A, $10	; N
+		dc.b 0,	5, 0, $3E, $20	; T
+		dc.b 0,	5, 0, $2E, $30	; S
 .sonicteam_End
 
 	even

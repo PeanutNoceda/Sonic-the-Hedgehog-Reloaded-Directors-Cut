@@ -27,29 +27,29 @@ Mus81_GHZ_Loop00:
 	smpsLoop            $00, $08, Mus81_GHZ_Loop00
 
 Mus81_GHZ_Loop01:
-	dc.b	dCrashCymbal, $10, dSnare, $0C, dPKick, $04, $08, $08, dSnare, $10, dPKick, dSnare
-	dc.b	dPKick, $04, dSnare, dPKick, $08, dSnare, dSnare, $04, $04
+	dc.b	dKCCrashCymbal, $10, dPSnare, $0C, dPKick, $04, $08, $08, dPSnare, $10, dPKick, dPSnare
+	dc.b	dPKick, $04, dPSnare, dPKick, $08, dPSnare, dPSnare, $04, $04
 	smpsLoop            $00, $03, Mus81_GHZ_Loop01
-	dc.b	dCrashCymbal, $10, dSnare, $0C, dPKick, $04, $08, $08, dSnare, $10, dPKick, $08
-	dc.b	dSnare, $99, $05, $06, $05, $9A, $9A, $06, $05, $9B, $9B, $06
+	dc.b	dKCCrashCymbal, $10, dPSnare, $0C, dPKick, $04, $08, $08, dPSnare, $10, dPKick, $08
+	dc.b	dPSnare, $99, $05, $06, $05, $9A, $9A, $06, $05, $9B, $9B, $06
 	dc.b	$05
 
 Mus81_GHZ_Loop02:
-	dc.b	dPKick, $20, dSnare, $08, dPKick, $0C, $0C, $20, dSnare
+	dc.b	dPKick, $20, dPSnare, $08, dPKick, $0C, $0C, $20, dPSnare
 	smpsLoop            $00, $03, Mus81_GHZ_Loop02
-	dc.b	dPKick, dSnare, $08, dPKick, $0C, $0C, $20, dSnare, $10, $04, $04, dPKick
-	dc.b	dSnare, dCrashCymbal, $10, dSnare, $08, dPKick, $10, $08, dSnare, $10, dPKick, $08
-	dc.b	$08, dSnare, $18, dPKick, $08, dSnare, $10, dPKick, dSnare, $08, dPKick, $10
-	dc.b	$08, dSnare, $10, dPKick, $08, $08, dSnare, $18, dPKick, $08, dSnare, $10
-	dc.b	dCrashCymbal, dSnare, $08, dPKick, $10, $08, dSnare, $10, dPKick, $08, $08, dSnare
-	dc.b	$18, dPKick, $08, dSnare, $10, dPKick, dSnare, $08, dPKick, $10, $08, dSnare
-	dc.b	$10, dPKick, $08, $08, dSnare, $14, $98, $04, $04, $99, $99, $9A
-	dc.b	dSnare, $9B, dCrashCymbal, $10, dSnare, $08, dPKick, $10, $08, dSnare, $10, dPKick
-	dc.b	dSnare, $18, dPKick, $04, $04, dSnare, $10, dPKick, dSnare, $08, dPKick, $10
-	dc.b	$08, dSnare, $10, dPKick, dSnare, dPKick, $04, $04, dSnare, $08, dPKick, $04
-	dc.b	$04, dSnare, $08, dCrashCymbal, $10, dSnare, $08, dPKick, $10, $08, dSnare, $10
-	dc.b	dPKick, dSnare, $18, dPKick, $04, $04, dSnare, $10, dPKick, dSnare, $08, dPKick
-	dc.b	$10, $08, dSnare, $10, dPKick, dSnare, $98, $04, $04, $99, $99, $9A
+	dc.b	dPKick, dPSnare, $08, dPKick, $0C, $0C, $20, dPSnare, $10, $04, $04, dPKick
+	dc.b	dPSnare, dKCCrashCymbal, $10, dPSnare, $08, dPKick, $10, $08, dPSnare, $10, dPKick, $08
+	dc.b	$08, dPSnare, $18, dPKick, $08, dPSnare, $10, dPKick, dPSnare, $08, dPKick, $10
+	dc.b	$08, dPSnare, $10, dPKick, $08, $08, dPSnare, $18, dPKick, $08, dPSnare, $10
+	dc.b	dKCCrashCymbal, dPSnare, $08, dPKick, $10, $08, dPSnare, $10, dPKick, $08, $08, dPSnare
+	dc.b	$18, dPKick, $08, dPSnare, $10, dPKick, dPSnare, $08, dPKick, $10, $08, dPSnare
+	dc.b	$10, dPKick, $08, $08, dPSnare, $14, $98, $04, $04, $99, $99, $9A
+	dc.b	dPSnare, $9B, dKCCrashCymbal, $10, dPSnare, $08, dPKick, $10, $08, dPSnare, $10, dPKick
+	dc.b	dPSnare, $18, dPKick, $04, $04, dPSnare, $10, dPKick, dPSnare, $08, dPKick, $10
+	dc.b	$08, dPSnare, $10, dPKick, dPSnare, dPKick, $04, $04, dPSnare, $08, dPKick, $04
+	dc.b	$04, dPSnare, $08, dKCCrashCymbal, $10, dPSnare, $08, dPKick, $10, $08, dPSnare, $10
+	dc.b	dPKick, dPSnare, $18, dPKick, $04, $04, dPSnare, $10, dPKick, dPSnare, $08, dPKick
+	dc.b	$10, $08, dPSnare, $10, dPKick, dPSnare, $98, $04, $04, $99, $99, $9A
 	dc.b	$9A, $9B, $9B
 	smpsJump            Mus81_GHZ_Loop01
 

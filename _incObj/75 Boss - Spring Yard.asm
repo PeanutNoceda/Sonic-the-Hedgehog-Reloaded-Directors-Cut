@@ -28,7 +28,7 @@ BossSpringYard_Main:	; Routine 0
 		move.w	obX(a0),objoff_30(a0)
 		move.w	obY(a0),objoff_38(a0)
 		move.b	#$F,obColType(a0)
-		move.b	#8,obColProp(a0) ; set number of hits to 8
+		move.b	#14,obColProp(a0) ; set number of hits to 8
 		lea	BossSpringYard_ObjData(pc),a2
 		movea.l	a0,a1
 		moveq	#3,d1
@@ -424,9 +424,18 @@ loc_194DA:
 ; ===========================================================================
 
 loc_194E0:
-		clr.w	obVelY(a0)
-		move.w	#mus_SYZ,d0
-		jsr	(PlaySound).l		; play SYZ music
+        clr.w    obVelY(a0)
+        tst.b     (v_invinc).w
+        bne.s   .boss_invinc
+
+        move.b   Saved_music,d0
+        bra.w      .boss_play
+
+.boss_invinc:
+        move.w	#mus_Invincible,d0
+
+.boss_play:
+        jsr PlaySound
 
 loc_194EE:
 		bra.w	loc_191F2
@@ -438,6 +447,10 @@ loc_194F2:
 		cmpi.w	#boss_syz_end,(v_limitright2).w
 		bhs.s	loc_1950C
 		addq.w	#2,(v_limitright2).w
+		move.l a0,-(sp)
+		move.l d7,-(sp)
+		move.l (sp)+,d7
+		move.l (sp)+,a0
 		bra.s	loc_19512
 ; ===========================================================================
 

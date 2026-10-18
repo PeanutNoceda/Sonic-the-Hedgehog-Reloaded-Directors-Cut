@@ -136,5 +136,12 @@ dHey =						SMPS_id(ptr_dacDF)
 
 dSega =						SMPS_id(ptr_dacE0)
 dPKick =					SMPS_id(ptr_dacE1)
-
+dPSnare =					SMPS_id(ptr_dacE2)
+dPeaWoo =					SMPS_id(ptr_dacE3)
+dThankYou =					SMPS_id(ptr_dacE4)
+dExtraLife =				SMPS_id(ptr_dacE5)
+dKCCrashCymbal =				SMPS_id(ptr_dacE6)
+dUSASHKick =						SMPS_id(ptr_dacE7)
+dUSASHSnare =						SMPS_id(ptr_dacE8)
+dRELV1Snare =						SMPS_id(ptr_dacE9)
 dac__Last = dSega

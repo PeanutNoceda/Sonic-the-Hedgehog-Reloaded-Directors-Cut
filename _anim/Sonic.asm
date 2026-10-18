@@ -51,7 +51,7 @@ SonAni_Roll2:	dc.b $FE, $2E, $2F, $32, $30, $31, $32,	afEnd
 		even
 SonAni_Push:	dc.b $FD, $45, $46, $47, $48, afEnd, afEnd, afEnd
 		even
-SonAni_Wait:	dc.b $17, 1, 1,	1, 1, 1, 1, 1, 1, 1, 1,	1, 1, 3, 2, 2, 2, 3, 4, afBack, 2
+SonAni_Wait:	dc.b $17, 1, 1,	1, 1, 1, 1, 1, 1, 1, 1,	1, 1, 3, 2, 2, 2, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, $83, $84, afBack, 2
 		even
 SonAni_Balance:	dc.b $1F, $3A, $3B, afEnd
 		even
@@ -77,9 +77,9 @@ SonAni_Spring:	dc.b $2F, $40, afChange, id_Walk
 		even
 SonAni_Hang:	dc.b 4,	$41, $42, afEnd
 		even
-SonAni_Leap1:	dc.b $F, $43, $43, $43,	afBack, 1
+SonAni_Leap1:	dc.b $F, $43, $44, afBack, 1
 		even
-SonAni_Leap2:	dc.b $F, $78, $79, afBack, 2
+SonAni_Leap2:	dc.b $F, $78, $79, $85, afBack, 2
 		even
 SonAni_Surf:	dc.b $3F, $49, afEnd
 		even
@@ -140,7 +140,7 @@ id_Float1:	equ (ptr_Float1-Ani_Sonic)/2	; $E
 id_Float2:	equ (ptr_Float2-Ani_Sonic)/2	; $F
 id_Spring:	equ (ptr_Spring-Ani_Sonic)/2	; $10
 id_Hang:	equ (ptr_Hang-Ani_Sonic)/2	; $11
-id_Leap1:	equ (ptr_Leap1-Ani_Sonic)/2	; $12
+id_VictoryJMP:	equ (ptr_Leap1-Ani_Sonic)/2	; $12
 id_Victory:	equ (ptr_Leap2-Ani_Sonic)/2	; $13
 id_Surf:	equ (ptr_Surf-Ani_Sonic)/2	; $14
 id_GetAir:	equ (ptr_GetAir-Ani_Sonic)/2	; $15

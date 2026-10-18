@@ -315,9 +315,18 @@ loc_18BAE:
 ; ===========================================================================
 
 loc_18BB4:
-		clr.w	obVelY(a0)
-		move.w	#mus_SLZ,d0
-		jsr	(PlaySound).l		; play SLZ music
+        clr.w    obVelY(a0)
+        tst.b     (v_invinc).w
+        bne.s   .boss_invinc
+
+        move.b   Saved_music,d0
+        bra.w      .boss_play
+
+.boss_invinc:
+        move.w	#mus_Invincible,d0
+
+.boss_play:
+        jsr PlaySound
 
 loc_18BC2:
 		bra.w	loc_189EE

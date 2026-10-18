@@ -45,7 +45,7 @@ specialStageData: macro frame,mappings,palette,vram
 		specialStageData	0, Map_Bump,      0, ArtTile_SS_Bumper
 		specialStageData	0, Map_SS_R,      0, ArtTile_SS_W_Block
 		specialStageData	0, Map_SS_R,      0, ArtTile_SS_Goal
-		specialStageData	0, Map_SS_R,      0, ArtTile_SS_Extra_Life
+		specialStageData	0, Map_SS_Chaos2, 1, ArtTile_SS_Emerald
 		specialStageData	0, Map_SS_Up,     0, ArtTile_SS_Up_Down
 		specialStageData	0, Map_SS_Down,   0, ArtTile_SS_Up_Down
 		specialStageData	0, Map_SS_R,      1, ArtTile_SS_R_Block

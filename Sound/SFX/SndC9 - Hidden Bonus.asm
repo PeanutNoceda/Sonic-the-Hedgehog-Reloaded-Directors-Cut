@@ -1,34 +1,39 @@
-SndC9_Hidden_Bonus_Header:
-	smpsHeaderStartSong 1
-	smpsHeaderVoice     SndC9_Hidden_Bonus_Voices
+Sound_B7_Header:
+	smpsHeaderStartSong 3, 1
+	smpsHeaderVoice     Sound_B7_Voices
 	smpsHeaderTempoSFX  $01
-	smpsHeaderChanSFX   $01
+	smpsHeaderChanSFX   $02
 
-	smpsHeaderSFXChannel cFM5, SndC9_Hidden_Bonus_FM5,	$0E, $00
+	smpsHeaderSFXChannel cFM4, Sound_B7_FM4,	$00, $02
+	smpsHeaderSFXChannel cFM5, Sound_B7_FM5,	$00, $02
+
+; FM4 Data
+Sound_B7_FM4:
+	smpsAlterNote       $03
+	dc.b	nRst, $02
 
 ; FM5 Data
-SndC9_Hidden_Bonus_FM5:
+Sound_B7_FM5:
 	smpsSetvoice        $00
-	smpsModSet          $01, $01, $33, $18
-	dc.b	nAb4, $1A
+	dc.b	nG5, $16
 	smpsStop
 
-SndC9_Hidden_Bonus_Voices:
+Sound_B7_Voices:
 ;	Voice $00
-;	$3B
-;	$0A, $31, $05, $02, 	$5F, $5F, $5F, $5F, 	$04, $14, $16, $0C
-;	$00, $04, $00, $00, 	$1F, $6F, $D8, $FF, 	$03, $25, $00, $80
-	smpsVcAlgorithm     $03
-	smpsVcFeedback      $07
+;	$14
+;	$25, $33, $36, $11, 	$1F, $1F, $1F, $1F, 	$15, $18, $1C, $13
+;	$0B, $08, $0D, $09, 	$0F, $9F, $8F, $0F, 	$24, $05, $0A, $80
+	smpsVcAlgorithm     $04
+	smpsVcFeedback      $02
 	smpsVcUnusedBits    $00
-	smpsVcDetune        $00, $00, $03, $00
-	smpsVcCoarseFreq    $02, $05, $01, $0A
-	smpsVcRateScale     $01, $01, $01, $01
+	smpsVcDetune        $01, $03, $03, $02
+	smpsVcCoarseFreq    $01, $06, $03, $05
+	smpsVcRateScale     $00, $00, $00, $00
 	smpsVcAttackRate    $1F, $1F, $1F, $1F
 	smpsVcAmpMod        $00, $00, $00, $00
-	smpsVcDecayRate1    $0C, $16, $14, $04
-	smpsVcDecayRate2    $00, $00, $04, $00
-	smpsVcDecayLevel    $0F, $0D, $06, $01
-	smpsVcReleaseRate   $0F, $08, $0F, $0F
-	smpsVcTotalLevel    $00, $00, $25, $03
+	smpsVcDecayRate1    $13, $1C, $18, $15
+	smpsVcDecayRate2    $09, $0D, $08, $0B
+	smpsVcDecayLevel    $00, $08, $09, $00
+	smpsVcReleaseRate   $0F, $0F, $0F, $0F
+	smpsVcTotalLevel    $80, $0A, $05, $24
 

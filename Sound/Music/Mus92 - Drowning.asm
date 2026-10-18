@@ -90,9 +90,9 @@ Mus92_Drowning_Loop00:
 
 ; DAC Data
 Mus92_Drowning_DAC:
-	dc.b	dSnare, $0C, dSnare, dSnare, dSnare
+	dc.b	dPSnare, $0C, dPSnare, dPSnare, dPSnare
 	smpsLoop            $00, $0A, Mus92_Drowning_DAC
-	dc.b	dSnare, $06
+	dc.b	dPSnare, $06
 	smpsStop
 
 Mus92_Drowning_Call01:

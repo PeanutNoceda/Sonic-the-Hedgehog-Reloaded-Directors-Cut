@@ -27,15 +27,17 @@ lhead:	macro plc1,lvlgfx,plc2,sixteen,twofivesix,collision,pal
 
 		;	1st PLC		level gfx	2nd PLC		16x16 data	256x256 data	collision	palette
 		lhead	plcid_GHZ,	Nem_GHZ,	plcid_GHZ2,	Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_GHZ	; Green Hill 1
-		lhead	plcid_GHZ,	Nem_GHZ,	plcid_GHZ2,	Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_GHZ2	; Green Hill 2
-		lhead	plcid_GHZ,	Nem_GHZ,	plcid_GHZ2,	Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_GHZ3	; Green Hill 3
-		lhead	plcid_GHZ,	Nem_GHZ,	plcid_GHZ2,	Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_GHZ	; Green Hill 4 (unused)
+		lhead	plcid_GHZAct2,	Nem_GHZ2,	plcid_GHZ2,	Blk16_GHZ2,	Blk256_GHZ2,	Col_GHZ2,	palid_GHZ2	; Green Hill 2
+		lhead	plcid_GHZAct2,	Nem_GHZ2,	plcid_GHZ2,	Blk16_GHZ2,	Blk256_GHZ2,	Col_GHZ2,	palid_GHZ3	; Green Hill 3
+		lhead	plcid_TZ,	Nem_TZ,		plcid_TZ2,	Blk16_TZ,	Blk256_TZ,	Col_TZ,	palid_TZ	; Green Hill 4 (unused)
 		
-		lhead	plcid_LZ,	Nem_LZ,		plcid_LZ2,	Blk16_LZ,	Blk256_LZ,	Col_LZ,		palid_LZ	; Labyrinth 1
-		lhead	plcid_LZ,	Nem_LZ,		plcid_LZ2,	Blk16_LZ,	Blk256_LZ,	Col_LZ,		palid_LZ	; Labyrinth 2
+		lhead	plcid_LZ1,	Nem_LZ1,	plcid_LZ2,	Blk16_LZ1,	Blk256_LZ1,	Col_LZ1,	palid_LZ1	; Labyrinth 1
+		lhead	plcid_LZ1,	Nem_LZ1,	plcid_LZ2,	Blk16_LZ1,	Blk256_LZ1,	Col_LZ1,	palid_LZ1	; Labyrinth 2
 		lhead	plcid_LZ,	Nem_LZ,		plcid_LZ2,	Blk16_LZ,	Blk256_LZ,	Col_LZ,		palid_LZ	; Labyrinth 3
 		lhead	plcid_LZ,	Nem_LZ,		plcid_LZ2,	Blk16_LZ,	Blk256_LZ,	Col_LZ,		palid_SBZ3	; Labyrinth 4 (Scrap Brain Zone 3)
-		
+
+;		lhead	plcid_SBZ3,	Nem_SBZ3,	plcid_LZ2,	Blk16_SBZ3,	Blk256_SBZ3,	Col_SBZ3,		palid_SBZ3	; Labyrinth 4 (Scrap Brain Zone 3)
+
 		lhead	plcid_MZ,	Nem_MZ,		plcid_MZ2,	Blk16_MZ,	Blk256_MZ,	Col_MZ,		palid_MZ	; Marble 1
 		lhead	plcid_MZ,	Nem_MZ,		plcid_MZ2,	Blk16_MZ,	Blk256_MZ,	Col_MZ,		palid_MZ2	; Marble 2
 		lhead	plcid_MZ,	Nem_MZ,		plcid_MZ2,	Blk16_MZ,	Blk256_MZ,	Col_MZ,		palid_MZ3	; Marble 3
@@ -46,8 +48,8 @@ lhead:	macro plc1,lvlgfx,plc2,sixteen,twofivesix,collision,pal
 		lhead	plcid_SLZ,	Nem_SLZ,	plcid_SLZ2,	Blk16_SLZ,	Blk256_SLZ,	Col_SLZ,	palid_SLZ	; Star Light 3
 		lhead	plcid_SLZ,	Nem_SLZ,	plcid_SLZ2,	Blk16_SLZ,	Blk256_SLZ,	Col_SLZ,	palid_SLZ	; Star Light 4 (unused)
 		
-		lhead	plcid_SYZ,	Nem_SYZ,	plcid_SYZ2,	Blk16_SYZ,	Blk256_SYZ,	Col_SYZ,	palid_SYZ	; Spring Yard 1
-		lhead	plcid_SYZ,	Nem_SYZ,	plcid_SYZ2,	Blk16_SYZ,	Blk256_SYZ,	Col_SYZ,	palid_SYZ	; Spring Yard 2
+		lhead	plcid_SYZ12,	Nem_SYZ12,	plcid_SYZ2,	Blk16_SYZ12,	Blk256_SYZ12,	Col_SYZ12,	palid_SYZ1	; Spring Yard 1
+		lhead	plcid_SYZ12,	Nem_SYZ12,	plcid_SYZ2,	Blk16_SYZ12,	Blk256_SYZ12,	Col_SYZ12,	palid_SYZ2	; Spring Yard 2
 		lhead	plcid_SYZ,	Nem_SYZ,	plcid_SYZ2,	Blk16_SYZ,	Blk256_SYZ,	Col_SYZ,	palid_SYZ	; Spring Yard 3
 		lhead	plcid_SYZ,	Nem_SYZ,	plcid_SYZ2,	Blk16_SYZ,	Blk256_SYZ,	Col_SYZ,	palid_SYZ	; Spring Yard 4 (unused)
 		
@@ -57,7 +59,7 @@ lhead:	macro plc1,lvlgfx,plc2,sixteen,twofivesix,collision,pal
 		lhead	plcid_SBZ,	Nem_SBZ,	plcid_SBZ2,	Blk16_SBZ,	Blk256_SBZ,	Col_SBZ,	palid_SBZ1	; Scrap Brain 4 (unused)
 
 		zonewarning LevelHeaders,$10*4
-		lhead	0,		Nem_GHZ,	0,		Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_Ending	; Ending (good)
-		lhead	0,		Nem_GHZ,	0,		Blk16_GHZ,	Blk256_GHZ,	Col_GHZ,	palid_Ending	; Ending (bad)
+		lhead	0,		Nem_Ending,	0,		Blk16_Ending,	Blk256_Ending,	Col_Ending,	palid_Ending	; Ending (good)
+		lhead	0,		Nem_Ending,	0,		Blk16_Ending,	Blk256_Ending,	Col_Ending,	palid_Ending	; Ending (bad)
 
 		even

@@ -1,235 +1,235 @@
 ; SONG NAME: ???
 ; COMPOSER/ADAPTATION: ???
 ; PROVIDED BY: AleDrawer2008
-Hidden_Lab3_Header:
+Mus_SBZ3USASHHeader:
 	smpsHeaderStartSong 1
-	smpsHeaderVoice     Hidden_Lab3_Voices
+	smpsHeaderVoice     Mus_SBZ3USASHVoices
 	smpsHeaderChan      $06, $03
 	smpsHeaderTempo     $02, $13
 
-	smpsHeaderDAC       Hidden_Lab3_DAC
-	smpsHeaderFM        Hidden_Lab3_FM1,	$00, $12
-	smpsHeaderFM        Hidden_Lab3_FM2,	$00, $08
-	smpsHeaderFM        Hidden_Lab3_FM3,	$00, $08
-	smpsHeaderFM        Hidden_Lab3_FM4,	$00, $0C
-	smpsHeaderFM        Hidden_Lab3_FM5,	$00, $08
-	smpsHeaderPSG       Hidden_Lab3_PSG1,	$00, $00, $00, $00
-	smpsHeaderPSG       Hidden_Lab3_PSG2,	$00, $00, $00, $00
-	smpsHeaderPSG       Hidden_Lab3_PSG3,	$00, $04, $00, fTone_02
+	smpsHeaderDAC       Mus_SBZ3USASHDAC
+	smpsHeaderFM        Mus_SBZ3USASHFM1,	$00, $12
+	smpsHeaderFM        Mus_SBZ3USASHFM2,	$00, $08
+	smpsHeaderFM        Mus_SBZ3USASHFM3,	$00, $08
+	smpsHeaderFM        Mus_SBZ3USASHFM4,	$00, $0C
+	smpsHeaderFM        Mus_SBZ3USASHFM5,	$00, $08
+	smpsHeaderPSG       Mus_SBZ3USASHPSG1,	$00, $00, $00, $00
+	smpsHeaderPSG       Mus_SBZ3USASHPSG2,	$00, $00, $00, $00
+	smpsHeaderPSG       Mus_SBZ3USASHPSG3,	$00, $04, $00, fTone_02
 
 ; DAC Data
-Hidden_Lab3_DAC:
+Mus_SBZ3USASHDAC:
 	smpsPan             panCenter, $00
-	dc.b	dPKick
+	dc.b	dUSASHKick
 
-Hidden_Lab3_Loop00:
+Mus_SBZ3USASHLoop00:
 	dc.b	$0C
-	smpsLoop            $00, $26, Hidden_Lab3_Loop00
+	smpsLoop            $00, $26, Mus_SBZ3USASHLoop00
 	dc.b	$06, $03, $03, $03, $03, $03, $03
 
-Hidden_Lab3_Loop01:
+Mus_SBZ3USASHLoop01:
 	dc.b	$0C
-	smpsLoop            $00, $1F, Hidden_Lab3_Loop01
-	dc.b	$18, dSnare, $0C
+	smpsLoop            $00, $1F, Mus_SBZ3USASHLoop01
+	dc.b	$18, dUSASHSnare, $0C
 
-Hidden_Lab3_Loop05:
-	dc.b	dPKick, $0C
+Mus_SBZ3USASHLoop05:
+	dc.b	dUSASHKick, $0C
 
-Hidden_Lab3_Loop02:
-	dc.b	dTightSnare, $09, $03, dPKick, $06, $06
-	smpsLoop            $00, $0B, Hidden_Lab3_Loop02
-	dc.b	dTightSnare, $09
+Mus_SBZ3USASHLoop02:
+	dc.b	dUSASHSnare, $09, $03, dUSASHKick, $06, $06
+	smpsLoop            $00, $0B, Mus_SBZ3USASHLoop02
+	dc.b	dUSASHSnare, $09
 
-Hidden_Lab3_Loop03:
+Mus_SBZ3USASHLoop03:
 	dc.b	$03
-	smpsLoop            $00, $09, Hidden_Lab3_Loop03
+	smpsLoop            $00, $09, Mus_SBZ3USASHLoop03
 
-Hidden_Lab3_Loop04:
+Mus_SBZ3USASHLoop04:
 	dc.b	$02, $01
-	smpsLoop            $00, $08, Hidden_Lab3_Loop04
-	smpsLoop            $01, $02, Hidden_Lab3_Loop05
+	smpsLoop            $00, $08, Mus_SBZ3USASHLoop04
+	smpsLoop            $01, $02, Mus_SBZ3USASHLoop05
 
-Hidden_Lab3_Loop06:
-	dc.b	dPKick, $06, $06, dTightSnare, $09, $03
-	smpsLoop            $00, $07, Hidden_Lab3_Loop06
-	dc.b	dPKick, $06, dTightSnare, $03, $03, $03, $03, $02, $02, $02
+Mus_SBZ3USASHLoop06:
+	dc.b	dUSASHKick, $06, $06, dUSASHSnare, $09, $03
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop06
+	dc.b	dUSASHKick, $06, dUSASHSnare, $03, $03, $03, $03, $02, $02, $02
 
-Hidden_Lab3_Loop07:
-	dc.b	dPKick, $06, $06, dSnare, $09, $03
-	smpsLoop            $00, $0A, Hidden_Lab3_Loop07
+Mus_SBZ3USASHLoop07:
+	dc.b	dUSASHKick, $06, $06, dUSASHSnare, $09, $03
+	smpsLoop            $00, $0A, Mus_SBZ3USASHLoop07
 
-Hidden_Lab3_Loop08:
+Mus_SBZ3USASHLoop08:
 	dc.b	$03
-	smpsLoop            $00, $08, Hidden_Lab3_Loop08
+	smpsLoop            $00, $08, Mus_SBZ3USASHLoop08
 
-Hidden_Lab3_Loop09:
+Mus_SBZ3USASHLoop09:
 	dc.b	$02, $01
-	smpsLoop            $00, $08, Hidden_Lab3_Loop09
-	smpsJump            Hidden_Lab3_Loop05
+	smpsLoop            $00, $08, Mus_SBZ3USASHLoop09
+	smpsJump            Mus_SBZ3USASHLoop05
 
 ; FM1 Data
-Hidden_Lab3_FM1:
+Mus_SBZ3USASHFM1:
 	smpsSetvoice        $00
 	dc.b	nRst, $54, nCs2, $03, nB1, nA1, nAb1
 
-Hidden_Lab3_Loop10:
+Mus_SBZ3USASHLoop10:
 	dc.b	nFs1, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop10
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop10
 	dc.b	nFs1, nFs1
 
-Hidden_Lab3_Loop11:
+Mus_SBZ3USASHLoop11:
 	dc.b	nFs1, nRst
-	smpsLoop            $00, $04, Hidden_Lab3_Loop11
+	smpsLoop            $00, $04, Mus_SBZ3USASHLoop11
 	dc.b	nAb1, nRst, nAb1, nRst, nAb1, nRst, nAb1, nAb1
 
-Hidden_Lab3_Loop12:
+Mus_SBZ3USASHLoop12:
 	dc.b	nA1, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop12
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop12
 	dc.b	nA1, nA1
 
-Hidden_Lab3_Loop13:
+Mus_SBZ3USASHLoop13:
 	dc.b	nA1, nRst
-	smpsLoop            $00, $04, Hidden_Lab3_Loop13
+	smpsLoop            $00, $04, Mus_SBZ3USASHLoop13
 	dc.b	nB1, nRst, nB1, nRst, nB1, nRst, nB1, nB1
 
-Hidden_Lab3_Loop14:
+Mus_SBZ3USASHLoop14:
 	dc.b	nCs2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop14
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop14
 	dc.b	nCs2, nCs2
 
-Hidden_Lab3_Loop15:
+Mus_SBZ3USASHLoop15:
 	dc.b	nD2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop15
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop15
 	dc.b	nD2, nD2
 
-Hidden_Lab3_Loop16:
+Mus_SBZ3USASHLoop16:
 	dc.b	nE2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop16
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop16
 	dc.b	nE2, nE2
 
-Hidden_Lab3_Loop17:
+Mus_SBZ3USASHLoop17:
 	dc.b	nCs2, nRst
-	smpsLoop            $00, $04, Hidden_Lab3_Loop17
+	smpsLoop            $00, $04, Mus_SBZ3USASHLoop17
 	dc.b	nCs2, nCs2, nCs2, nCs2, nCs2, nB1, nA1, nAb1
 
-Hidden_Lab3_Loop18:
+Mus_SBZ3USASHLoop18:
 	dc.b	nFs1, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop18
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop18
 	dc.b	nFs1, nFs1
 
-Hidden_Lab3_Loop19:
+Mus_SBZ3USASHLoop19:
 	dc.b	nFs1, nRst
-	smpsLoop            $00, $04, Hidden_Lab3_Loop19
+	smpsLoop            $00, $04, Mus_SBZ3USASHLoop19
 	dc.b	nAb1, nRst, nAb1, nRst, nAb1, nRst, nAb1, nAb1
 
-Hidden_Lab3_Loop1A:
+Mus_SBZ3USASHLoop1A:
 	dc.b	nA1, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop1A
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop1A
 	dc.b	nA1, nA1
 
-Hidden_Lab3_Loop1B:
+Mus_SBZ3USASHLoop1B:
 	dc.b	nA1, nRst
-	smpsLoop            $00, $04, Hidden_Lab3_Loop1B
+	smpsLoop            $00, $04, Mus_SBZ3USASHLoop1B
 	dc.b	nB1, nRst, nB1, nRst, nB1, nRst, nB1, nB1
 
-Hidden_Lab3_Loop1C:
+Mus_SBZ3USASHLoop1C:
 	dc.b	nCs2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop1C
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop1C
 	dc.b	nCs2, nCs2
 
-Hidden_Lab3_Loop1D:
+Mus_SBZ3USASHLoop1D:
 	dc.b	nD2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop1D
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop1D
 	dc.b	nD2, nD2
 
-Hidden_Lab3_Loop1E:
+Mus_SBZ3USASHLoop1E:
 	dc.b	nE2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop1E
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop1E
 	dc.b	nE2, nE2
 
-Hidden_Lab3_Loop1F:
+Mus_SBZ3USASHLoop1F:
 	dc.b	nCs2, nRst
-	smpsLoop            $00, $07, Hidden_Lab3_Loop1F
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop1F
 	dc.b	nCs2, nCs2, nRst, $0C, nCs2, $03, nB1, nA1, nAb1
 
-Hidden_Lab3_Loop20:
+Mus_SBZ3USASHLoop20:
 	dc.b	nFs1, $03, nRst, nFs2, nFs2, nFs1, $06, nFs2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop20
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop20
 
-Hidden_Lab3_Loop21:
+Mus_SBZ3USASHLoop21:
 	dc.b	nB1, nRst, nB2, nB2, nB1, $06, nB2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop21
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop21
 
-Hidden_Lab3_Loop22:
+Mus_SBZ3USASHLoop22:
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop22
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop22
 
-Hidden_Lab3_Loop23:
+Mus_SBZ3USASHLoop23:
 	dc.b	nA1, nRst, nA2, nA2, nA1, $06, nA2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop23
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop23
 
-Hidden_Lab3_Loop24:
+Mus_SBZ3USASHLoop24:
 	dc.b	nD2, nRst, nD3, nD3, nD2, $06, nD3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop24
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop24
 
-Hidden_Lab3_Loop25:
+Mus_SBZ3USASHLoop25:
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop25
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop25
 	dc.b	nD2, nRst, $06, nCs2, $03, nRst, nB1, nCs2, nE2, nE2, nCs2, nB1
 	dc.b	nCs2, nE2, nCs2, nB1, nCs2
 
-Hidden_Lab3_Loop26:
+Mus_SBZ3USASHLoop26:
 	dc.b	nFs1, nRst, nFs2, nFs2, nFs1, $06, nFs2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop26
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop26
 
-Hidden_Lab3_Loop27:
+Mus_SBZ3USASHLoop27:
 	dc.b	nB1, nRst, nB2, nB2, nB1, $06, nB2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop27
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop27
 
-Hidden_Lab3_Loop28:
+Mus_SBZ3USASHLoop28:
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop28
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop28
 
-Hidden_Lab3_Loop29:
+Mus_SBZ3USASHLoop29:
 	dc.b	nA1, nRst, nA2, nA2, nA1, $06, nA2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop29
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop29
 
-Hidden_Lab3_Loop2A:
+Mus_SBZ3USASHLoop2A:
 	dc.b	nD2, nRst, nD3, nD3, nD2, $06, nD3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop2A
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop2A
 
-Hidden_Lab3_Loop2B:
+Mus_SBZ3USASHLoop2B:
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop2B
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop2B
 	dc.b	nD2, nRst, nB1, nCs2, nRst, nD2, nRst, $1E
 
-Hidden_Lab3_Loop2C:
+Mus_SBZ3USASHLoop2C:
 	dc.b	nB1, $03, nRst, nB2, nB2, nB1, $06, nB2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop2C
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop2C
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03, nA1, nRst, nA2
 	dc.b	nA2, nG1, $06, nG2, nD2, $03, nRst, nD3, nD3, nD2, $06, nD3
 	dc.b	$03, $03, nCs2, nRst, nCs3, nCs3, nCs2, $06, nCs3, $03, $03, nFs1
 	dc.b	$06, nFs2, $03, nRst, nAb1, $06, nAb2, $03, nRst, nA1, $06, nA2
 	dc.b	$03, nRst, nBb1, $06, nBb2, $03, nRst
 
-Hidden_Lab3_Loop2D:
+Mus_SBZ3USASHLoop2D:
 	dc.b	nB1, nRst, nB2, nB2, nB1, $06, nB2, $03, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop2D
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop2D
 	dc.b	nE2, nRst, nE3, nE3, nE2, $06, nE3, $03, $03, nA1, nRst, nA2
 	dc.b	nA2, nG1, $06, nG2, nB1, $03, nRst, nB2, nB2, nB1, $06, nB2
 	dc.b	$03, $03, nA1, nRst, nA2, nA2, nA1, $06, nA2, $03, $03, nB1
 	dc.b	nRst, nB2, nB2, nA1, $06, nA2, $03, $03, nAb1, nRst, nAb2, nAb2
 	dc.b	nFs1, $06, nFs2, $03
 
-Hidden_Lab3_Loop2E:
+Mus_SBZ3USASHLoop2E:
 	dc.b	$03, nAb1, nRst, nAb2, nAb2, nAb1, $06, nAb2, $03
-	smpsLoop            $00, $02, Hidden_Lab3_Loop2E
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop2E
 	dc.b	$03, nCs2, $06, nCs3, $03, nRst, nB1, $06, nB2, $03, nRst, nA1
 	dc.b	$06, nA2, $03, nRst, nAb1, $06, nAb2, $03, nRst
-	smpsJump            Hidden_Lab3_Loop20
+	smpsJump            Mus_SBZ3USASHLoop20
 
 ; FM2 Data
-Hidden_Lab3_FM2:
+Mus_SBZ3USASHFM2:
 	smpsSetvoice        $01
 	smpsPan             panRight, $00
 	dc.b	nRst, $60, nA3, $48, nB3, $18, nCs4, $48, nD4, $18, nB3, nA3
@@ -237,7 +237,7 @@ Hidden_Lab3_FM2:
 	dc.b	$18, nB3, nA3, nCs4, nB3, nD4, $30, nF4, nRst, $18
 	smpsSetvoice        $03
 
-Hidden_Lab3_Jump03:
+Mus_SBZ3USASHJump03:
 	smpsPan             panCenter, $00
 	dc.b	nA4, $12
 	smpsAlterVol        $04
@@ -259,52 +259,52 @@ Hidden_Lab3_Jump03:
 	dc.b	nD5, $0C, nCs5, nB4, nA4, nAb4, $1E, nFs4, $06, nF4, nFs4, nAb4
 	dc.b	$1B, nCs4, $03, nB3, nCs4, nE4, nCs4, nB3, nCs4
 	smpsAlterVol        $FC
-	smpsJump            Hidden_Lab3_Jump03
+	smpsJump            Mus_SBZ3USASHJump03
 
 ; FM3 Data
-Hidden_Lab3_FM3:
+Mus_SBZ3USASHFM3:
 	smpsSetvoice        $01
 	smpsPan             panLeft, $00
 	dc.b	nRst, $60, nCs4, $48, nD4, $18, nE4, $48, nFs4, $18, nE4, $30
 	dc.b	nFs4, nA4, $18, nAb4, nFs4, nF4, nCs4, $48, nD4, $18, nE4, $48
 	dc.b	nFs4, $18, nE4, $30, nFs4, nA4, $18, nAb4, nA4, nB4
 
-Hidden_Lab3_Loop0F:
+Mus_SBZ3USASHLoop0F:
 	dc.b	nRst
 
-Hidden_Lab3_Jump02:
+Mus_SBZ3USASHJump02:
 	dc.b	nRst, $60
-	smpsLoop            $00, $06, Hidden_Lab3_Loop0F
+	smpsLoop            $00, $06, Mus_SBZ3USASHLoop0F
 	dc.b	$60
-	smpsJump            Hidden_Lab3_Jump02
+	smpsJump            Mus_SBZ3USASHJump02
 
 ; FM4 Data
-Hidden_Lab3_FM4:
+Mus_SBZ3USASHFM4:
 	smpsSetvoice        $01
 	dc.b	nRst, $60
 
-Hidden_Lab3_Loop0D:
+Mus_SBZ3USASHLoop0D:
 	dc.b	nFs3, $48, nAb3, $18, nA3, $48, nB3, $18, nCs4, $30, nD3, nE4
 	dc.b	nCs4
-	smpsLoop            $00, $02, Hidden_Lab3_Loop0D
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop0D
 	dc.b	nRst, $18
 
-Hidden_Lab3_Jump01:
+Mus_SBZ3USASHJump01:
 	dc.b	nRst
 
-Hidden_Lab3_Loop0E:
+Mus_SBZ3USASHLoop0E:
 	dc.b	$60
-	smpsLoop            $00, $0C, Hidden_Lab3_Loop0E
-	smpsJump            Hidden_Lab3_Jump01
+	smpsLoop            $00, $0C, Mus_SBZ3USASHLoop0E
+	smpsJump            Mus_SBZ3USASHJump01
 
 ; FM5 Data
-Hidden_Lab3_FM5:
+Mus_SBZ3USASHFM5:
 	smpsSetvoice        $02
 	dc.b	nRst
 
-Hidden_Lab3_Loop0A:
+Mus_SBZ3USASHLoop0A:
 	dc.b	$78
-	smpsLoop            $00, $07, Hidden_Lab3_Loop0A
+	smpsLoop            $00, $07, Mus_SBZ3USASHLoop0A
 	smpsPan             panCenter, $00
 	dc.b	$18
 	smpsPan             panCenter, $00
@@ -312,7 +312,7 @@ Hidden_Lab3_Loop0A:
 	smpsPan             panLeft, $00
 	dc.b	$01
 
-Hidden_Lab3_Jump00:
+Mus_SBZ3USASHJump00:
 	dc.b	nRst, $03, nCs4, nCs4, nCs4, nRst, $02
 	smpsPan             panRight, $00
 	dc.b	$01, nFs4, $03, $03, $03, nRst, nA4, $01
@@ -479,17 +479,17 @@ Hidden_Lab3_Jump00:
 	smpsAlterVol        $FF
 	dc.b	smpsNoAttack, $02
 
-Hidden_Lab3_Loop0B:
+Mus_SBZ3USASHLoop0B:
 	smpsAlterVol        $FF
 	dc.b	smpsNoAttack, $01
-	smpsLoop            $00, $03, Hidden_Lab3_Loop0B
+	smpsLoop            $00, $03, Mus_SBZ3USASHLoop0B
 
-Hidden_Lab3_Loop0C:
+Mus_SBZ3USASHLoop0C:
 	smpsAlterVol        $FF
 	dc.b	smpsNoAttack, $02
 	smpsAlterVol        $FF
 	dc.b	smpsNoAttack, $01
-	smpsLoop            $00, $02, Hidden_Lab3_Loop0C
+	smpsLoop            $00, $02, Mus_SBZ3USASHLoop0C
 	smpsAlterVol        $FF
 	dc.b	smpsNoAttack, $02
 	smpsAlterVol        $FF
@@ -499,17 +499,17 @@ Hidden_Lab3_Loop0C:
 	smpsPan             panCenter, $00
 	dc.b	$30
 	smpsAlterVol        $FE
-	smpsJump            Hidden_Lab3_Jump00
+	smpsJump            Mus_SBZ3USASHJump00
 
 ; PSG1 Data
-Hidden_Lab3_PSG1:
+Mus_SBZ3USASHPSG1:
 	dc.b	nE2, $03, nCs2, nB1
-	smpsLoop            $00, $04, Hidden_Lab3_PSG1
+	smpsLoop            $00, $04, Mus_SBZ3USASHPSG1
 	dc.b	nE2, nCs2, nA1, nB1
-	smpsLoop            $01, $12, Hidden_Lab3_PSG1
+	smpsLoop            $01, $12, Mus_SBZ3USASHPSG1
 	dc.b	nRst, $18
 
-Hidden_Lab3_Jump05:
+Mus_SBZ3USASHJump05:
 	dc.b	nRst, $70, $70, $70, $70, $70, $70, nD2, $03, nB1, nFs1, nB1
 	dc.b	nD2, nB1, nFs1, nB1, nE2, nB1, nFs1, nB1, nFs2, nB1, nFs1, nB1
 	dc.b	nE2, nB1, nAb1, nB1, nE2, nB1, nAb1, nB1, nCs2, nA1, nE1, nA1
@@ -520,9 +520,9 @@ Hidden_Lab3_Jump05:
 	dc.b	nFs2, nB1, nFs1, nB1, nE2, nB1, nAb1, nB1, nE2, nB1, nAb1, nB1
 	dc.b	nCs2, nA1, nE1, nA1, nCs2, nG1, nE1, nG1
 
-Hidden_Lab3_Loop32:
+Mus_SBZ3USASHLoop32:
 	dc.b	nB1, nFs1, nD1, nFs1
-	smpsLoop            $00, $03, Hidden_Lab3_Loop32
+	smpsLoop            $00, $03, Mus_SBZ3USASHLoop32
 	dc.b	nB1, nFs1, nCs2, nFs1, nD2, nB1, nFs1, nB1, nCs2, nA1, nE1, nA1
 	dc.b	nB1, nFs1, nD1, nFs1, nA1, nFs1, nCs1, nFs1, nAb1, nEb1, nC1, nEb1
 	dc.b	nC2, nAb1, nEb1, nAb1, nEb2, nC2, nAb1, nC2, nAb2, nEb2, nC2, nEb2
@@ -547,32 +547,32 @@ Hidden_Lab3_Loop32:
 	dc.b	smpsNoAttack, $04
 	smpsPSGAlterVol     $FF
 	dc.b	smpsNoAttack, $02
-	smpsJump            Hidden_Lab3_Jump05
+	smpsJump            Mus_SBZ3USASHJump05
 
 ; PSG3 Data
-Hidden_Lab3_PSG3:
+Mus_SBZ3USASHPSG3:
 	smpsPSGform         $E7
 	dc.b	nRst, $7F, $7F, $7F, $63, $7F, $7F, $7F, $1B
 
-Hidden_Lab3_Jump04:
+Mus_SBZ3USASHJump04:
 	dc.b	nMaxPSG
 
-Hidden_Lab3_Loop2F:
+Mus_SBZ3USASHLoop2F:
 	dc.b	$06, $06, $03
 	smpsPSGAlterVol     $02
 	dc.b	$03
 	smpsPSGAlterVol     $FE
 	dc.b	$06
-	smpsLoop            $00, $0D, Hidden_Lab3_Loop2F
+	smpsLoop            $00, $0D, Mus_SBZ3USASHLoop2F
 	dc.b	$18
 
-Hidden_Lab3_Loop30:
+Mus_SBZ3USASHLoop30:
 	dc.b	$06, $06, $03
 	smpsPSGAlterVol     $02
 	dc.b	$03
 	smpsPSGAlterVol     $FE
 	dc.b	$06
-	smpsLoop            $00, $0C, Hidden_Lab3_Loop30
+	smpsLoop            $00, $0C, Mus_SBZ3USASHLoop30
 	smpsPSGvoice        fTone_01
 	dc.b	$06, $03, $06, $03
 	smpsPSGvoice        fTone_02
@@ -583,23 +583,23 @@ Hidden_Lab3_Loop30:
 	dc.b	$18
 	smpsPSGvoice        fTone_02
 
-Hidden_Lab3_Loop31:
+Mus_SBZ3USASHLoop31:
 	dc.b	$03, $03
 	smpsPSGAlterVol     $02
 	dc.b	$06
 	smpsPSGAlterVol     $FE
-	smpsLoop            $00, $23, Hidden_Lab3_Loop31
+	smpsLoop            $00, $23, Mus_SBZ3USASHLoop31
 	dc.b	$03, $03
 	smpsPSGAlterVol     $02
 	dc.b	$36
 	smpsPSGAlterVol     $FE
-	smpsJump            Hidden_Lab3_Jump04
+	smpsJump            Mus_SBZ3USASHJump04
 
 ; PSG2 Data
-Hidden_Lab3_PSG2:
+Mus_SBZ3USASHPSG2:
 	smpsStop
 
-Hidden_Lab3_Voices:
+Mus_SBZ3USASHVoices:
 ;	Voice $00
 ;	$3D
 ;	$01, $01, $01, $01, 	$94, $19, $19, $19, 	$0F, $0D, $0D, $0D

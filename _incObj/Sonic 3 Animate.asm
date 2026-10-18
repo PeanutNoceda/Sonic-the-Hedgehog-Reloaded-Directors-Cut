@@ -102,21 +102,22 @@ Sonic_Animate:
 
 .nomodspeed:
 		lea	(SonAni_Dash).l,a1 ; use	running	animation
+		move.b	#id_AfterImages,(v_trails).w ; load AfterImages object ($19)
 		cmpi.w	#$A00,d2	; is Sonic at running speed?
 		bhs.s	.running	; if yes, branch
 
-		lea	(SonAni_Run).l,a1 ; use	running	animation
-		cmpi.w	#$600,d2	; is Sonic at running speed?
-		bhs.s	.running	; if yes, branch
+        lea    (SonAni_Run).l,a1 ; use running animation
+        cmpi.w    #$600,d2    ; is Sonic at running speed?
+        bhs.s    .running    ; if yes, branch
 
-		lea	(SonAni_Walk).l,a1 ; use walking animation
-		;move.b	d0,d0
-		;lsr.b	#1,d1
-		add.b	d0,d0
+        lea    (SonAni_Walk).l,a1 ; use walking animation
+        move.b    d0,d1
+        lsr.b    #1,d1
+        add.b    d1,d0
 
 .running:
-		add.b	d0,d0
-		move.b	d0,d3
+        add.b    d0,d0
+        move.b    d0,d3
 		neg.w	d2
 		addi.w	#$800,d2
 		bpl.s	.belowmax

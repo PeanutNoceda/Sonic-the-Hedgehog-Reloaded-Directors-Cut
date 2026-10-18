@@ -390,6 +390,9 @@ LZWind_Data:	dc.w $A80, $300, $C10,  $380 ; act 1 values (set 1)
 
 
 LZWaterSlides:
+		cmpi.w    #(id_LZ<<8)+3,(v_zone).w ; is level SBZ3?
+		beq.w    Noslide
+
 		lea	(v_player).w,a1
 		btst	#1,obStatus(a1)	; is Sonic jumping?
 		bne.s	loc_3F6A	; if not, branch
@@ -456,3 +459,7 @@ Slide_Chunks:
 ; byte_3FCF
 Slide_Chunks_End
 		even
+
+
+Noslide:
+		rts

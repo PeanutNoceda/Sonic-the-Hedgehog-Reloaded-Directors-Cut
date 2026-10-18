@@ -72,15 +72,19 @@ DLE_GHZ:
 DLE_GHZx:	dc.w DLE_GHZ1-DLE_GHZx
 		dc.w DLE_GHZ2-DLE_GHZx
 		dc.w DLE_GHZ3-DLE_GHZx
+		dc.w DLE_Tutorial-DLE_GHZx
 ; ===========================================================================
 
 DLE_GHZ1:
+		cmpi.b	#id_Title,(v_gamemode).w
+		beq.s	locret_6E08
+
 		move.w	#$300,(v_limitbtm1).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		blo.s	locret_6E08	; if not, branch
 		move.w	#$400,(v_limitbtm1).w ; set lower y-boundary
-		moveq	#palid_GHZ2,d0
-		bsr.w	PalLoad	; load palette
+		;moveq	#palid_GHZ2,d0 ; restore this little code if you want, i removed it because it breaks the animation of the GHZ waterfall.
+		;bsr.w	PalLoad	; same here. this is loading palette.
 
 locret_6E08:
 		rts	
@@ -97,8 +101,8 @@ DLE_GHZ2:
 		cmpi.w	#$1D60,(v_screenposx).w
 		blo.s	locret_6E3A
 		move.w	#$300,(v_limitbtm1).w
-		moveq	#palid_GHZ3,d0
-		bsr.w	PalLoad	; load palette
+		;moveq	#palid_GHZ3,d0 ; restore this little code if you want, i removed it because it breaks the animation of the GHZ waterfall.
+		;bsr.w	PalLoad	; same here. this is loading palette.
 
 locret_6E3A:
 		rts	
@@ -148,8 +152,6 @@ DLE_GHZ3boss:
 		cmpi.w	#$960,(v_screenposx).w
 		bhs.s	loc_6EB0
 		subq.b	#2,(v_dle_routine).w
-		move.w	#sfx_BossAlarm,d0
-		bsr.w 	PlaySound
 
 loc_6EB0:
 		cmpi.w	#boss_ghz_x,(v_screenposx).w
@@ -162,11 +164,11 @@ loc_6EB0:
 
 loc_6ED0:
 		move.w	#mus_Boss,d0
-		bsr.w	PlaySound	; play boss music
+		jsr		PlaySound	; play boss music
 		move.b	#1,(f_lockscreen).w ; lock screen
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_Boss,d0
-		bra.w	AddPLC		; load boss patterns
+		jmp	AddPLC		; load boss patterns
 ; ===========================================================================
 
 locret_6EE8:
@@ -175,7 +177,10 @@ locret_6EE8:
 
 DLE_GHZ3end:
 		move.w	(v_screenposx).w,(v_limitleft2).w
-		rts	
+		rts
+; ===========================================================================
+DLE_Tutorial:
+		rts
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Labyrinth Zone dynamic level events
@@ -206,7 +211,7 @@ DLE_LZ3:
 		beq.s	loc_6F28
 		move.b	#7,(a1)		; modify level layout
 		move.w	#sfx_Rumbling,d0
-		bsr.w	PlaySound_Special ; play rumbling sound
+		jsr		PlaySound_Special ; play rumbling sound
 
 loc_6F28:
 		tst.b	(v_dle_routine).w
@@ -220,12 +225,12 @@ loc_6F28:
 		_move.b	#id_BossLabyrinth,obID(a1) ; load LZ boss object
 
 loc_6F4A:
-		move.w	#mus_Boss,d0
-		bsr.w	PlaySound	; play boss music
+		move.w	#mus_S2Boss,d0
+		jsr		PlaySound	; play boss music
 		move.b	#1,(f_lockscreen).w ; lock screen
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_Boss,d0
-		bra.w	AddPLC		; load boss patterns
+		jmp	AddPLC		; load boss patterns
 ; ===========================================================================
 
 locret_6F62:
@@ -362,8 +367,8 @@ locj_76CE:
 		cmpi.w	#$1430,(v_screenposx).w
 		blo.s	locret_7072
 		move.w	#$210,(v_limitbtm1).w
-		moveq	#palid_MZ2,d0
-		bsr.w	PalLoad	; load palette
+;		moveq	#palid_MZ2,d0
+;		bsr.w	PalLoad	; load palette
 
 locret_7072:
 		rts	
@@ -374,8 +379,8 @@ DLE_MZ2:
 		cmpi.w	#$1700,(v_screenposx).w
 		blo.s	locret_7088
 		move.w	#$200,(v_limitbtm1).w
-		moveq	#palid_MZ3,d0
-		bsr.w	PalLoad	; load palette
+;		moveq	#palid_MZ3,d0
+;		bsr.w	PalLoad	; load palette
 
 locret_7088:
 		rts	
@@ -387,39 +392,115 @@ DLE_MZ3:
 		move.w	off_7098(pc,d0.w),d0
 		jmp	off_7098(pc,d0.w)
 ; ===========================================================================
-off_7098:	dc.w DLE_MZ3boss-off_7098
+off_7098:	dc.w DLE_MZ3_Level-off_7098
+		dc.w Nullsub-off_7098
+		dc.w DLE_MZ3_Autoscroll-off_7098
 		dc.w DLE_MZ3end-off_7098
+		dc.w Nullsub-off_7098
 ; ===========================================================================
+
+DLE_MZ3_Level:
+		; - DEFAULT ------------------------------------
+		move.w	#$12C,(v_limitbtm1).w ; set lower y-boundary
+		; - PASS 1--------------------------------------
+		cmpi.w	#$154,(v_screenposy).w ; has the camera reached $0154 on y-axis?
+		bcc.s	.Pass2	; if yes, branch
+
+		cmpi.w	#$41A,(v_screenposx).w ; has the camera reached $044A on x-axis?
+		bcs.s	return_01	; if not, branch
+		; - PASS 2 -------------------------------------
+.Pass2:
+		move.w	#$560,(v_limitbtm1).w ; set lower y-boundary
+		; - PASS 3--------------------------------------
+		cmpi.w	#$1500,(v_screenposx).w ; has the camera reached $1500 on x-axis?
+		bcs.s	return_01 ; if not, branch
+		move.w	#$200,(v_limitbtm1).w	; lock bottom
+
+		cmpi.w	#$1800,(v_screenposx).w ; has the camera reached $1800 on x-axis?
+		bcs.s	return_01 ; if not, branch
+
+		jsr	FindFreeObj
+		bne.s	DLE_MZ3boss
+		move.b	#id_BossMarble, (a1)	; load MZ boss object
+		move.w	#$19F0+$80, obX(a1)
+		move.w	#$23C-$20, obY(a1)
 
 DLE_MZ3boss:
-		move.w	#$720,(v_limitbtm1).w
-		cmpi.w	#boss_mz_x-$2A0,(v_screenposx).w
-		blo.s	locret_70E8
-		move.w	#boss_mz_y,(v_limitbtm1).w
-		cmpi.w	#boss_mz_x-$10,(v_screenposx).w
-		blo.s	locret_70E8
-		bsr.w	FindFreeObj
-		bne.s	loc_70D0
-		_move.b	#id_BossMarble,obID(a1) ; load MZ boss object
-		move.w	#boss_mz_x+$1F0,obX(a1)
-		move.w	#boss_mz_y+$1C,obY(a1)
+		move.w	(v_screenposx).w,d0
+		move.w	d0,(v_limitleft2).w	; lock left side
+		move.w	#$200,(v_limittop2).w	; lock the top
 
-loc_70D0:
-		move.w	#mus_S2Boss,d0
-		jsr	PlaySound	; play boss music
-		move.b	#1,(f_lockscreen).w ; lock screen
+		move.w	#mus_Fade,d0
+		jsr	PlaySound	; fade music
+
+		move.b	#1,(f_lockscreen).w	; lock screen
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_Boss,d0
-		bra.w	AddPLC		; load boss patterns
+		jmp	AddPLC			; load boss patterns
+		; ----------------------------------------------
+
+Nullsub:
+return_01:
+		rts	
+
 ; ===========================================================================
 
-locret_70E8:
-		rts	
+DLE_MZ3_Autoscroll:
+.WarpPeriod:	= $400
+.ScrollSpeed:	= 2
+
+		cmp.b	#6, v_player+obRoutine	; Sonic dying?
+		bhs.s	return_01			; if yes, branch
+		move.w	(v_limitleft2).w,d0
+		move.w	#$200,(v_scrshiftx).w	; keep camera scrolling ...
+		addq.w	#.ScrollSpeed,d0
+		cmpi.w	#$1900+.WarpPeriod,d0	; has camera went past warp border?
+		bcs.s	.NoWarp			; if not, branch
+
+		move.w	#.WarpPeriod,d1
+		sub.w	d1,d0			; warp Camera
+
+		lea	(v_objspace).w, a3
+		moveq	#$7F,d6
+		
+	.WarpLoop:
+		tst.b	(a3)			; is this slot occupied?
+		beq.s	.WarpNext		; if not, branch
+		moveq	#%1100, d2		; does object use playfield coordinates?
+		and.b	obRender(a3), d2	; ''
+		subq.w	#1<<2, d2		; ''
+		bne.s	.WarpNext		; if not, branch
+
+		sub.w	d1, obX(a3)		; warp object
+
+	.WarpNext:
+		lea	$40(a3),a3
+		dbf	d6,.WarpLoop
+
+	.NoWarp:
+		move.w	d0,(v_limitleft2).w		; update camera boundaries
+		move.w	d0,(v_limitright2).w		;
+		move.w	d0,(v_screenposx).w		; update camera position            
+		move.b	d0,(v_screenposx_final).w	; ''
+
+		; Prevent Sonic from getting stuck on the left boundary
+		lea	(v_player).w,a0
+		sub.w	obX(a0), d0
+		cmp.w	#-$11, d0		; is Sonic touching the left boundary?
+		blt.s	return_01			; if nope, branch
+		add.w	#$11, d0		; d0 = CameraX - SonicX + $11
+		add.w	d0, obX(a0)		; SonicX = CameraX + $11
+		move.w	#.ScrollSpeed<<8, obVelX(a0)
+		move.w	#.ScrollSpeed<<8, obInertia(a0)
+		rts
 ; ===========================================================================
 
 DLE_MZ3end:
-		move.w	(v_screenposx).w,(v_limitleft2).w
-		rts	
+		sf.b	(f_lockscreen).w				; unlock right boundary
+		addq.b	#2,(v_dle_routine).w
+		move.w	#$1D00+$180,(v_limitright2).w		; setup right boundary
+		move.w	(v_screenposx).w,(v_limitleft2).w		; limit left boundary
+		rts
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Star Light Zone dynamic level events
@@ -470,12 +551,12 @@ DLE_SLZ3boss:
 		move.b	#id_BossStarLight,obID(a1) ; load SLZ boss object
 
 loc_7144:
-		move.w	#mus_Boss,d0
+		move.w	#mus_S2Boss,d0
 		jsr	PlaySound	; play boss music
 		move.b	#1,(f_lockscreen).w ; lock screen
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_Boss,d0
-		bra.w	AddPLC		; load boss patterns
+		jmp		AddPLC		; load boss patterns
 ; ===========================================================================
 
 locret_715C:
@@ -553,11 +634,11 @@ DLE_SYZ3boss:
 		addq.b	#2,(v_dle_routine).w
 
 loc_71EC:
-		move.w	#mus_Boss,d0
+		move.w	#mus_BossD,d0
 		jsr		PlaySound	; play boss music
 		move.b	#1,(f_lockscreen).w ; lock screen
 		moveq	#plcid_Boss,d0
-		bra.w	AddPLC		; load boss patterns
+		jmp		AddPLC		; load boss patterns
 ; ===========================================================================
 
 locret_7200:
@@ -630,7 +711,7 @@ DLE_SBZ2boss:
 		move.b	#id_FalseFloor,obID(a1) ; load collapsing block object
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_EggmanSBZ2,d0
-		bra.w	AddPLC		; load SBZ2 Eggman patterns
+		jmp 	AddPLC		; load SBZ2 Eggman patterns
 ; ===========================================================================
 
 locret_7298:
@@ -671,6 +752,7 @@ DLE_FZ:
 ; ===========================================================================
 off_72D8:	dc.w DLE_FZmain-off_72D8, DLE_FZboss-off_72D8
 		dc.w DLE_FZend-off_72D8, locret_7322-off_72D8
+		dc.w DLE_EGGEscape-off_72D8
 		dc.w DLE_FZend2-off_72D8
 ; ===========================================================================
 
@@ -679,7 +761,7 @@ DLE_FZmain:
 		blo.s	loc_72F4
 		addq.b	#2,(v_dle_routine).w
 		moveq	#plcid_FZBoss,d0
-		bsr.w	AddPLC		; load FZ boss patterns
+		jsr		AddPLC		; load FZ boss patterns
 
 loc_72F4:
 		bra.s	loc_72C2
@@ -710,10 +792,18 @@ loc_7320:
 locret_7322:
 		rts	
 ; ===========================================================================
-
 DLE_FZend2:
 		bra.s	loc_72C2
 ; ===========================================================================
+DLE_EGGEscape:
+		cmpi.w	#$259A,(v_screenposx).w ; has the camera reached $259A on x-axis?
+		bcs.s	.egglocret	; if not, branch
+;		move.l	#Level_SBZ1bg.w ; Load SBZ 1 Background
+		moveq	#palid_SBZ1,d0
+		jsr	PalLoad	; load palette
+
+.egglocret:
+		rts
 ; ---------------------------------------------------------------------------
 ; Ending sequence dynamic level events (empty)
 ; ---------------------------------------------------------------------------

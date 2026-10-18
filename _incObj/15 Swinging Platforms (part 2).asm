@@ -48,7 +48,7 @@ loc_7BB6:
 
 
 Swing_Move2:
-		bsr.w	CalcSine
+		jsr		CalcSine
 		move.w	objoff_38(a0),d2
 		move.w	objoff_3A(a0),d3
 		lea	obSubtype(a0),a2

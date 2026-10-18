@@ -3,13 +3,21 @@
 ; ---------------------------------------------------------------
 
 ;			| Filename	| Folder
-		incdac	SegaPCM, "Sound/DAC/SegaPCM.pcm"
+		incdac	SegaPCM, "Sound/DAC/Sega.wav"
+		incdac	ThankYou,	"Sound/DAC/Thanks for playing.wav"
+		incdac	OneUP,	"Sound/DAC/1UP.wav"
+		incdac	USASHKick, "Sound/DAC/Sonic 1 & 2/USASH Kick.wav"
+		incdac	USASHSnare, "Sound/DAC/Sonic 1 & 2/USASH Snare.snd"
+		incdac	RELV1Snare, "Sound/DAC/Sonic 1 & 2/OG Snare.wav"
 
     if SMPS_S1DACSamples||SMPS_S2DACSamples
 		incdac	Kick, "Sound/DAC/Sonic 1 & 2/Kick.pcm"
-		incdac	Snare, "Sound/DAC/Sonic 1 & 2/Snare.wav"
+		incdac	Snare, "Sound/DAC/Sonic 1 & 2/Snare.pcm"
 		incdac	Timpani, "Sound/DAC/Sonic 1 & 2/Timpani.pcm"
-		incdac	PowerKickAlt,	"Sound/DAC/Power Kick.wav"
+		incdac	PowerKickAlt,	"Sound/DAC/Sonic 1 & 2/Kick.wav"
+		incdac	PowerSnareAlt, "Sound/DAC/Sonic 1 & 2/Snare.wav"
+		incdac	PeanutWooh, "Sound/DAC/Sonic 3 & K & 3D/PeanutWooh.wav"
+		incdac	CrashCymbalKC,	"Sound/DAC/Sonic 1 & 2/Reloaded Crash Cymbal.wav"
     endif
 
     if SMPS_S2DACSamples

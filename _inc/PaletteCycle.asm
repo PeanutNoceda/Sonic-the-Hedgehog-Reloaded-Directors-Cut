@@ -29,7 +29,8 @@ PalCycle_Index:	dc.w PalCycle_GHZ-PalCycle_Index
 
 
 ; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
-
+PalCycle_Tutorial:
+		rts
 
 PalCycle_Title:
 		lea	(Pal_TitleCyc).l,a0
@@ -39,6 +40,9 @@ PalCycle_Title:
 PalCycle_GHZ:
 		cmpi.w    #(id_GHZ<<8)+2,(v_zone).w ; is level GHZ3?
 		beq.w    PalCycle_GHZ3
+
+		cmpi.w    #(id_GHZ<<8)+3,(v_zone).w ; is level Tutorial?
+		beq.w    PalCycle_Tutorial
 
 Cycle_GHZ_Stage:
 		lea	(Pal_GHZCyc).l,a0
@@ -187,6 +191,13 @@ locret_1A80:
 
 
 PalCycle_SYZ:
+		cmpi.w    #(id_SYZ<<8)+2,(v_zone).w ; is level SYZ3?
+		beq.w    PalCycle_SYZ3
+
+PalCycle_SYZ_Stage:
+		rts	
+
+PalCycle_SYZ3:
 		subq.w	#1,(v_pcyc_time).w
 		bpl.s	locret_1AC6
 		move.w	#5,(v_pcyc_time).w
@@ -206,7 +217,7 @@ PalCycle_SYZ:
 		move.w	2(a0,d1.w),4(a1)
 
 locret_1AC6:
-		rts	
+		rts
 ; End of function PalCycle_SYZ
 
 
@@ -286,3 +297,76 @@ loc_1B52:
 locret_1B64:
 		rts	
 ; End of function PalCycle_SBZ
+
+; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
+
+; sub_213E:
+PalCycle_SuperSonic:
+		move.b	(pal_supersonic).w,d0
+		beq.s	.return
+		bmi.w	.normal
+		subq.b	#1,d0
+		bne.s	.revert
+
+		subq.b	#1,(v_palettetimer).w
+		bpl.s	.return
+		move.b	#1,(v_palettetimer).w
+		
+		lea	(Pal_SuperSonicCyc).l,a0
+		move.w	(v_palette_frame).w,d0
+		addq.w	#6,(v_palette_frame).w
+		cmpi.w	#$24,(v_palette_frame).w
+		blo.s	.updatepalette
+		move.b	#-1,(pal_supersonic).w
+		move.b	#0,(f_playerctrl).w
+
+.updatepalette:
+		lea	(v_palette+4).w,a1
+		move.l	(a0,d0.w),(a1)+
+		move.w	4(a0,d0.w),(a1)
+.return:
+		rts
+; ===========================================================================
+
+.revert:
+		subq.b	#1,(v_palettetimer).w
+		bpl.s	.return
+		move.b	#3,(v_palettetimer).w
+		lea	(Pal_SuperSonicCyc).l,a0
+		move.w	(v_palette_frame).w,d0
+		subq.w	#2*4,(v_palette_frame).w
+		bcc.s	.revert_update
+		move.w	#0,(v_palette_frame).w
+		move.b	#0,(pal_supersonic).w
+.revert_update:
+		lea	(v_palette+4).w,a1
+		move.l	(a0,d0.w),(a1)+
+		move.w	4(a0,d0.w),(a1)
+		rts
+; ===========================================================================
+
+.normal:
+		subq.b	#1,(v_palettetimer).w
+		bpl.s	.return
+		move.b	#6,(v_palettetimer).w
+		lea	(Pal_SuperSonicCyc).l,a0
+		move.w	(v_palette_frame).w,d0
+		addq.w	#6,(v_palette_frame).w
+		cmpi.w	#$36,(v_palette_frame).w
+		bls.s	.normal_update
+		move.w	#$24,(v_palette_frame).w
+.normal_update:
+
+		lea	(v_palette+4).w,a1
+		move.l	(a0,d0.w),(a1)+
+		move.w	4(a0,d0.w),(a1)
+		rts
+; End of function PalCycle_SuperSonic
+
+; ===========================================================================
+;----------------------------------------------------------------------------
+; Palette for transformation to Super Sonic
+;----------------------------------------------------------------------------
+; Pal_2246:
+Pal_SuperSonicCyc:
+	binclude	"palette/Cycle - Super Sonic.bin"

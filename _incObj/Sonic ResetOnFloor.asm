@@ -6,7 +6,8 @@
 
 
 Sonic_ResetOnFloor:
-				btst	#4,obStatus(a0)
+		move.b	#0,(v_falling).w
+		btst	#4,obStatus(a0)
 		beq.s	loc_137AE
 		nop	
 		nop	

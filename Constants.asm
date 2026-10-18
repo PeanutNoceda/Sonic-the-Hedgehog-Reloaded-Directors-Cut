@@ -57,6 +57,9 @@ id_Ending:	equ ptr_GM_Ending-GameModeArray	; $18
 id_Credits:	equ ptr_GM_Credits-GameModeArray; $1C
 id_PeanutNocedaScreen:		equ	ptr_GM_Pea-GameModeArray
 id_Warning:		equ		ptr_GM_WarningScr-GameModeArray
+id_ThankYou:	equ		ptr_GM_Thanks-GameModeArray
+id_SSRG equ        ptr_GM_SSRG-GameModeArray ; SSRG Splash Screen ($20)
+id_History:		equ		ptr_GM_DedicatedTo-GameModeArray
 
 ; Levels
 id_GHZ:		equ 0
@@ -143,7 +146,114 @@ invtime:	equ $32	; time left for invincibility
 shoetime:	equ $34	; time left for speed shoes
 stick_to_convex:equ objoff_38
 standonobject:	equ $3D	; object Sonic stands on
+obCodePtr:	equ	$3C	; code pointer (4 bytes)
+; Flags used by obRender and BuildSprites
+sprite_xflip_bit:	equ 0					; flip sprite mappings horizontally (X-axis)
+sprite_yflip_bit:	equ 1					; flip sprite mappings vertically (Y-axis)
+sprite_cam_field_bit:	equ 2					; position with foreground coordinates (playfield-positioned mode)
+sprite_cam_bg_bit:	equ 3					; position with background coordinates (unused, see notes in BuildSpr_Cameras)
+sprite_customheight_bit:equ 4					; use obHeight instead of assuming 32px to determine display height
+sprite_rawmappings_bit:	equ 5					; obMap points to single, specific sprite piece rather than index of mappings
+sprite_looping_bit:	equ 6					; display behind looping chunks (only used by Sonic)
+sprite_rendered_bit:	equ 7					; set when sprite is in visible screen space and got rendered the previous frame
 
+sprite_xflip:		equ 1<<sprite_xflip_bit
+sprite_yflip:		equ 1<<sprite_yflip_bit
+sprite_cam_screen:	equ 0					; position with screen-fixed coordinates (implied if bits 2-3 are 0)
+sprite_cam_field:	equ 1<<sprite_cam_field_bit
+sprite_cam_bg:		equ 1<<sprite_cam_bg_bit
+sprite_customheight:	equ 1<<sprite_customheight_bit
+sprite_rawmappings:	equ 1<<sprite_rawmappings_bit
+sprite_rendered:	equ 1<<sprite_rendered_bit
+; ---------------------------------------------------------------------------
+; Object Status Table offsets (for everything between Object_RAM and Primary_Collision)
+; ---------------------------------------------------------------------------
+; universally followed object conventions:
+id =             0 ; object ID (if you change this, change insn1op and insn2op in s2.macrosetup.asm, if you still use them)
+render_flags =         1 ; bitfield ; bit 7 = onscreen flag, bit 0 = x mirror, bit 1 = y mirror, bit 2 = coordinate system, bit 6 = render subobjects
+art_tile =         2 ; and 3 ; start of sprite's art
+mappings =         4 ; and 5 and 6 and 7
+x_pos =             8 ; and 9 ... some objects use $A and $B as well when extra precision is required (see ObjectMove) ... for screen-space objects this is called x_pixel instead
+x_sub =            $A ; and $B
+y_pos =            $C ; and $D ... some objects use $E and $F as well when extra precision is required ... screen-space objects use y_pixel instead
+y_sub =            $E ; and $F
+priority =       $18 ; 0 = front
+width_pixels =       $19
+mapping_frame =       $1A
+; ---------------------------------------------------------------------------
+; conventions followed by most objects:
+x_vel =           $10 ; and $11 ; horizontal velocity
+y_vel =           $12 ; and $13 ; vertical velocity
+y_radius =       $16 ; collision height / 2
+x_radius =       $17 ; collision width / 2
+anim_frame =       $1B
+anim =           $1C
+prev_anim =       $1D
+anim_frame_duration =   $1E
+status =       $22 ; note: exact meaning depends on the object... for Sonic/Tails: bit 0: left-facing. bit 1: in-air. bit 2: spinning. bit 3: on-object. bit 4: roll-jumping. bit 5: pushing. bit 6: underwater.
+routine =       $24
+routine_secondary =   $25
+angle =           $26 ; angle about the z axis (360 degrees = 256)
+mainspr_width:		equ $E	; obY (low word hi)
+mainspr_childsprites:	equ $F	; obY (low word lo)
+; ---------------------------------------------------------------------------
+; conventions followed by many objects but NOT Sonic/Tails:
+collision_flags =   $20
+collision_property =   $21
+respawn_index =       $23
+subtype =       $28
+; <...>
+; priority address variables -- RetroKoH/Devon S3K+ Priority Manager
+priority0:	equ	v_spritequeue
+priority1:	equ	v_spritequeue+$80
+priority2:	equ	v_spritequeue+$100
+priority3:	equ	v_spritequeue+$180
+priority4:	equ	v_spritequeue+$200
+priority5:	equ	v_spritequeue+$280
+priority6:	equ	v_spritequeue+$300
+priority7:	equ	v_spritequeue+$380
+; Sub sprites from Sonic 2: when childsprites are activated (bit 6 of obRender set)
+; (Comments denote overridden SSTs, 0-5 and high words of obX/obY same as normal)
+next_subspr:		equ 6	; Length of sub sprite data
+mainspr_mapframe:	equ $B	; obScreenY (low byte)
+mainspr_height:		equ $14	; obInertia (high byte)
+subspr_data:		equ $10
+sub2_x_pos:		equ subspr_data+next_subspr*0+0	; obVelX
+sub2_y_pos:		equ subspr_data+next_subspr*0+2	; obVelY
+sub2_mapframe:		equ subspr_data+next_subspr*0+5	; obInertia (low byte)
+sub3_x_pos:		equ subspr_data+next_subspr*1+0	; obHeight/obWidth
+sub3_y_pos:		equ subspr_data+next_subspr*1+2	; obPriority/obActWid
+sub3_mapframe:		equ subspr_data+next_subspr*1+5	; obAniFrame
+sub4_x_pos:		equ subspr_data+next_subspr*2+0	; obAnim/obPrevAni
+sub4_y_pos:		equ subspr_data+next_subspr*2+2	; obTimeFrame/obDelayAni
+sub4_mapframe:		equ subspr_data+next_subspr*2+5	; obColProp
+sub5_x_pos:		equ subspr_data+next_subspr*3+0	; obStatus/obRespawnNo
+sub5_y_pos:		equ subspr_data+next_subspr*3+2	; obRoutine/ob2ndRout
+sub5_mapframe:		equ subspr_data+next_subspr*3+5	; obAngle (low byte)
+sub6_x_pos:		equ subspr_data+next_subspr*4+0	; obSubtype/objoff_29
+sub6_y_pos:		equ subspr_data+next_subspr*4+2	; objoff_2A/objoff_2B
+sub6_mapframe:		equ subspr_data+next_subspr*4+5	; objoff_2D
+sub7_x_pos:		equ subspr_data+next_subspr*5+0	; objoff_2E/objoff_2F
+sub7_y_pos:		equ subspr_data+next_subspr*5+2	; objoff_30/objoff_31
+sub7_mapframe:		equ subspr_data+next_subspr*5+5	; objoff_33
+sub8_x_pos:		equ subspr_data+next_subspr*6+0	; objoff_34/objoff_35
+sub8_y_pos:		equ subspr_data+next_subspr*6+2	; objoff_36/objoff_37
+sub8_mapframe:		equ subspr_data+next_subspr*6+5	; objoff_39
+sub9_x_pos:		equ subspr_data+next_subspr*7+0	; objoff_3A/objoff_3B
+sub9_y_pos:		equ subspr_data+next_subspr*7+2	; objoff_3C/objoff_3D
+sub9_mapframe:		equ subspr_data+next_subspr*7+5	; objoff_3F
+; End of Sonic 2 variables
+flying =		$20	; 0 for normal, 1 for flying, 2+ for flying unaffected by gravity
+flying_timer =		$21	; remaining flight time for Tails (frames / 2)
+; Sonic's collision sizes (From new Github disasms)
+sonic_width:		equ 18/2				; Sonic's width
+sonic_height:		equ 38/2				; Sonic's height
+sonic_roll_width:	equ 14/2				; Sonic's width (rolling)
+sonic_roll_height:	equ 28/2				; Sonic's height (rolling)
+sonic_solid_width:	equ 22/2				; Sonic's width (solid object collision)
+sonic_react_width:	equ 16/2				; Sonic's width (object collision)
+sonic_duck_height:	equ 20/2				; Sonic's height (object collision, ducking)
+sonic_quick_size:	equ 20/2				; Sonic's size (quick terrain find)
 ; Miscellaneous object scratch-RAM
 objoff_25:	equ $25
 objoff_26:	equ $26
@@ -179,6 +289,23 @@ afChange:	equ $FD	; run specified animation
 afRoutine:	equ $FC	; increment routine counter
 afReset:	equ $FB	; reset animation and 2nd object routine counter
 af2ndRoutine:	equ $FA	; increment 2nd routine counter
+; Sonic's status bits (status)
+staFacing:		equ 0 ; status Facing is cleared when facing right, and set when facing left.
+staAir:			equ 1 ; status Air notes whether or not Sonic is in the air.
+staSpin:		equ 2 ; status Spin notes whether or not Sonic is spinning.
+staOnObj:		equ 3 ; status OnObj notes whether or not Sonic is standing on an object.
+staRollJump:	equ 4 ; status RollJump notes whether or not Sonic is jumping from a roll. If so, he cannot control his trajectory.
+staPush:		equ 5 ; status Push notes whether or not Sonic is pushing an object.
+staWater:		equ 6 ; status Water is set when Sonic is in the water.
+staSSJump:		equ 7 ; status SSJump is set when Sonic jumps in a Special Stage.
+; Sonic's status masks
+maskFacing:		equ 1<<staFacing		; $01
+maskAir:		equ 1<<staAir			; $02
+maskSpin:		equ 1<<staSpin			; $04
+maskOnObj:		equ 1<<staOnObj			; $08
+maskRollJump:	equ 1<<staRollJump		; $10
+maskPush:		equ 1<<staPush			; $20
+maskWater:		equ 1<<staWater			; $40
 
 ; Sonic frame IDs
 fr_Null:	equ 0
@@ -413,8 +540,8 @@ ArtTile_Button:			equ $50F
 ArtTile_Spikes:			equ $51B
 ArtTile_Spring_Horizontal:	equ $523
 ArtTile_Spring_Vertical:	equ $533
-ArtTile_Shield:			equ $541
-ArtTile_Invincibility:		equ $55C
+ArtTile_Shield:			equ ArtTile_Invincibility
+ArtTile_Invincibility:		equ $541
 ArtTile_Game_Over:		equ $55E
 ArtTile_Title_Card:		equ $580
 ArtTile_Animal_1:		equ $580
@@ -423,7 +550,7 @@ ArtTile_Explosion:		equ $5A0
 ArtTile_Monitor:		equ $680
 ArtTile_HUD:			equ $6CA
 ArtTile_Sonic:			equ $780
-ArtTile_Points:			equ $797
+ArtTile_SuperStars:		equ $541
 ArtTile_Lamppost:		equ ($D800/$20)
 ArtTile_Ring:			equ $7B2
 ArtTile_Sparkle:        equ $7BC
@@ -456,6 +583,7 @@ ArtTile_Title_Foreground:	equ $200
 ArtTile_Title_Sonic:		equ $300
 ArtTile_Title_Trademark:	equ $590
 ArtTile_Level_Select_Font:	equ $680
+ArtTile_Title_Menu:		equ $5C0
 
 ; Continue Screen
 ArtTile_Continue_Sonic:		equ $500

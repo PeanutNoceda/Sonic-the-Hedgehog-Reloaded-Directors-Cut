@@ -1,13 +1,10 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - "SONIC THE HEDGEHOG" text on the ending sequence
-; ---------------------------------------------------------------------------
-Map_ESth_internal:	mappingsTable
-	mappingsTableEntry.w	M_ESth_1
-
-M_ESth_1:	spriteHeader
-	spritePiece	-$30, -$10, 4, 4, 0, 0, 0, 0, 0
-	spritePiece	-$10, -$10, 4, 4, $10, 0, 0, 0, 0
-	spritePiece	$10, -$10, 4, 4, $20, 0, 0, 0, 0
-M_ESth_1_End
-
+Map_774c:
+	dc.w Map_774c_2-Map_774c
+Map_774c_2: 	dc.b $6
+	dc.b $F0, $F, $0, $0, $D0
+	dc.b $10, $C, $0, $10, $D8
+	dc.b $F0, $F, $0, $14, $F0
+	dc.b $10, $C, $0, $24, $F8
+	dc.b $F0, $F, $0, $28, $10
+	dc.b $10, $4, $0, $38, $18
 	even

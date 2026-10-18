@@ -922,41 +922,41 @@ Scrappy_DAC_Jump:
 	smpsJump Scrappy_DAC_Jump
 
 Scrappy_DAC_06_0_64:	; Effect not supported:
-	dc.b dSnare, $04, $08, $08, $04, $04, $14, dPKick, $10
+	dc.b dPSnare, $04, $08, $08, $04, $04, $14, dPKick, $10
 	smpsReturn
 
 Scrappy_DAC_07_0_64:
-	dc.b dPKick, $10, $10, $08, dSnare, dSnare, dSnare, $04, $04
+	dc.b dPKick, $10, $10, $08, dPSnare, dPSnare, dPSnare, $04, $04
 	smpsReturn
 
 Scrappy_DAC_08_0_64:
-	dc.b dPKick, $10, dSnare, dPKick, dSnare
+	dc.b dPKick, $10, dPSnare, dPKick, dPSnare
 	smpsReturn
 
 Scrappy_DAC_09_0_64:
-	dc.b dPKick, $10, dSnare, $01, dHiTimpani, $07, nDs0, $08, dPKick, $01, dHiTimpani, $07, nDs0, $08, dSnare, $01
+	dc.b dPKick, $10, dPSnare, $01, dHiTimpani, $07, nDs0, $08, dPKick, $01, dHiTimpani, $07, nDs0, $08, dPSnare, $01
 	dc.b dHiTimpani, $07, nDs0, $08
 	smpsReturn
 
 Scrappy_DAC_0D_0_64:
-	dc.b dPKick, $10, dSnare, dPKick, dSnare, $08, dHiTimpani, $04, nDs0
+	dc.b dPKick, $10, dPSnare, dPKick, dPSnare, $08, dHiTimpani, $04, nDs0
 	smpsReturn
 
 Scrappy_DAC_0F_0_64:
-	dc.b dSnare, $04, $04, dPKick, $08, $08, dSnare, $04, $04, dPKick, $08, $08, dSnare, $04, $04, $04
+	dc.b dPSnare, $04, $04, dPKick, $08, $08, dPSnare, $04, $04, dPKick, $08, $08, dPSnare, $04, $04, $04
 	dc.b $04
 	smpsReturn
 
 Scrappy_DAC_10_0_64:
-	dc.b dPKick, $10, dSnare, dPKick, $08, dHiTimpani, $04, $04, dSnare, $01, nDs0, $0F
+	dc.b dPKick, $10, dPSnare, dPKick, $08, dHiTimpani, $04, $04, dPSnare, $01, nDs0, $0F
 	smpsReturn
 
 Scrappy_DAC_12_0_64:
-	dc.b dPKick, $10, dSnare, dPKick, $04, dHiTimpani, nDs0, $08, dHiTimpani, nDs0
+	dc.b dPKick, $10, dPSnare, dPKick, $04, dHiTimpani, nDs0, $08, dHiTimpani, nDs0
 	smpsReturn
 
 Scrappy_DAC_13_0_64:
-	dc.b dPKick, $10, dSnare, dPKick, $04, dHiTimpani, nDs0, $08, dSnare, dSnare, $04, $04
+	dc.b dPKick, $10, dPSnare, dPKick, $04, dHiTimpani, nDs0, $08, dPSnare, dPSnare, $04, $04
 	smpsReturn
 
 Scrappy_PSG1:

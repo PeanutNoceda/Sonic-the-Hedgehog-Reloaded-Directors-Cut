@@ -27,7 +27,7 @@ BGHZ_ShipMove:
 		bpl.s	BGHZ_Reverse
 		addq.b	#2,ob2ndRout(a0)
 		move.w	#$40-1,objoff_3C(a0)
-		move.w	#$100,obVelX(a0) ; move the ship sideways
+		move.w	#$200,obVelX(a0) ; move the ship sideways
 		cmpi.w	#boss_ghz_x+$A0,objoff_30(a0)
 		bne.s	BGHZ_Reverse
 		move.w	#($40*2)-1,objoff_3C(a0)
@@ -127,7 +127,7 @@ loc_179EE:
 ; ===========================================================================
 
 loc_179F6:
-		move.w	#$400,obVelX(a0)
+		move.w	#$500,obVelX(a0)
 		move.w	#-$40,obVelY(a0)
 		cmpi.w	#boss_ghz_end,(v_limitright2).w
 		beq.s	loc_17A10

@@ -415,24 +415,24 @@ Mus_MZ3_DAC:
 	dc.b	nRst, $3C, $38, dTightSnare, $02, $02, $02, $01, $01
 
 Mus_MZ3_Jump00:
-	dc.b	dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08, $08, $06, $01
-	dc.b	$01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08
-	dc.b	$08, $06, $01, $01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08
+	dc.b	dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08, $08, $06, $01
+	dc.b	$01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08
+	dc.b	$08, $06, $01, $01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08
 	dc.b	$02, $06, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08
-	dc.b	$06, $02, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06
+	dc.b	$06, $02, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06
 	dc.b	$08, $08, $08, $08, $08, $08, $08, $02, $06, $08, $08, $06
-	dc.b	$01, $01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06
-	dc.b	$08, $08, $06, $01, $01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08
-	dc.b	$08, $02, $06, $08, $08, $06, $01, $01, $02, $02, dCrashCymbal, $04
+	dc.b	$01, $01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06
+	dc.b	$08, $08, $06, $01, $01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08
+	dc.b	$08, $02, $06, $08, $08, $06, $01, $01, $02, $02, dKCCrashCymbal, $04
 	dc.b	dTightSnare, $08, $08, $08, $02, $06, $08, $08, $08, $08, $08, $08
-	dc.b	$08, $08, $08, $08, $06, $02, $02, $02, dCrashCymbal, $04, dTightSnare, $08
+	dc.b	$08, $08, $08, $08, $06, $02, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08
 	dc.b	$08, $08, $02, $06, $08, $08, $08, $08, $08, $08, $08, $02
-	dc.b	$06, $08, $08, $02, dMidTimpani, $01, $01, dCrashCymbal, $04, dMidTimpani, $02, $02
-	dc.b	dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08, $08, $06, $01
-	dc.b	$01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08
-	dc.b	$08, $06, $01, $01, $02, $02, dCrashCymbal, $04, dTightSnare, $08, $08, $08
+	dc.b	$06, $08, $08, $02, dMidTimpani, $01, $01, dKCCrashCymbal, $04, dMidTimpani, $02, $02
+	dc.b	dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08, $08, $06, $01
+	dc.b	$01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08, $02, $06, $08
+	dc.b	$08, $06, $01, $01, $02, $02, dKCCrashCymbal, $04, dTightSnare, $08, $08, $08
 	dc.b	$08, $08, $08, $08, $08, $08, $08, $08, $08, $06, $01, $01
-	dc.b	$02, dMidTimpani, $02, dTightSnare, dMidTimpani, $01, $01, dTightSnare, $02, dCrashCymbal, $08, dTightSnare
+	dc.b	$02, dMidTimpani, $02, dTightSnare, dMidTimpani, $01, $01, dTightSnare, $02, dKCCrashCymbal, $08, dTightSnare
 	dc.b	$01, $01
 	smpsJump            Mus_MZ3_Jump00
 
@@ -474,7 +474,7 @@ Mus_MZ3_Voices:
 	smpsVcTotalLevel    $00, $13, $37, $19
 
 ;	Voice $02
-;	$3A
+;	$3A ; Having errors, doesn't sound
 ;	$7B, $5B, $40, $40, 	$9F, $1F, $1F, $1F, 	$0F, $0B, $05, $0C
 ;	$0F, $19, $0C, $13, 	$F9, $F5, $F9, $06, 	$21, $01, $01, $7F
 	smpsVcAlgorithm     $02
@@ -492,22 +492,22 @@ Mus_MZ3_Voices:
 	smpsVcTotalLevel    $7F, $01, $01, $21
 
 ;	Voice $03
-;	$35
-;	$61, $61, $41, $71, 	$10, $11, $50, $D1, 	$06, $01, $01, $01
-;	$08, $00, $09, $00, 	$89, $F8, $F9, $F8, 	$18, $7F, $7F, $7F
+;	$3D
+;	$01, $00, $01, $02, 	$12, $1F, $1F, $14, 	$07, $02, $02, $0A
+;	$05, $05, $05, $05, 	$2F, $2F, $2F, $AF, 	$1C, $80, $82, $80
 	smpsVcAlgorithm     $05
-	smpsVcFeedback      $06
+	smpsVcFeedback      $07
 	smpsVcUnusedBits    $00
-	smpsVcDetune        $07, $04, $06, $06
-	smpsVcCoarseFreq    $01, $01, $01, $01
-	smpsVcRateScale     $03, $01, $00, $00
-	smpsVcAttackRate    $11, $10, $11, $10
+	smpsVcDetune        $00, $00, $00, $00
+	smpsVcCoarseFreq    $02, $01, $00, $01
+	smpsVcRateScale     $00, $00, $00, $00
+	smpsVcAttackRate    $14, $1F, $1F, $12
 	smpsVcAmpMod        $00, $00, $00, $00
-	smpsVcDecayRate1    $01, $01, $01, $06
-	smpsVcDecayRate2    $00, $09, $00, $08
-	smpsVcDecayLevel    $0F, $0F, $0F, $08
-	smpsVcReleaseRate   $08, $09, $08, $09
-	smpsVcTotalLevel    $7F, $7F, $7F, $18
+	smpsVcDecayRate1    $0A, $02, $02, $07
+	smpsVcDecayRate2    $05, $05, $05, $05
+	smpsVcDecayLevel    $0A, $02, $02, $02
+	smpsVcReleaseRate   $0F, $0F, $0F, $0F
+	smpsVcTotalLevel    $00, $02, $00, $1C
 
 ;	Voice $04
 ;	$3D
@@ -544,4 +544,3 @@ Mus_MZ3_Voices:
 	smpsVcDecayLevel    $00, $01, $00, $01
 	smpsVcReleaseRate   $0F, $0F, $0F, $0F
 	smpsVcTotalLevel    $00, $0C, $00, $1E
-

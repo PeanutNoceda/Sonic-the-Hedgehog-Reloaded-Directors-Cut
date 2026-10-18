@@ -54,10 +54,14 @@ Sonic_UpdateSpindash:
 		move.b	spindashcharge(a0),d0	; copy charge count
 		add.w	d0,d0	; double it
 		move.w	SpindashSpeeds(pc,d0.w),obInertia(a0)	; get spindash speed
+		cmpi.b	#1,(f_supersonic).w
+		bne.s	.notSuper
+		move.w	SuperDash_Speeds(pc,d0.w),obInertia(a0)
 
 		; Determine how long to lag the camera for.
 		; Notably, the faster Sonic goes, the less the camera lags.
 		; This is seemingly to prevent Sonic from going off-screen.
+	.notSuper:
 		move.w	obInertia(a0),d0	; get inertia
 		subi.w	#$800,d0 ; $800 is the lowest spin dash speed
 		add.w	d0,d0	; double it
@@ -79,15 +83,26 @@ Sonic_UpdateSpindash:
 		bra.s	Sonic_Spindash_ResetScr
 ; ===========================================================================
 SpindashSpeeds:
-		dc.w  $800	; 0
-		dc.w  $880	; 1
-		dc.w  $900	; 2
-		dc.w  $980	; 3
-		dc.w  $A00	; 4
-		dc.w  $A80	; 5
-		dc.w  $B00	; 6
-		dc.w  $B80	; 7
-		dc.w  $C00	; 8
+		dc.w  $800		; 0
+		dc.w  $880		; 1
+		dc.w  $900		; 2
+		dc.w  $980		; 3
+		dc.w  $A00		; 4
+		dc.w  $A80		; 5
+		dc.w  $B00		; 6
+		dc.w  $B80		; 7
+		dc.w  $C00		; 8
+		
+SuperDash_Speeds:
+		dc.w  $B00		; 0
+		dc.w  $B80		; 1
+		dc.w  $C00		; 2
+		dc.w  $C80		; 3
+		dc.w  $D00		; 4
+		dc.w  $D80		; 5
+		dc.w  $E00		; 6
+		dc.w  $E80		; 7
+		dc.w  $F00		; 8
 ; ===========================================================================
 
 Sonic_ChargingSpindash:			; If still charging the dash...

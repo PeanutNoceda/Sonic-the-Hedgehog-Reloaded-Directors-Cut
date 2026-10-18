@@ -49,6 +49,8 @@ Pow_ChkEggman:
 		bne.s	Pow_ChkSonic
 		move.w	obX(a0),spik_origX(a0)	; needed to display the icon properly
 		jmp	(Spik_Hurt).l		; use spikes to hurt Sonic
+		move.w	#sfx_SpikesMove,d0
+		jmp	(PlaySound).l	; play Spike Sound
 ; ===========================================================================
 
 Pow_ChkSonic:
@@ -94,14 +96,9 @@ Pow_ChkInvinc:
 		bne.s	Pow_ChkRings
 
 		move.b	#1,(v_invinc).w	; make Sonic invincible
+		move.b	#id_AfterImages,(v_trails).w ; load AfterImages object ($19)
 		move.w	#$4B0,(v_player+$32).w ; time limit for the power-up
-		move.b	#id_InvStarsItem,(v_starsobj1).w ; load stars object ($3801)
-		move.b	#1,(v_starsobj1+obAnim).w
-		move.b	#id_InvStarsItem,(v_starsobj2).w ; load stars object ($3802)
-		move.b	#2,(v_starsobj2+obAnim).w
-		move.b	#id_InvStarsItem,(v_starsobj3).w ; load stars object ($3803)
-		move.b	#3,(v_starsobj3+obAnim).w
-		move.b	#id_InvStarsItem,(v_starsobj4).w ; load stars object ($3804)
+		move.b	#id_InvStarsItem,(v_starsobj1).w	; load stars object
 		move.b	#4,(v_starsobj4+obAnim).w
 		tst.b	(f_lockscreen).w ; is boss mode on?
 		bne.s	Pow_NoMusic	; if yes, branch

@@ -18,8 +18,8 @@ Snd_Placeholder_Header:
 Snd_Placeholder_DAC:
 	smpsPan             panCenter, $00
 	dc.b	dKickS3, $03, dKickS3, $02, dHighTom, $01, dMidTomS3, $03, dSnareS3, $06, dSnareS3, $03
-	dc.b	dSnareS3, $1E, dRideCymbal, $06, dRideCymbal, $03, dRideCymbal, $03, dCrashCymbal, $0C, dRideCymbal, $06
-	dc.b	dRideCymbal, $03, dRideCymbal, $03, dCrashCymbal, $0C, dKickS3, $03, dKickS3, $02, dKickS3, $01
+	dc.b	dSnareS3, $1E, dRideCymbal, $06, dRideCymbal, $03, dRideCymbal, $03, dKCCrashCymbal, $0C, dRideCymbal, $06
+	dc.b	dRideCymbal, $03, dRideCymbal, $03, dKCCrashCymbal, $0C, dKickS3, $03, dKickS3, $02, dKickS3, $01
 	dc.b	dMidTomS3, $03, dSnareS3, $06, dSnareS3, $03, dSnareS3, $1E, dKickS3, $09, dKickS3, $57
 	smpsPan             panCenter, $00
 	smpsStop

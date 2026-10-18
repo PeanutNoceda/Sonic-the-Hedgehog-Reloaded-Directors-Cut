@@ -120,8 +120,9 @@ v_jpadhold1:		ds.b	1		; joypad input - held
 v_jpadpress1:		ds.b	1		; joypad input - pressed
 			ds.b	6		; unused
 v_vdp_buffer1:		ds.w	1		; VDP instruction buffer
-			ds.b	6		; unused
-v_demolength:		ds.w	1		; the length of a demo in frames
+v_falling:			ds.b	1		; used in LZ and SBZ3
+			ds.b	5		; unused
+v_generictimer:		ds.w	1		; the length of a demo in frames
 v_scrposy_vdp:		ds.w	1		; screen position y (VDP)
 v_bgscrposy_vdp:	ds.w	1		; background screen position y (VDP)
 v_scrposx_vdp:		ds.w	1		; screen position x (VDP)
@@ -169,7 +170,8 @@ v_plc_dataword:		ds.l	1
 v_plc_shiftvalue:	ds.l	1
 v_plc_patternsleft:	ds.w	1
 v_plc_framepatternsleft:ds.w	1
-			ds.b	4		; unused
+v_transition:	ds.b	1
+			ds.b	3		; unused
 v_plc_buffer_end:
 
 v_levelvariables:				; variables that are reset between levels
@@ -219,7 +221,9 @@ v_bg1_scroll_flags:	ds.w	1		; screen redraw flags for background 1
 v_bg2_scroll_flags:	ds.w	1		; screen redraw flags for background 2
 v_bg3_scroll_flags:	ds.w	1		; screen redraw flags for background 3
 f_bgscrollvert:		ds.b	1		; flag for vertical background scrolling
-			ds.b	3		; unused
+v_supersonic_palstate:	ds.b 1	; Super Sonic palette state (0 = off; 1 = fading in; -1 = Super; 2 = fading out)
+v_supersonic_paltimer:	ds.b 1	; Super Sonic palette frame timer
+v_supersonic_palframe:	ds.b 1	; Super Sonic palette cycle frame index
 v_sonspeedmax:		ds.w	1		; Sonic's maximum speed
 v_sonspeedacc:		ds.w	1		; Sonic's acceleration
 v_sonspeeddec:		ds.w	1		; Sonic's deceleration
@@ -346,7 +350,6 @@ v_timesec = v_time+2				; time - seconds
 v_timecent = v_time+3				; time - centiseconds
 v_score:		ds.l	1		; score
 			ds.b	2		; unused
-
 v_shield:		ds.b	1		; shield status (00 = no; 01 = yes)
 v_invinc:		ds.b	1		; invinciblity status (00 = no; 01 = yes)
 v_shoes:		ds.b	1		; speed shoes status (00 = no; 01 = yes)
@@ -372,9 +375,9 @@ v_lamp_wtrpos:		ds.w	1		; water position at lamppost
 v_lamp_wtrrout:		ds.b	1		; water routine at lamppost
 v_lamp_wtrstat:		ds.b	1		; water state at lamppost
 v_lamp_lives:		ds.b	1		; lives counter at lamppost
-			ds.b	2		; unused
 v_emeralds:		ds.b	1		; number of chaos emeralds
-v_emldlist:		ds.b	6		; which individual emeralds you have (00 = no; 01 = yes)
+v_emldlist:		ds.b	7		; special stage where each emerald was obtained (updated for 7 emeralds)
+			ds.b	1		; unused
 v_oscillate:		ds.w	1		; oscillation bitfield
 v_timingandscreenvariables:
 v_timingvariables:
@@ -477,6 +480,11 @@ VDP_Command_Buffer_Slot:    equ    VDP_Command_Buffer+7*$12*2
 	
 ; Other Variables Used In S1Fixed
 v_centstep:			equ			$FFFFFEBF		; value used to increment centiseconds
+f_supersonic:   equ $FFFFF5C0
+pal_supersonic: equ $FFFFF5C1
+v_palette_frame:    equ $FFFFF5C2
+v_palettetimer: equ $FFFFF5C4
+ss_framecount:  equ $FFFFF5C6
 Saved_music     = 	$FFFFF613   ; Variable for the new music system
 v_levselmenu	=	ramaddr ( $FFFFFF86 )	; level select - submenu (2 bytes)
 v_levselmax		=	ramaddr ( $FFFFFF88 )	; level select - max selection (2 bytes)
@@ -484,5 +492,11 @@ v_levselss		=	ramaddr ( $FFFFFF8A )	; level select - SS index (2 bytes)
 f_skiplvlfade	=	ramaddr ( $FFFFFF8D )	; skip level fade
 v_camera_pan:    equ $FFFFF7A0    ; Extended Camera - how far the camera/view is panned to the left or right of Sonic (2 bytes)
 f_specials      =	$FFFFF601
+v_screenposx_final:	equ $FFFFFF61	; final camera x-pos (with shaking, if applicable) 
+v_screenposy_final:	equ $FFFFFF64	; final camera y-pos (with shaking, if applicable) WARNING! Don't move, it should be 4 bytes away from `v_screenposx_final`
+v_character     =   $FFFFF5C8
+f_victorypose   = 	$FFFFF622 	; flag for the victory pose for the characters
+v_ssangleprev	= 	$FFFFF664    	; For the dynamic SS Walls
+Title_screen_option =   $FFFFF5C6
     dephase
 	!org 0

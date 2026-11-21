@@ -1,3 +1,8 @@
+Sonic the Hedgehog Reloaded Disassembly/Source Code.
+Sonic 1 Hack made by PeanutNoceda.
+==========================•
+original disasm readme:
+
 You can use this source code for your projects. No problem. :)
 
 Port by TheBlad768
